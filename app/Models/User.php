@@ -27,7 +27,8 @@ class User extends Authenticatable
         'direccion',
         'email',
         'password',
-        'active'
+        'active',
+        'video_confirm'
     ];
 
     /**

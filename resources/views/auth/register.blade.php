@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Cedula <span>(*)</span></label>
-                            <input type="text" class="form-control" id="rut" name="rut" value="{{ old('rut') }}" placeholder="ej: 11.111.111-1" maxlength="12" required="">
+                            <input type="text" class="form-control" id="cedula" name="cedula" value="{{ old('cedula') }}" placeholder="ej: 11.111.111-1" maxlength="12" required="">
                         </div>
                     </div>
                     <div class="col-lg-6">

@@ -74,9 +74,67 @@ class RegisterController extends Controller
 
     public function registar(Request $request)
     {
-        //validacion
-        //$val_cedula = Clients::where('rut', Helper::postValue('rut'))->get()->count();
 
-        echo json_encode(array('error' => '', 'mensaje' => 'hola'));
+        $error = false;
+        $mensaje = '';
+
+        //validacion
+        $val_numero_documento = User::where('numero_documento', $request->cedula)->get()->count();
+        if ($val_numero_documento > 0) {
+            $error = true;
+            $mensaje = 'Error! Ya se encuentra registrado un paciente con este numero de documento "'.$request->cedula.'". Intente con otro.';
+        } else {
+
+            $email_1 = $request->email;
+            $email_2 = $request->confirmar_email;
+            if ($email_1 != $email_2) {
+                $error = true;
+                $mensaje = 'Error! Los Correos registrados no son iguales.';
+            } else {
+
+                $pass_1 = $request->password;
+                $pass_2 = $request->confirmar_password;
+                if ($pass_1 != $pass_2) {
+                    $error = true;
+                    $mensaje = 'Error! Los Contraseñas registradas no son iguales.';
+                } else {
+
+                    $val_email = User::where('email', $request->email)->get()->count();
+                    if ($val_email > 0) {
+                        $error = true;
+                        $mensaje = 'Error! Ya se encuentra registrado un paciente con este correo electronico "'.$$request->email.'". Intente con otro.';
+                    } else {
+
+                        $data = array(
+                            'tipo_documento' => $request->tipo_documento,
+                            'numero_documento' => $request->cedula,
+                            'nombres' => $request->nombres,
+                            'fecha_nacimiento' => $request->fecha_nacimiento,
+                            'genero' => $request->genero,
+                            'telefono' => $request->telefono,
+                            'direccion' => $request->direccion,
+                            'email' => $request->email,
+                            'password' => bcrypt($request->password),
+                            'active' => 0,
+                            'video_confirm' => 0,
+                        );
+
+                        if($result = User::create($data)->assignRole('Paciente')){
+                            $error = false;
+                            $mensaje = 'Registro Exitoso!';
+                        } else {
+                            $error = true;
+                            $mensaje = 'Error! Se presento un problema al registrar, intenta de nuevo.';
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        echo json_encode(array('error' => $error, 'mensaje' => $mensaje));
     }
 }
