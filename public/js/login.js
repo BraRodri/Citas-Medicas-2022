@@ -26,14 +26,14 @@ $('#formulario_registro').on('submit', function(e) {
             contentType: false,
             dataType:'json',
             beforeSend:function(){
-                swal("Registrado, espere porfavor...", {
+                swal("Validando datos, espere porfavor...", {
                     button: false,
                     timer: 3000
                 });
             }
         }).done(function(respuesta){
             console.log(respuesta);
-            if (respuesta.error) {
+            if (!respuesta.error) {
 
                 setTimeout(function(){
                     swal("Registro Exitoso, ya puedes iniciar Sesión", {
@@ -49,7 +49,7 @@ $('#formulario_registro').on('submit', function(e) {
                     swal(respuesta.mensaje, {
                         icon: "error",
                         button: false,
-                        timer: 2000
+                        timer: 3000
                     });
                 },2000);
             }
