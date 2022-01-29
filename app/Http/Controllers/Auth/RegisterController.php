@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -77,6 +78,7 @@ class RegisterController extends Controller
 
         $error = false;
         $mensaje = '';
+        $id = '';
 
         //validacion
         $val_numero_documento = User::where('numero_documento', $request->cedula)->get()->count();
@@ -120,6 +122,7 @@ class RegisterController extends Controller
                         );
 
                         if($result = User::create($data)->assignRole('Paciente')){
+                            $id = $result->id;
                             $error = false;
                             $mensaje = 'Registro Exitoso!';
                         } else {
@@ -135,6 +138,34 @@ class RegisterController extends Controller
 
         }
 
-        echo json_encode(array('error' => $error, 'mensaje' => $mensaje));
+        echo json_encode(array('error' => $error, 'mensaje' => $mensaje, 'id' => $id));
     }
+
+    public function registarFirma(Request $request)
+    {
+        //dd($request);
+        $id = $request->id;
+
+        //firma
+        //agrego la nueva imagen
+        $image=$request->file('file')->store('public/firmas');
+        $url = Storage::url($image);
+
+        $data = array(
+            'active' => 1,
+            'video_confirm' => 1,
+            'firma' => $url
+        );
+
+        if(User::findOrFail($id)->update($data)){
+            session()->flash('error', 'success_registro');
+            return redirect()->route('login');
+        } else {
+            session()->flash('error', 'failed');
+            return redirect()->route('register');
+        }
+    }
+
 }
+
+

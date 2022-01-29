@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="col-6 text-left">
-                        <a href="{{ route('login') }}" class="btn btn-dark mt-4">Iniciar Sesión</a>
+                        <a href="{{ route('login') }}" id="boton" class="btn btn-dark mt-4">Iniciar Sesión</a>
                     </div>
                     <div class="col-6 text-right">
                         <button type="submit" class="btn btn-primary mt-4">Registrarme</button>
@@ -115,5 +115,12 @@
             </form>
         </div>
     </div>
+
+    <!-- modal video -->
+    <x-modal-video></x-modal-video>
+
+    <x-slot name="js">
+        <script src="{{ asset('js/registro.js') }}" defer></script>
+    </x-slot>
 
 </x-login>

@@ -1,18 +1,17 @@
 
-
-//proceso de consulta
-$('#formulario_registro').on('submit', function(e) {
+//proceso de registro
+$('#formulario_login').on('submit', function(e) {
     event.preventDefault();
-    if ($('#formulario_registro')[0].checkValidity() === false) {
+    if ($('#formulario_login')[0].checkValidity() === false) {
         event.stopPropagation();
     } else {
 
         // agregar data
-        var $thisForm = $('#formulario_registro');
+        var $thisForm = $('#formulario_login');
         var formData = new FormData(this);
 
         //ruta
-        var url = "/validar-registro";
+        var url = "/validar-login";
 
         $.ajax({
             headers: {
@@ -32,24 +31,22 @@ $('#formulario_registro').on('submit', function(e) {
                 });
             }
         }).done(function(respuesta){
-            console.log(respuesta);
+            //console.log(respuesta);
             if (!respuesta.error) {
 
-                setTimeout(function(){
-                    swal("Registro Exitoso, ya puedes iniciar Sesión", {
-                        icon: "success",
-                        button: true,
-                        timer: 4000
-                    });
-
-                },2000);
+                swal('Inicio de Sesión Exitoso, redireccionando...', {
+                    icon: "success",
+                    button: false,
+                    timer: 5000
+                });
+                location.reload();
 
             } else {
                 setTimeout(function(){
                     swal(respuesta.mensaje, {
                         icon: "error",
                         button: false,
-                        timer: 3000
+                        timer: 4000
                     });
                 },2000);
             }
@@ -58,6 +55,6 @@ $('#formulario_registro').on('submit', function(e) {
         });
 
     }
-    $('#formulario_registro').addClass('was-validated');
+    $('#formulario_login').addClass('was-validated');
 
 });

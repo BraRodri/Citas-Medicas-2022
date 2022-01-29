@@ -29,7 +29,8 @@ class User extends Authenticatable
         'email',
         'password',
         'active',
-        'video_confirm'
+        'video_confirm',
+        'firma'
     ];
 
     /**
