@@ -9,6 +9,11 @@ class PanelController extends Controller
     //
     public function index()
     {
-        return "Hola usuario";
+        return view('pages.panel.panel');
+    }
+
+    public function faq()
+    {
+        return view('pages.panel.faq');
     }
 }

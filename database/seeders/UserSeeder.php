@@ -15,17 +15,19 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'tipo_documento' => 'Cedula de Ciudadanía',
+            'tipo_documento' => 'Cédula de Ciudadanía',
             'numero_documento' => '100498577',
             'nombres' => 'Administrador',
             'fecha_nacimiento' => '1994-07-14',
-            'genero' => 'Másculino',
+            'genero' => 'Masculino',
             'telefono' => '3144520454',
             'direccion' => 'Medellín, Antioquia',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
             'active' => 1,
-            'video_confirm' => 1
+            'video_confirm' => 1,
+            'confirm_edad' => 1,
+            'avatar' => ''
         ])->assignRole('Admin');
     }
 }

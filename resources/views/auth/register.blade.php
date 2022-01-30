@@ -103,6 +103,15 @@
                             <label for="">Dirección <span>(*)</span></label>
                             <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}" required="" >
                         </div>
+                        <div class="form-group">
+                            <label for="">Confirmar mayoria de edad: <span>(*)</span></label>
+                            <fieldset>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="confim_edad" value="1" required="">
+                                    <label class="form-check-label" for="confim_edad">Mayor de 18 años.</label>
+                                </div>
+                            </fieldset>
+                        </div>
                     </div>
 
                     <div class="col-6 text-left">

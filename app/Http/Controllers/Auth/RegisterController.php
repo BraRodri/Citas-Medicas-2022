@@ -119,6 +119,8 @@ class RegisterController extends Controller
                             'password' => bcrypt($request->password),
                             'active' => 0,
                             'video_confirm' => 0,
+                            'confirm_edad' => $request->confim_edad,
+                            'avatar' => ''
                         );
 
                         if($result = User::create($data)->assignRole('Paciente')){

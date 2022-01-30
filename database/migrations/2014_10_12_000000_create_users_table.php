@@ -22,11 +22,13 @@ class CreateUsersTable extends Migration
             $table->string('genero');
             $table->string('telefono');
             $table->text('direccion');
+            $table->text('avatar')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('active')->default(0);
             $table->integer('video_confirm')->default(0);
+            $table->integer('confirm_edad')->default(0);
             $table->text('firma')->nullable();
             $table->rememberToken();
             $table->timestamps();

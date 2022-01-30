@@ -26,11 +26,13 @@ class User extends Authenticatable
         'genero',
         'telefono',
         'direccion',
+        'avatar',
         'email',
         'password',
         'active',
         'video_confirm',
-        'firma'
+        'firma',
+        'confirm_edad'
     ];
 
     /**

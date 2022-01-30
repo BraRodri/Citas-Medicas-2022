@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PanelController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +31,25 @@ Route::post('/validar-registro/subir-firma', [RegisterController::class, 'regist
 //login
 Route::post('/validar-login', [LoginController::class, 'login'])->name('validar_login');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
 
-    Route::get('/panel', [PanelController::class, 'index'])->name('panel');
+    //panel
+    Route::controller(PanelController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('panel');
+        Route::get('/faq', 'faq')->name('faq');
+    });
+
+    //perfil
+    Route::controller(UserController::class)
+    ->group(function () {
+        Route::get('/mi-perfil', 'perfil')->name('mi-perfil');
+    });
+
+    //contacto
+    Route::controller(ContactoController::class)
+    ->group(function () {
+        Route::get('/contacto', 'index')->name('contacto');
+    });
 
 });
