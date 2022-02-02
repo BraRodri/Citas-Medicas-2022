@@ -11,6 +11,8 @@
         <x-css-admin></x-css-admin>
     </head>
     <body>
+        @routes
+
         <!-- ======= Header ======= -->
         <x-header-admin></x-header-admin>
         <!-- End Header -->

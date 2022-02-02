@@ -44,6 +44,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     Route::controller(UserController::class)
     ->group(function () {
         Route::get('/mi-perfil', 'perfil')->name('mi-perfil');
+        Route::post('/mi-perfil/actualizar-datos', 'actualizarPerfil')->name('actualizarPerfil');
+        Route::post('/mi-perfil/actualizar-password', 'actualizarPassword')->name('actualizarPassword');
+        Route::post('/mi-perfil/actualizar-firma', 'actualizarFirma')->name('actualizarFirma');
     });
 
     //contacto

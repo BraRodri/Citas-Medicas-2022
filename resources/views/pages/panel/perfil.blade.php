@@ -90,9 +90,8 @@
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
                             <!-- Profile Edit Form -->
-                            <form id="" method="POST" enctype="multipart/form-data" novalidate>
+                            <form id="formulario_actualizacion_perfil" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Imagen de perfil</label>
@@ -109,126 +108,129 @@
                                     </div>
                                 </div>
 
-                            <div class="row mb-3">
-                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nombres Completos</label>
-                                <div class="col-md-8 col-lg-9">
-                                <input name="nombres" type="text" class="form-control" id="nombres" value="{{ Auth::user()->nombres }}" required>
+                                <div class="row mb-3">
+                                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nombres Completos</label>
+                                    <div class="col-md-8 col-lg-9">
+                                    <input name="nombres" type="text" class="form-control" id="nombres" value="{{ Auth::user()->nombres }}" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="about" class="col-md-4 col-lg-3 col-form-label">Tipo Documento</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <select class="form-select" name="tipo_documento" required>
-                                        <option value="">- Seleccionar -</option>
-                                        <option value="Cédula de Ciudadanía" @if(Auth::user()->tipo_documento == 'Cédula de Ciudadanía') selected @endif>Cédula de Ciudadanía</option>
-                                        <option value="Cédula de Extranjería" @if(Auth::user()->tipo_documento == 'Cédula de Extranjería') selected @endif>Cédula de Extranjería</option>
-                                        <option value="Pasaporte" @if(Auth::user()->tipo_documento == 'Pasaporte') selected @endif>Pasaporte</option>
-                                        <option value="Documento País Origen" @if(Auth::user()->tipo_documento == 'Documento País Origen') selected @endif>Documento País Origen</option>
-                                    </select>
+                                <div class="row mb-3">
+                                    <label for="about" class="col-md-4 col-lg-3 col-form-label">Tipo Documento</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <select class="form-select" name="tipo_documento" required>
+                                            <option value="">- Seleccionar -</option>
+                                            <option value="Cédula de Ciudadanía" @if(Auth::user()->tipo_documento == 'Cédula de Ciudadanía') selected @endif>Cédula de Ciudadanía</option>
+                                            <option value="Cédula de Extranjería" @if(Auth::user()->tipo_documento == 'Cédula de Extranjería') selected @endif>Cédula de Extranjería</option>
+                                            <option value="Pasaporte" @if(Auth::user()->tipo_documento == 'Pasaporte') selected @endif>Pasaporte</option>
+                                            <option value="Documento País Origen" @if(Auth::user()->tipo_documento == 'Documento País Origen') selected @endif>Documento País Origen</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="company" class="col-md-4 col-lg-3 col-form-label">Numero Documento</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <input name="cedula" type="text" class="form-control" id="cedula" value="{{ Auth::user()->numero_documento }}" required>
+                                <div class="row mb-3">
+                                    <label for="company" class="col-md-4 col-lg-3 col-form-label">Numero Documento</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="numero_documento" type="text" class="form-control" id="numero_documento" value="{{ Auth::user()->numero_documento }}" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="Job" class="col-md-4 col-lg-3 col-form-label">Fecha Nacimiento</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="{{ Auth::user()->fecha_nacimiento }}" required>
+                                <div class="row mb-3">
+                                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Fecha Nacimiento</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="{{ Auth::user()->fecha_nacimiento }}" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="Country" class="col-md-4 col-lg-3 col-form-label">Genero</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <select class="form-select" name="genero" required>
-                                        <option value="">- Seleccionar -</option>
-                                        <option value="Masculino" @if(Auth::user()->genero == 'Masculino') selected @endif>Masculino</option>
-                                        <option value="Femenino" @if(Auth::user()->genero == 'Femenino') selected @endif>Femenino</option>
-                                        <option value="Otro" @if(Auth::user()->genero == 'Otro') selected @endif>Otro</option>
-                                    </select>
+                                <div class="row mb-3">
+                                    <label for="Country" class="col-md-4 col-lg-3 col-form-label">Genero</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <select class="form-select" name="genero" required>
+                                            <option value="">- Seleccionar -</option>
+                                            <option value="Masculino" @if(Auth::user()->genero == 'Masculino') selected @endif>Masculino</option>
+                                            <option value="Femenino" @if(Auth::user()->genero == 'Femenino') selected @endif>Femenino</option>
+                                            <option value="Otro" @if(Auth::user()->genero == 'Otro') selected @endif>Otro</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Telefono</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <input name="telefono" type="text" class="form-control" id="telefono" value="{{ Auth::user()->telefono }}" required>
+                                <div class="row mb-3">
+                                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Telefono</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="telefono" type="text" class="form-control" id="telefono" value="{{ Auth::user()->telefono }}" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="Address" class="col-md-4 col-lg-3 col-form-label">Dirección</label>
-                                <div class="col-md-8 col-lg-9">
-                                <input name="direccion" type="text" class="form-control" id="direccion" value="{{ Auth::user()->direccion }}" required>
+                                <div class="row mb-3">
+                                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Dirección</label>
+                                    <div class="col-md-8 col-lg-9">
+                                    <input name="direccion" type="text" class="form-control" id="direccion" value="{{ Auth::user()->direccion }}" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                                <div class="col-md-8 col-lg-9">
-                                <input name="email" type="email" class="form-control" id="Email" value="{{ Auth::user()->email }}" required>
+                                <div class="row mb-3">
+                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                    <div class="col-md-8 col-lg-9">
+                                    <input name="email" type="email" class="form-control" id="Email" value="{{ Auth::user()->email }}" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                            </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </div>
+                                <input name="id_usuario" value="{{ Auth::user()->id }}" hidden>
                             </form><!-- End Profile Edit Form -->
-
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-change-password">
                             <!-- Change Password Form -->
-                            <form>
+                            <form id="formulario_actualizacion_perfil_password" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
+                                @csrf
 
-                            <div class="row mb-3">
-                                <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Contraseña actual</label>
-                                <div class="col-md-8 col-lg-9">
-                                <input name="password" type="password" class="form-control" id="currentPassword">
+                                <div class="row mb-3">
+                                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Contraseña actual</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="password" type="password" class="form-control" id="currentPassword" minlength="6" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Nueva Contraseña</label>
-                                <div class="col-md-8 col-lg-9">
-                                <input name="newpassword" type="password" class="form-control" id="newPassword">
+                                <div class="row mb-3">
+                                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Nueva Contraseña</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="newpassword" type="password" class="form-control" id="newPassword" minlength="6" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Repetir Nueva Contraseña</label>
-                                <div class="col-md-8 col-lg-9">
-                                <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                                <div class="row mb-3">
+                                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Repetir Nueva Contraseña</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="renewpassword" type="password" class="form-control" id="renewPassword" minlength="6" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Actualizar Contraseña</button>
-                            </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Actualizar Contraseña</button>
+                                </div>
+                                <input name="id_usuario" value="{{ Auth::user()->id }}" hidden>
                             </form><!-- End Change Password Form -->
-
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-change-firma">
                             <!-- Change Password Form -->
-                            <form>
+                            <form id="formulario_actualizacion_perfil_firma" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
+                                @csrf
 
                                 <div class="row mb-3">
                                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Imagen Firma</label>
                                     <div class="col-md-8 col-lg-9">
                                         @if(Auth::user()->firma == null)
-                                            <img src="{{ asset('images/sin_firma.jpg') }}" alt="Profile">
+                                            <img src="{{ asset('images/sin_firma.jpg') }}" alt="Profile" style="max-width: 300px; max-height: 200px;">
                                             @else
-                                            <img src="{{ asset(Auth::user()->firma) }}" alt="Profile">
+                                            <img src="{{ asset(Auth::user()->firma) }}" alt="Profile" style="max-width: 300px; max-height: 200px;">
                                         @endif
-                                        <div class="pt-2">
-                                            <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                                        <div class="pt-2 element_subir_img">
+                                            <i class="bi bi-upload" id="btn_cambiar_firma"></i><span class="name" id="texto_firma">Nada seleccionado</span> <br>
+                                            <input type="file" name="file_firma" id="file_firma" hidden required>
                                         </div>
                                     </div>
                                 </div>
@@ -236,6 +238,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Actualizar Firma</button>
                                 </div>
+                                <input name="id_usuario" value="{{ Auth::user()->id }}" hidden>
                             </form><!-- End Change Password Form -->
 
                         </div>
@@ -258,7 +261,205 @@
             $('#file_avatar').on('change', function() {
                 var val = $(this).val();
                 $(this).siblings('#texto_avatar').text(val);
-            })
+            });
+
+            //proceso de actualizacion datos
+            $('#formulario_actualizacion_perfil').on('submit', function(e) {
+                event.preventDefault();
+                if ($('#formulario_actualizacion_perfil')[0].checkValidity() === false) {
+                    event.stopPropagation();
+                } else {
+
+                    // agregar data
+                    var $thisForm = $('#formulario_actualizacion_perfil');
+                    var formData = new FormData(this);
+
+                    //ruta
+                    var url = route('actualizarPerfil');
+
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        type: "POST",
+                        encoding:"UTF-8",
+                        url: url,
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        beforeSend:function(){
+                            swal("Validando datos, espere porfavor...", {
+                                button: false,
+                                timer: 3000
+                            });
+                        }
+                    }).done(function(respuesta){
+                        //console.log(respuesta);
+                        if (!respuesta.error) {
+
+                            swal("Datos Actualizados con exitoso.", {
+                                icon: "success",
+                                button: true,
+                                timer: 2000
+                            });
+
+                            setTimeout(function(){
+                                location.reload();
+                            },2000);
+
+                        } else {
+                            setTimeout(function(){
+                                swal(respuesta.mensaje, {
+                                    icon: "error",
+                                    button: false,
+                                    timer: 4000
+                                });
+                            },2000);
+                        }
+                    }).fail(function(resp){
+                        console.log(resp);
+                    });
+
+                }
+                $('#formulario_actualizacion_perfil').addClass('was-validated');
+
+            });
+
+            //proceso de actualizacion de contraseña
+            $('#formulario_actualizacion_perfil_password').on('submit', function(e) {
+                event.preventDefault();
+                if ($('#formulario_actualizacion_perfil_password')[0].checkValidity() === false) {
+                    event.stopPropagation();
+                } else {
+
+                    // agregar data
+                    var $thisForm = $('#formulario_actualizacion_perfil_password');
+                    var formData = new FormData(this);
+
+                    //ruta
+                    var url = route('actualizarPassword');
+
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        type: "POST",
+                        encoding:"UTF-8",
+                        url: url,
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        beforeSend:function(){
+                            swal("Validando datos, espere porfavor...", {
+                                button: false,
+                                timer: 3000
+                            });
+                        }
+                    }).done(function(respuesta){
+                        //console.log(respuesta);
+                        if (!respuesta.error) {
+
+                            swal("Contraseña Actualizada exitosamente!", {
+                                icon: "success",
+                                button: true,
+                                timer: 2000
+                            });
+                            $('#currentPassword').val('');
+                            $('#newPassword').val('');
+                            $('#renewPassword').val('');
+
+                        } else {
+                            setTimeout(function(){
+                                swal(respuesta.mensaje, {
+                                    icon: "error",
+                                    button: false,
+                                    timer: 4000
+                                });
+                            },2000);
+                        }
+                    }).fail(function(resp){
+                        console.log(resp);
+                    });
+
+                }
+                $('#formulario_actualizacion_perfil_password').addClass('was-validated');
+
+            });
+
+            $("#btn_cambiar_firma").click(function () {
+                $("#file_firma").trigger('click');
+            });
+
+            $('#file_firma').on('change', function() {
+                var val = $(this).val();
+                $(this).siblings('#texto_firma').text(val);
+            });
+
+            //proceso de actualizacion de la firma
+            $('#formulario_actualizacion_perfil_firma').on('submit', function(e) {
+                event.preventDefault();
+                if ($('#formulario_actualizacion_perfil_firma')[0].checkValidity() === false) {
+                    event.stopPropagation();
+                } else {
+
+                    // agregar data
+                    var $thisForm = $('#formulario_actualizacion_perfil_firma');
+                    var formData = new FormData(this);
+
+                    //ruta
+                    var url = route('actualizarFirma');
+
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        type: "POST",
+                        encoding:"UTF-8",
+                        url: url,
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        beforeSend:function(){
+                            swal("Validando datos, espere porfavor...", {
+                                button: false,
+                                timer: 3000
+                            });
+                        }
+                    }).done(function(respuesta){
+                        //console.log(respuesta);
+                        if (!respuesta.error) {
+
+                            swal("Firma Actualizada exitosamente!", {
+                                icon: "success",
+                                button: true,
+                                timer: 2000
+                            });
+
+                            setTimeout(function(){
+                                location.reload();
+                            },2000);
+
+                        } else {
+                            setTimeout(function(){
+                                swal(respuesta.mensaje, {
+                                    icon: "error",
+                                    button: false,
+                                    timer: 4000
+                                });
+                            },2000);
+                        }
+                    }).fail(function(resp){
+                        console.log(resp);
+                    });
+
+                }
+                $('#formulario_actualizacion_perfil_firma').addClass('was-validated');
+
+            });
+
         </script>
     </x-slot>
 

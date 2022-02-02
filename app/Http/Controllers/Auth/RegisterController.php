@@ -104,7 +104,7 @@ class RegisterController extends Controller
                     $val_email = User::where('email', $request->email)->get()->count();
                     if ($val_email > 0) {
                         $error = true;
-                        $mensaje = 'Error! Ya se encuentra registrado un paciente con este correo electronico "'.$$request->email.'". Intente con otro.';
+                        $mensaje = 'Error! Ya se encuentra registrado un paciente con este correo electronico "'.$request->email.'". Intente con otro.';
                     } else {
 
                         $data = array(
