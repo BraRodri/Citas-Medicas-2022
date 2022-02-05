@@ -1,3 +1,10 @@
+jQuery('select[name=departamento]').change(function() {
+    var departamento = jQuery(this).find(':selected').val();
+    var url_principal = route('obtenerCiudades', departamento);
+    jQuery('select[name=ciudad]').html("");
+    jQuery('select[name=ciudad]').load(url_principal);
+});
+
 //proceso de registro
 $('#formulario_registro').on('submit', function(e) {
     event.preventDefault();

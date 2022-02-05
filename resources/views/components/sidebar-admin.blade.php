@@ -9,6 +9,7 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <li class="nav-heading">PACIENTE:</li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-journal-text"></i><span>Citas</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -16,17 +17,36 @@
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="forms-elements.html">
-                    <i class="bi bi-circle"></i><span>Agendar Cita</span>
+                        <i class="bi bi-circle"></i><span>Mis Citas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="forms-elements.html">
-                    <i class="bi bi-circle"></i><span>Mis Citas</span>
+                    <a href="{{ route('citas') }}">
+                        <i class="bi bi-circle"></i><span>Agendar Cita</span>
                     </a>
                 </li>
             </ul>
         </li><!-- End Cias Nav -->
 
+        <!-- modulo medico -->
+        <li class="nav-heading">MEDICO:</li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#nav-medico" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i><span>Mi Agenda</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="nav-medico" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="forms-elements.html">
+                        <i class="bi bi-circle"></i><span>Ver Agenda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="forms-elements.html">
+                        <i class="bi bi-circle"></i><span>Programar horario</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Cias Nav -->
 
         <li class="nav-heading">Opciones:</li>
 

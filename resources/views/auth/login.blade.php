@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </form>
-                <p class="text-center">¿No estas Registrado? <a data-toggle="tab" href="{{ route('register') }}">Registrarme</a></p>
+                <p class="text-center">¿No estas Registrado? <a data-toggle="tab" href="{{ route('registro') }}">Registrarme</a></p>
             </div>
         </div>
     </div>

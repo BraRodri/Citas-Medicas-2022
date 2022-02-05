@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('genero');
             $table->string('telefono');
             $table->text('direccion');
+            $table->string('pais');
+            $table->string('departamento');
+            $table->string('ciudad');
             $table->text('avatar')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

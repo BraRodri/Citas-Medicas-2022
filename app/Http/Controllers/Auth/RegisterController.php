@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -73,6 +74,39 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        $departamentos_array = array();
+        $departamentos = null;
+
+        $response = file_get_contents('asset/json/ciudades.json');
+        $respuesta = json_decode($response, true);
+        foreach ($respuesta as $key => $value) {
+            $departamentos_array[] = $value['departamento'];
+        }
+        $departamentos = array_unique($departamentos_array);
+
+        return view('auth.register')->with([
+            'departamentos' => $departamentos
+        ]);
+    }
+
+    public function obtenerCiudades($departamento)
+    {
+        $option_locations  = '';
+        $option_locations .= '<option value="">- Seleccionar -</option>';
+
+        $response = file_get_contents('asset/json/ciudades.json');
+        $respuesta = json_decode($response, true);
+        foreach ($respuesta as $key => $value) {
+            if($departamento == $value['departamento']){
+                $option_locations .= '<option value="' . $value['municipio'] . '">' . $value['municipio'] . '</option>';
+            }
+        }
+
+        echo $option_locations;
+    }
+
     public function registar(Request $request)
     {
 
@@ -120,7 +154,10 @@ class RegisterController extends Controller
                             'active' => 0,
                             'video_confirm' => 0,
                             'confirm_edad' => $request->confim_edad,
-                            'avatar' => ''
+                            'avatar' => '',
+                            'pais' => $request->pais,
+                            'departamento' => $request->departamento,
+                            'ciudad' => $request->ciudad
                         );
 
                         if($result = User::create($data)->assignRole('Paciente')){

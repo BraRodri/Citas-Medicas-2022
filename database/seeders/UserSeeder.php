@@ -27,7 +27,10 @@ class UserSeeder extends Seeder
             'active' => 1,
             'video_confirm' => 1,
             'confirm_edad' => 1,
-            'avatar' => ''
+            'avatar' => '',
+            'pais' => 'Colombia',
+            'departamento' => 'Bogotá D.C.',
+            'ciudad' => 'Bogotá D.C.'
         ])->assignRole('Admin');
     }
 }

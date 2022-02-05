@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="titulo-registro">
-                        <h2>Datos de Despacho</h2>
+                        <h2>Datos de Residencia</h2>
                     </div>
 
                     <div class="col-lg-12">
@@ -103,6 +103,43 @@
                             <label for="">Dirección <span>(*)</span></label>
                             <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}" required="" >
                         </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="">Pais <span>(*)</span></label>
+                            <select class="form-control" name="pais" required>
+                                <option value="Colombia" selected>Colombia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="">Departamento <span>(*)</span></label>
+                            <select class="form-control" name="departamento" required>
+                                <option value="">- Seleccione -</option>
+                                @foreach($departamentos as $key => $value)
+                                    <option value="{{ $value }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="">Ciudad <span>(*)</span></label>
+                            <select class="form-control" name="ciudad" required>
+                                <option value="">- Seleccione -</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="titulo-registro">
+                        <h2>Confirmación</h2>
+                    </div>
+
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <label for="">Confirmar mayoria de edad: <span>(*)</span></label>
                             <fieldset>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CitasController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PanelController;
@@ -25,8 +26,13 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //registro
-Route::post('/validar-registro', [RegisterController::class, 'registar'])->name('validar_registro');
-Route::post('/validar-registro/subir-firma', [RegisterController::class, 'registarFirma'])->name('registarFirma');
+Route::controller(RegisterController::class)
+->group(function () {
+    Route::get('/registro', 'index')->name('registro');
+    Route::post('/validar-registro', 'registar')->name('validar_registro');
+    Route::post('/validar-registro/subir-firma', 'registarFirma')->name('registarFirma');
+    Route::get('/obtener-ciudades/{departamento}', 'obtenerCiudades')->name('obtenerCiudades');
+});
 
 //login
 Route::post('/validar-login', [LoginController::class, 'login'])->name('validar_login');
@@ -53,6 +59,12 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     Route::controller(ContactoController::class)
     ->group(function () {
         Route::get('/contacto', 'index')->name('contacto');
+    });
+
+    //modulo citas
+    Route::controller(CitasController::class)
+    ->group(function () {
+        Route::get('/citas', 'index')->name('citas');
     });
 
 });
