@@ -39,7 +39,7 @@ $('#formulario_login').on('submit', function(e) {
                     button: false,
                     timer: 5000
                 });
-                location.reload();
+                location.href = route('panel');
 
             } else {
                 setTimeout(function(){

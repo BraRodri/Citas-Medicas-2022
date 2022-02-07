@@ -23,6 +23,6 @@ class SidebarAdmin extends Component
      */
     public function render()
     {
-        return view('components.sidebar-admin');
+        return view('components.admin.sidebar-admin');
     }
 }

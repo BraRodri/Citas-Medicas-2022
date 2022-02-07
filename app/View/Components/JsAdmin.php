@@ -23,6 +23,6 @@ class JsAdmin extends Component
      */
     public function render()
     {
-        return view('components.js-admin');
+        return view('components.admin.js-admin');
     }
 }

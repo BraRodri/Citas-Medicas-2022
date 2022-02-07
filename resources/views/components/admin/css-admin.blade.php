@@ -15,5 +15,8 @@
 <link href="{{ asset('asset/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
 <link href="{{ asset('asset/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
 
+<!-- datatables -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.css"/>
+
 <!-- Template Main CSS File -->
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">

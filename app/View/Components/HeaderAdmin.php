@@ -23,6 +23,6 @@ class HeaderAdmin extends Component
      */
     public function render()
     {
-        return view('components.header-admin');
+        return view('components.admin.header-admin');
     }
 }

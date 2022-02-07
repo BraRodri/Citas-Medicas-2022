@@ -23,6 +23,6 @@ class CssAdmin extends Component
      */
     public function render()
     {
-        return view('components.css-admin');
+        return view('components.admin.css-admin');
     }
 }

@@ -56,4 +56,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function medico(){
+        return $this->hasMany(Medico::class, 'users_id');
+    }
 }

@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('active')->default(0);
             $table->integer('video_confirm')->default(0);
-            $table->integer('confirm_edad')->default(0);
+            $table->integer('confirm_edad')->default(0)->nullable();
             $table->text('firma')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -44,6 +44,19 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     ->group(function () {
         Route::get('/', 'index')->name('panel');
         Route::get('/faq', 'faq')->name('faq');
+        Route::get('/obtener-ciudades/{departamento}', 'obtenerCiudades')->name('panel.obtenerCiudades');
+    });
+
+    //gestion de usuarios
+    Route::controller(UserController::class)
+    ->group(function () {
+        Route::get('/gestion-de-usuarios', 'usuarios')->name('usuarios');
+        Route::get('/gestion-de-usuarios/obtener', 'getUsuarios')->name('usuarios.obtener');
+        Route::get('/gestion-de-usuarios/crear', 'crearUsuarios')->name('usuarios.crear');
+        Route::post('/gestion-de-usuarios/insertar', 'insertarUsuarios')->name('usuarios.insertar');
+        Route::get('/gestion-de-usuarios/editar/{id}', 'editarUsuario')->name('usuarios.editar');
+        Route::post('/gestion-de-usuarios/actualizar', 'actualizarUsuario')->name('usuarios.actualizar');
+        Route::get('/gestion-de-usuarios/eliminar/{id}', 'eliminarUsuario')->name('usuarios.eliminar');
     });
 
     //perfil

@@ -23,6 +23,6 @@ class FooterAdmin extends Component
      */
     public function render()
     {
-        return view('components.footer-admin');
+        return view('components.admin.footer-admin');
     }
 }
