@@ -18,5 +18,8 @@
 <!-- datatables -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.css"/>
 
+<!-- calendario -->
+<link href="{{ asset('asset/vendor/fullcalendar/main.css') }}" rel="stylesheet" />
+
 <!-- Template Main CSS File -->
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">

@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="forms-elements.html">
+                    <a href="{{ route('medico.programar_horario') }}">
                         <i class="bi bi-circle"></i><span>Programar horario</span>
                     </a>
                 </li>

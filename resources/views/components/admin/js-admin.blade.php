@@ -14,6 +14,10 @@
  <!-- datatable -->
  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.js"></script>
 
+ <!-- fullcalendar -->
+<script src="{{ asset('asset/vendor/fullcalendar/main.js') }}"></script>
+<script src="{{ asset('asset/vendor/fullcalendar/locales-all.js') }}"></script>
+
  <script>
     $('#boton_cerrar_sesion').on('click', function() {
         swal({
