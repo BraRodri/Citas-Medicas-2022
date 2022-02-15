@@ -90,7 +90,10 @@
                         }else{
                             //Details of cite with the Pacient
                         };
-                    }
+                    },
+                    eventDrop: function(event, delta, reverFunc){
+                        posibilityOfEdit(event);
+                    },
                 });
                 calendar.render();
             });
@@ -226,6 +229,98 @@
                         swal.fire(
                             'Disponibilidad Eliminada!',
                             'La información se elimino con éxito!',
+                            'success'
+                        ).then(
+                            function(e) {
+                                if (e.value === true) {
+                                    window.location.replace(`/panel/medico/programar-horario`);
+                                } else {
+                                    window.location.replace(`/panel/medico/programar-horario`);
+                                }
+                            },
+                            function(dismiss) {
+                                return false;
+                            }
+                        );
+                    }else if(response.data.info === "failed"){
+                        swal.fire(
+                            '¡Opss, Ocurrió un error!',
+                            'Inténtalo más tarde!',
+                            'error'
+                        )
+                    }
+                })
+                .catch(error => {
+                    swal.fire(
+                        '¡Opss, Ocurrió un error!',
+                        'Inténtalo más tarde!',
+                        'error'
+                    )
+                });
+            }
+
+
+            /* Posibility of Disponibility */
+            const posibilityOfEdit = (event) => {
+                if(event.event.title === "Disponible"){
+                    let dateCurrent = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+                    let dateOld = moment(event.oldEvent.startStr).format('YYYY-MM-DD HH:mm:ss');
+                    let dateNew = moment(event.event.startStr).format('YYYY-MM-DD HH:mm:ss');
+                    if(dateCurrent <= dateNew){
+                        let dateOldSelected = dateOld.split(' ');
+                        let hourOldSelected = dateOldSelected[1].split(':');
+                        let dateNewSelected = dateNew.split(' ');
+                        let hourNewSelected = dateNewSelected[1].split(':');
+
+                        Swal.fire({
+                            title: '¡Atención!',
+                            text: `¿Estás seguro de aplazar la disponibilidad de las ${hourOldSelected[0]}:${hourOldSelected[1]} del ${dateOldSelected[0]}, para el día ${dateNewSelected[0]} a las ${hourNewSelected[0]}:${hourNewSelected[1]}?`,
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Sí, Aplazar!',
+                            cancelButtonText: 'Cancelar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                editDisponibility(dateOld, dateNew);
+                            }else{
+                                event.revert();
+                            }
+                        })
+                    }else{
+                        swal.fire(
+                            '¡Opss, Lo siento!',
+                            'No se pueden crear eventos en el pasado!',
+                            'error'
+                        );
+                        event.revert();
+                    }
+                }else{
+                    swal.fire(
+                        '¡Advertencía!',
+                        'Las citas gestionadas por los pacientes, no se pueden aplazar!',
+                        'info'
+                    )
+                    event.revert();
+                };
+            }
+
+
+            /* Edit Disponibility */
+            const editDisponibility = (dateOld, dateNew) => {
+                var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
+                axios.put('/panel/medico/programar-horario', {
+                    dateOld: dateOld,
+                    dateNew: dateNew
+                }, {
+                    headers: {'X-CSRF-TOKEN': laravelToken }
+                })
+                .then(response => {
+                    if(response.data.info === "updated"){
+                        swal.fire(
+                            'Disponibilidad actualizada!',
+                            'La información se modificó con éxito!',
                             'success'
                         ).then(
                             function(e) {

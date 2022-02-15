@@ -45,4 +45,18 @@ class MedicoController extends Controller
             return response()->json(['info' => 'failed']);
         }
     }
+
+    public function update(Request $request)
+    {
+        $horary = HoraryMedico::where('medico_id', auth()->user()->medico->id)
+                    ->where('date_disponibility', $request->dateOld)
+                    ->first();
+        $horary->date_disponibility = $request->dateNew;
+        $updated = $horary->update();
+        if($updated){
+            return response()->json(['info' => 'updated']);
+        }else{
+            return response()->json(['info' => 'failed']);
+        }
+    }
 }
