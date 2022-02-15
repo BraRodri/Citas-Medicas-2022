@@ -77,92 +77,184 @@
                     navLinks: true,
                     locale: 'es',
                     selectable: true,
+                    editable: true,
                     events: events,
                     select: function(info) {
-
-                        // leemos las fechas de inicio de evento y hoy
-                        var check = moment(info.startStr).format('YYYY-MM-DD HH:mm:ss');
-                        var today = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
-
-                        // si el inicio de evento ocurre hoy o en el futuro mostramos el modal
-                        if (check >= today) {
-                            let dateSelected = check.split(' ');
-                            let hourSelected = dateSelected[1].split(':');
-
-                            Swal.fire({
-                                title: 'Añadir disponibilidad',
-                                html: '<div class="d-flex justify-content-center">' +
-                                    '<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_gnh15vxc.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; margin-top: -50px; margin-bottom: -40px;"   loop autoplay></lottie-player>' +
-                                    '</div>' +
-                                    '<h4>'+ `¿Estas seguro de programar disponibilidad el ${dateSelected[0]} a las ${hourSelected[0]}:${hourSelected[1]}?` + '</h4>',
-                                showCancelButton: true,
-                                cancelButtonText: 'No, cancelar <i class="bi bi-x-circle-fill"></i>',
-                                confirmButtonText: 'Si, añadir <i class="bi bi-plus-circle-fill"></i>',
-                            }).then((result) => {
-                                /* Read more about isConfirmed, isDenied below */
-                                if (result.isConfirmed) {
-                                    var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
-                                    axios.post('/panel/medico/programar-horario', {
-                                        dateSelected: check,
-                                    }, {
-                                        headers: {'X-CSRF-TOKEN': laravelToken }
-                                    })
-                                    .then(response => {
-                                        console.log(response.data);
-                                        if(response.data.info === "created"){
-                                            swal.fire(
-                                                'Registro exitoso!',
-                                                'La información se guardó de forma segura!',
-                                                'success'
-                                            ).then(
-                                                function(e) {
-                                                    if (e.value === true) {
-                                                        window.location.replace(`/panel/medico/programar-horario`);
-                                                    } else {
-                                                        window.location.replace(`/panel/medico/programar-horario`);
-                                                    }
-                                                },
-                                                function(dismiss) {
-                                                    return false;
-                                                }
-                                            );
-                                        }else if(response.data.info === "failed"){
-                                            swal.fire(
-                                                '¡Opss, Ocurrió un error!',
-                                                'Inténtalo más tarde!',
-                                                'error'
-                                            )
-                                        }else if(response.data.info === "notIsMedic"){
-                                            swal.fire(
-                                                '¡Advertencía!',
-                                                'Devido a que no eres Medico, no se añadió la disponibilidad!',
-                                                'warning'
-                                            )
-                                        }
-                                    })
-                                    .catch(error => {
-                                        swal.fire(
-                                            '¡Opss, Ocurrió un error!',
-                                            'Inténtalo más tarde!',
-                                            'error'
-                                        )
-                                    });
-                                }
-                            })
-                        }
-                        // si no, mostramos una alerta de error
-                        else {
-                            swal.fire(
-                                '¡Opss, Lo siento!',
-                                'No se pueden crear eventos en el pasado!',
-                                'error'
-                            );
-                        }
+                        addDisponibility(info);
                     },
+                    eventClick: function(info){
+                        var check = moment(info.event.startStr).format('YYYY-MM-DD HH:mm:ss');
+                        if(info.event.title === "Disponible"){
+                            //Posibility of delete
+                            posibilityOfDelete(check);
+                        }else{
+                            //Details of cite with the Pacient
+                        };
+                    }
                 });
                 calendar.render();
-
             });
+
+
+            /* Function that add New Disponibility in the horary medico */
+            const addDisponibility = (info) => {
+                // leemos las fechas de inicio de evento y hoy
+                var check = moment(info.startStr).format('YYYY-MM-DD HH:mm:ss');
+                var today = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+                // si el inicio de evento ocurre hoy o en el futuro mostramos el modal
+                if (check >= today) {
+                    let dateSelected = check.split(' ');
+                    let hourSelected = dateSelected[1].split(':');
+
+                    Swal.fire({
+                        title: 'Añadir disponibilidad',
+                        html: '<div class="d-flex justify-content-center">' +
+                            '<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_gnh15vxc.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; margin-top: -50px; margin-bottom: -40px;"   loop autoplay></lottie-player>' +
+                            '</div>' +
+                            '<h4>'+ `¿Estas seguro de programar disponibilidad el ${dateSelected[0]} a las ${hourSelected[0]}:${hourSelected[1]}?` + '</h4>',
+                        showCancelButton: true,
+                        cancelButtonText: 'No, cancelar <i class="bi bi-x-circle-fill"></i>',
+                        confirmButtonText: 'Si, añadir <i class="bi bi-plus-circle-fill"></i>',
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
+                            axios.post('/panel/medico/programar-horario', {
+                                dateSelected: check,
+                            }, {
+                                headers: {'X-CSRF-TOKEN': laravelToken }
+                            })
+                            .then(response => {
+                                if(response.data.info === "created"){
+                                    swal.fire(
+                                        'Registro exitoso!',
+                                        'La información se guardó de forma segura!',
+                                        'success'
+                                    ).then(
+                                        function(e) {
+                                            if (e.value === true) {
+                                                window.location.replace(`/panel/medico/programar-horario`);
+                                            } else {
+                                                window.location.replace(`/panel/medico/programar-horario`);
+                                            }
+                                        },
+                                        function(dismiss) {
+                                            return false;
+                                        }
+                                    );
+                                }else if(response.data.info === "failed"){
+                                    swal.fire(
+                                        '¡Opss, Ocurrió un error!',
+                                        'Inténtalo más tarde!',
+                                        'error'
+                                    )
+                                }else if(response.data.info === "notIsMedic"){
+                                    swal.fire(
+                                        '¡Advertencía!',
+                                        'Devido a que no eres Medico, no se añadió la disponibilidad!',
+                                        'warning'
+                                    )
+                                }
+                            })
+                            .catch(error => {
+                                swal.fire(
+                                    '¡Opss, Ocurrió un error!',
+                                    'Inténtalo más tarde!',
+                                    'error'
+                                )
+                            });
+                        }
+                    })
+                }
+                // si no, mostramos una alerta de error
+                else {
+                    swal.fire(
+                        '¡Opss, Lo siento!',
+                        'No se pueden crear eventos en el pasado!',
+                        'error'
+                    );
+                }
+            }
+
+
+            /* Posibility of delete a Disponibility */
+            const posibilityOfDelete = (check) => {
+                let dateSelected = check.split(' ');
+                let hourSelected = dateSelected[1].split(':');
+                Swal.fire({
+                    title: 'Disponibilidad',
+                    html: '<div class="d-flex justify-content-center">' +
+                        '<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_i7ooqm2q.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"   loop autoplay></lottie-player>' +
+                        '</div>' +
+                        '<h5>'+ `El horario del ${dateSelected[0]} a las ${hourSelected[0]}:${hourSelected[1]} sigue disponible, si deseas eliminarlo da clic en el botón eliminar` + '</h5>',
+                    showCancelButton: true,
+                    cancelButtonText: 'No, cancelar <i class="bi bi-x-circle-fill"></i>',
+                    confirmButtonText: 'Eliminar <i class="bi bi-trash-fill"></i>',
+                    confirmButtonColor: '#F76C8D',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "Una vez eliminada la disponibilidad, no se podra recuperar!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, Eliminar!',
+                        cancelButtonText: 'Cancelar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                deleteDisponibility(check);
+                            }
+                        })
+                    }
+                });
+            }
+
+
+            /* Delete Disponibility */
+            const deleteDisponibility = (check) => {
+                var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
+                axios.post('/panel/medico/programar-horario/delete', {
+                    dateSelected: check,
+                }, {
+                    headers: {'X-CSRF-TOKEN': laravelToken }
+                })
+                .then(response => {
+                    if(response.data.info === "deleted"){
+                        swal.fire(
+                            'Disponibilidad Eliminada!',
+                            'La información se elimino con éxito!',
+                            'success'
+                        ).then(
+                            function(e) {
+                                if (e.value === true) {
+                                    window.location.replace(`/panel/medico/programar-horario`);
+                                } else {
+                                    window.location.replace(`/panel/medico/programar-horario`);
+                                }
+                            },
+                            function(dismiss) {
+                                return false;
+                            }
+                        );
+                    }else if(response.data.info === "failed"){
+                        swal.fire(
+                            '¡Opss, Ocurrió un error!',
+                            'Inténtalo más tarde!',
+                            'error'
+                        )
+                    }
+                })
+                .catch(error => {
+                    swal.fire(
+                        '¡Opss, Ocurrió un error!',
+                        'Inténtalo más tarde!',
+                        'error'
+                    )
+                });
+            }
         </script>
     </x-slot>
 

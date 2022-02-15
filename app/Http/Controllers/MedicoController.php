@@ -32,4 +32,17 @@ class MedicoController extends Controller
             return response()->json(['info' => 'notIsMedic']);
         }
     }
+
+    public function destroy(Request $request)
+    {
+        $horary = HoraryMedico::where('medico_id', auth()->user()->medico->id)
+                    ->where('date_disponibility', $request->dateSelected)
+                    ->first();
+
+        if($horary->delete()){
+            return response()->json(['info' => 'deleted']);
+        }else{
+            return response()->json(['info' => 'failed']);
+        }
+    }
 }

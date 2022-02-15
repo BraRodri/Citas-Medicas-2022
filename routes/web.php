@@ -80,6 +80,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     ->group(function () {
         Route::get('/medico/programar-horario', 'index')->name('medico.programar_horario');
         Route::post('/medico/programar-horario', 'store')->name('medico.programar_horario_store');
+        Route::post('/medico/programar-horario/delete', 'destroy')->name('medico.programar_horario_destroy');
     });
 
     //modulo citas
