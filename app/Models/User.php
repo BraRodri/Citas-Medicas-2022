@@ -58,6 +58,6 @@ class User extends Authenticatable
     ];
 
     public function medico(){
-        return $this->hasMany(Medico::class, 'users_id');
+        return $this->hasOne(Medico::class, 'users_id');
     }
 }

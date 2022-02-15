@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     Route::controller(MedicoController::class)
     ->group(function () {
         Route::get('/medico/programar-horario', 'index')->name('medico.programar_horario');
+        Route::post('/medico/programar-horario', 'store')->name('medico.programar_horario_store');
     });
 
     //modulo citas

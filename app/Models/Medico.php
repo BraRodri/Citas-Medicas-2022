@@ -21,4 +21,8 @@ class Medico extends Model
         return $this->belongsTo(User::class, 'users_id');
     }
 
+    public function horary()
+    {
+        return $this->hasMany(HoraryMedico::class);
+    }
 }
