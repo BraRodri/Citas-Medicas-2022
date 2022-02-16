@@ -50,12 +50,12 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="forms-elements.html">
+                    <a href="{{ route('citas') }}">
                         <i class="bi bi-circle"></i><span>Mis Citas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('citas') }}">
+                    <a href="{{ route('citas.create') }}">
                         <i class="bi bi-circle"></i><span>Agendar Cita</span>
                     </a>
                 </li>

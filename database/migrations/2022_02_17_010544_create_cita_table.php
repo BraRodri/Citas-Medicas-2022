@@ -15,7 +15,12 @@ class CreateCitaTable extends Migration
     {
         Schema::create('cita', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('horary_medicos_id');
+            $table->unsignedBigInteger('paciente_id');
+            $table->string('modality');
             $table->timestamps();
+            $table->foreign('horary_medicos_id')->references('id')->on('horary_medicos')->onDelete('cascade');
+            $table->foreign('paciente_id')->references('id')->on('paciente')->onDelete('cascade');
         });
     }
 

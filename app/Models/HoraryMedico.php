@@ -19,4 +19,9 @@ class HoraryMedico extends Model
     {
         return $this->belongsTo(Medico::class, 'medico_id');
     }
+
+    public function cita()
+    {
+        return $this->hasOne(Cita::class);
+    }
 }
