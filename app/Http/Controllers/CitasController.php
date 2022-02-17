@@ -17,8 +17,18 @@ class CitasController extends Controller
     public function create()
     {
         /* Get all medics that have one or more disponibiliies */
-        $medics = Medico::has('horary')->with('usuario')->with('horary')->get();
-        return view('pages.panel.citas.create', compact('medics'));
+        $medicsWithHorarys = Medico::has('horary')->with('usuario')->with('horary')->get();
+        $medicsWithHorarysDisponibilities = [];
+        foreach ($medicsWithHorarys as $medic) {
+            foreach($medic->horary as $horary){
+                /* Añadir unicamente los medicos que tengan disponibilidad */
+                if(!$horary->cita){
+                    array_push($medicsWithHorarysDisponibilities, $medic);
+                    break;
+                };
+            }
+        }
+        return view('pages.panel.citas.create', compact('medicsWithHorarysDisponibilities'));
     }
 
     public function store(Request $request)

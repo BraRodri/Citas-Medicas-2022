@@ -22,12 +22,12 @@
                             <div class="col-lg-12">
                                 <div class="form-group mt-3">
                                     <label class="form-label">Seleccione el médico <span>(*)</span></label>
-                                    @if (count($medics) === 0)
-                                        <p>No hay médicos registrados</p>
+                                    @if (count($medicsWithHorarysDisponibilities) === 0)
+                                        <p>No hay médicos con horarios disponibles</p>
                                     @else
                                         <select class="form-select" id="medic" name="medic" required="">
                                             <option selected disabled>Seleccione</option>
-                                            @foreach ($medics as $medic)
+                                            @foreach ($medicsWithHorarysDisponibilities as $medic)
                                                 <option value="{{ $medic }}">{{ $medic->usuario->nombres }}</option>
                                             @endforeach
                                         </select>
