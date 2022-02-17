@@ -11,7 +11,13 @@ class MedicoController extends Controller
     //
     public function index()
     {
-        $disponibilitysMedico = auth()->user()->medico->horary;
+        if (auth()->user()->roles[0]->name === "Paciente" || auth()->user()->roles[0]->name === "Farmaceutico") {
+            /* Ejecutar el policy */
+            $this->authorize('viewAny');
+        }
+
+        /* Get Only horarys disponibles without Citas apartadas */
+        $disponibilitysMedico = HoraryMedico::where('medico_id', auth()->user()->medico->id)->has('cita', '===', 0)->get();
         return view('pages.panel.medico.programar-horario', compact('disponibilitysMedico'));
     }
 
