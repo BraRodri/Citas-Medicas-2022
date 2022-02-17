@@ -19,17 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group mt-3">
-                                    <label class="form-label">Seleccione la modalidad de la cita <span>(*)</span></label>
-                                    <select class="form-select" id="modality" name="modality" required="">
-                                        <option selected disabled>Seleccione</option>
-                                        <option value="presencial">Presencial</option>
-                                        <option value="virtual">Virtual</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group mt-3">
                                     <label class="form-label">Seleccione el médico <span>(*)</span></label>
                                     @if (count($medics) === 0)
@@ -49,32 +39,39 @@
                 </div>
             </div>
         </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="mt-4">
-                                <div class="collapse" id="boxCalendar">
-                                    <div id='calendar'></div>
-                                </div>
-                            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="mt-4" id="textSelectHorary" style="display: none;">
+                            Selecciona el horario de tu preferencia.
+                        </p>
+                        <div class="mt-4">
+                            <div id='calendar'></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <x-slot name="js">
-        <script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    <!-- Lottie Files-->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"
+            integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw=="
+            crossorigin="anonymous"></script>
 
+        <script>
+            /* Select medic */
             $('select[name=medic]').change(function() {
                 var medicText = $(this).find(':selected').val();
-
                 let medic = JSON.parse(medicText);
-
-                // Initialize the external events
                 let disponibilitysMedico = medic.horary;
-                console.log(disponibilitysMedico);
                 let events = [];
                 if(disponibilitysMedico.length > 0) {
                     disponibilitysMedico.map((item, index) => {
@@ -89,6 +86,13 @@
                     });
                 };
 
+                renderCalendarWithDisponibilities(events, medic.usuario);
+            });
+
+
+            /* Show Calendar */
+            const renderCalendarWithDisponibilities = (events, infoMedic) => {
+                document.getElementById('textSelectHorary').style.display = 'block';
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'timeGridWeek',
@@ -102,25 +106,81 @@
                     selectable: true,
                     editable: true,
                     events: events,
-                    select: function(info) {
-                        //addDisponibility(info);
-                    },
                     eventClick: function(info){
                         var check = moment(info.event.startStr).format('YYYY-MM-DD HH:mm:ss');
-                        if(info.event.title === "Disponible"){
-                            //Posibility of delete
-                            //posibilityOfDelete(check);
-                        }else{
-                            //Details of cite with the Pacient
-                        };
+                        viewFormCita(check, infoMedic);
                     },
                     eventDrop: function(event, delta, reverFunc){
                         //posibilityOfEdit(event);
                     },
                 });
                 calendar.render();
-                $('#boxCalendar').collapse('show');
-            });
+            };
+
+
+            /* Show form add Cita */
+            const viewFormCita = (check, infoMedic) => {
+                Swal.fire({
+                    title: 'Agendamiento de Cita',
+                    inputLabel: 'Seleccione la modalidad de la cita',
+                    input: 'select',
+                    inputOptions: {
+                        'Modalidad': {
+                            presencial: 'Presencial',
+                            virtual: 'Virtual',
+                        },
+                    },
+                    inputPlaceholder: 'Seleccione',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar <i class="bi bi-x-circle-fill"></i>',
+                    confirmButtonText: 'Continuar <i class="bi bi-arrow-right-circle-fill"></i>',
+                    inputValidator: (value) => {
+                        return new Promise((resolve) => {
+                            if (value) {
+                                confirmCita(value, check, infoMedic);
+                            } else {
+                                resolve('Selecciona alguna opción');
+                            }
+                        })
+                    }
+                });
+            };
+
+
+            /* Confirm Datos of Cita */
+            const confirmCita = async (modality, check, infoMedic) => {
+                let dateSelected = check.split(' ');
+                let hourSelected = dateSelected[1].split(':');
+                const promiseLottie = new Promise((resolve, reject) => {
+                    if(modality === "virtual"){
+                        resolve(`
+                            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_f1jblfgm.json"  background="transparent"  speed="1"
+                                style="width: 400px; height: 400px; margin-top: -80px; margin-bottom: -80px; margin-left: -80px;"   loop autoplay
+                            >
+                            </lottie-player>
+                        `);
+                    }else if(modality === "presencial"){
+                        resolve(`<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_bjvf84zw.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; margin-top: -50px; margin-bottom: -40px;"   loop autoplay></lottie-player>`);
+                    }
+                });
+                let animationModality = await promiseLottie;
+                Swal.fire({
+                    title: 'Confirmar cita',
+                    html: `
+                        <h4>¿Estas seguro de programar tu cita para el día ${dateSelected[0]} a las ${hourSelected[0]}:${hourSelected[1]} con el doctor ${infoMedic.nombres} de forma ${modality}?</h4>
+                        <div class="d-flex justify-content-center">
+                            ${animationModality}
+                        </div>
+                    `,
+                    showCancelButton: true,
+                    cancelButtonText: 'No, cancelar <i class="bi bi-x-circle-fill"></i>',
+                    confirmButtonText: 'Si, agendar cita <i class="bi bi-hand-thumbs-up-fill"></i>',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        //Regstrar la cita en BD
+                    };
+                });
+            };
         </script>
     </x-slot>
 </x-admin>
