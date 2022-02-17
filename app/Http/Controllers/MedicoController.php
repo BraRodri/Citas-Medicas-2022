@@ -17,7 +17,8 @@ class MedicoController extends Controller
         }
 
         /* Get Only horarys disponibles without Citas apartadas */
-        $disponibilitysMedico = HoraryMedico::where('medico_id', auth()->user()->medico->id)->has('cita', '===', 0)->get();
+        //$disponibilitysMedico = HoraryMedico::where('medico_id', auth()->user()->medico->id)->has('cita', '===', 0)->get();
+        $disponibilitysMedico = HoraryMedico::where('medico_id', auth()->user()->medico->id)->with('cita')->get();
         return view('pages.panel.medico.programar-horario', compact('disponibilitysMedico'));
     }
 

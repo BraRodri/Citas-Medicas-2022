@@ -57,10 +57,10 @@
                     disponibilitysMedico.map((item, index) => {
                         const disponibility = {
                             id: item.id,
-                            title: `Disponible`,
+                            title: item.cita ? `Apartada` : `Disponible` ,
                             start: item.date_disponibility,
                             end: moment(item.date_disponibility).add(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'),
-                            color: "#56E226",
+                            color: item.cita ? "#E22645": "#56E226",
                         }
                         events.push(disponibility);
                     });
@@ -263,39 +263,51 @@
             /* Posibility of Disponibility */
             const posibilityOfEdit = (event) => {
                 if(event.event.title === "Disponible"){
-                    let dateCurrent = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
-                    let dateOld = moment(event.oldEvent.startStr).format('YYYY-MM-DD HH:mm:ss');
                     let dateNew = moment(event.event.startStr).format('YYYY-MM-DD HH:mm:ss');
-                    if(dateCurrent <= dateNew){
-                        let dateOldSelected = dateOld.split(' ');
-                        let hourOldSelected = dateOldSelected[1].split(':');
-                        let dateNewSelected = dateNew.split(' ');
-                        let hourNewSelected = dateNewSelected[1].split(':');
 
-                        Swal.fire({
-                            title: '¡Atención!',
-                            text: `¿Estás seguro de aplazar la disponibilidad de las ${hourOldSelected[0]}:${hourOldSelected[1]} del ${dateOldSelected[0]}, para el día ${dateNewSelected[0]} a las ${hourNewSelected[0]}:${hourNewSelected[1]}?`,
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Sí, Aplazar!',
-                            cancelButtonText: 'Cancelar'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                editDisponibility(dateOld, dateNew);
-                            }else{
-                                event.revert();
-                            }
-                        })
+                    // Veriricar que no hayan horarios con la nueva fecha a cambiar
+                    if(verifyDiponibilityNewHorary(dateNew)){
+                        let dateCurrent = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+                        let dateOld = moment(event.oldEvent.startStr).format('YYYY-MM-DD HH:mm:ss');
+                        let dateNew = moment(event.event.startStr).format('YYYY-MM-DD HH:mm:ss');
+                        if(dateCurrent <= dateNew){
+                            let dateOldSelected = dateOld.split(' ');
+                            let hourOldSelected = dateOldSelected[1].split(':');
+                            let dateNewSelected = dateNew.split(' ');
+                            let hourNewSelected = dateNewSelected[1].split(':');
+
+                            Swal.fire({
+                                title: '¡Atención!',
+                                text: `¿Estás seguro de aplazar la disponibilidad de las ${hourOldSelected[0]}:${hourOldSelected[1]} del ${dateOldSelected[0]}, para el día ${dateNewSelected[0]} a las ${hourNewSelected[0]}:${hourNewSelected[1]}?`,
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Sí, Aplazar!',
+                                cancelButtonText: 'Cancelar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    editDisponibility(dateOld, dateNew);
+                                }else{
+                                    event.revert();
+                                }
+                            })
+                        }else{
+                            swal.fire(
+                                '¡Opss, Lo siento!',
+                                'No se pueden crear eventos en el pasado!',
+                                'error'
+                            );
+                            event.revert();
+                        }
                     }else{
                         swal.fire(
-                            '¡Opss, Lo siento!',
-                            'No se pueden crear eventos en el pasado!',
-                            'error'
-                        );
+                            '¡Advertencía!',
+                            'Este horario ya se encuentra ocupado!',
+                            'info'
+                        )
                         event.revert();
-                    }
+                    };
                 }else{
                     swal.fire(
                         '¡Advertencía!',
@@ -306,6 +318,14 @@
                 };
             }
 
+            /* Verify that horary is disponible*/
+            const verifyDiponibilityNewHorary = (dateNew) => {
+                let disponibilitysMedico = {!! json_encode($disponibilitysMedico) !!};
+                let findHoraryByDate = disponibilitysMedico.find(function(horary) {
+                    return horary.date_disponibility === dateNew;
+                });
+                return findHoraryByDate ? false : true;
+            };
 
             /* Edit Disponibility */
             const editDisponibility = (dateOld, dateNew) => {
