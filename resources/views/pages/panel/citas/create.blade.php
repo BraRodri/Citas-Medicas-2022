@@ -86,7 +86,7 @@
                     });
                 };
 
-                renderCalendarWithDisponibilities(events, medic.usuario);
+                renderCalendarWithDisponibilities(events, medic);
             });
 
 
@@ -126,8 +126,8 @@
                     input: 'select',
                     inputOptions: {
                         'Modalidad': {
-                            presencial: 'Presencial',
-                            virtual: 'Virtual',
+                            Presencial: 'Presencial',
+                            Virtual: 'Virtual',
                         },
                     },
                     inputPlaceholder: 'Seleccione',
@@ -152,14 +152,14 @@
                 let dateSelected = check.split(' ');
                 let hourSelected = dateSelected[1].split(':');
                 const promiseLottie = new Promise((resolve, reject) => {
-                    if(modality === "virtual"){
+                    if(modality === "Virtual"){
                         resolve(`
                             <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_f1jblfgm.json"  background="transparent"  speed="1"
                                 style="width: 400px; height: 400px; margin-top: -80px; margin-bottom: -80px; margin-left: -80px;"   loop autoplay
                             >
                             </lottie-player>
                         `);
-                    }else if(modality === "presencial"){
+                    }else if(modality === "Presencial"){
                         resolve(`<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_bjvf84zw.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; margin-top: -50px; margin-bottom: -40px;"   loop autoplay></lottie-player>`);
                     }
                 });
@@ -167,7 +167,7 @@
                 Swal.fire({
                     title: 'Confirmar cita',
                     html: `
-                        <h4>¿Estas seguro de programar tu cita para el día ${dateSelected[0]} a las ${hourSelected[0]}:${hourSelected[1]} con el doctor ${infoMedic.nombres} de forma ${modality}?</h4>
+                        <h4>¿Estas seguro de programar tu cita para el día ${dateSelected[0]} a las ${hourSelected[0]}:${hourSelected[1]} con el doctor ${infoMedic.usuario.nombres} de forma ${modality}?</h4>
                         <div class="d-flex justify-content-center">
                             ${animationModality}
                         </div>
@@ -177,10 +177,67 @@
                     confirmButtonText: 'Si, agendar cita <i class="bi bi-hand-thumbs-up-fill"></i>',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        //Regstrar la cita en BD
+                        addCita(modality, check, infoMedic);
                     };
                 });
             };
+
+            /* Add Cita in BD */
+            const addCita = (modality, check, infoMedic) => {
+                swal.fire({
+                    title: 'Cargando...',
+                    text: '¡Espera unos segundos mientras se realiza el registro!',
+                    icon: 'info',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                });
+                swal.showLoading();
+
+                const horarySelected = infoMedic.horary.find(function(horary) {
+                    return horary.date_disponibility === check;
+                });
+
+                var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
+                axios.post('/panel/citas', {
+                    horary_medicos_id: horarySelected.id,
+                    modality: modality
+                }, {
+                    headers: {'X-CSRF-TOKEN': laravelToken }
+                })
+                .then(response => {
+                    if (response.data.info === "created") {
+                        swal.fire(
+                            'Registro exitoso!',
+                            'Tu cita se guardó de forma segura!',
+                            'success'
+                        ).then(
+                            function(e) {
+                                if (e.value === true) {
+                                    window.location.replace(`/panel/citas`);
+                                } else {
+                                    window.location.replace(`/panel/citas`);
+                                }
+                            },
+                            function(dismiss) {
+                                return false;
+                            }
+                        );
+                    } else if(response.data.info === "failed") {
+                        swal.fire(
+                            '¡Opss, Ocurrió un error!',
+                            'Inténtalo más tarde!',
+                            'error'
+                        )
+                    }
+                })
+                .catch(error => {
+                    swal.fire(
+                        '¡Opss, Ocurrió un error!',
+                        'Inténtalo más tarde!',
+                        'error'
+                    )
+                })
+            }
         </script>
     </x-slot>
 </x-admin>

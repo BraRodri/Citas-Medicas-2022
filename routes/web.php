@@ -89,6 +89,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     ->group(function () {
         Route::get('/citas', 'index')->name('citas');
         Route::get('/citas/create', 'create')->name('citas.create');
+        Route::post('/citas', 'store')->name('citas.store');
     });
 
 });
