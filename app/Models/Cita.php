@@ -12,14 +12,14 @@ class Cita extends Model
     protected $table = 'cita';
 
     protected $fillable = [
-        'horary_medicos_id',
+        'horary_medico_id',
         'paciente_id',
         'modality'
     ];
 
     public function horaryMedico()
     {
-        return $this->belongsTo(HoraryMedico::class, 'horary_medicos_id');
+        return $this->belongsTo(HoraryMedico::class, 'horary_medico_id');
     }
 
     public function paciente()

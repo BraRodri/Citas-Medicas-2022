@@ -71,22 +71,25 @@
             $('select[name=medic]').change(function() {
                 var medicText = $(this).find(':selected').val();
                 let medic = JSON.parse(medicText);
-                let disponibilitysMedico = medic.horary;
-                let events = [];
-                if(disponibilitysMedico.length > 0) {
-                    disponibilitysMedico.map((item, index) => {
-                        const disponibility = {
-                            id: item.id,
-                            title: `Disponible`,
-                            start: item.date_disponibility,
-                            end: moment(item.date_disponibility).add(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'),
-                            color: "#56E226",
-                        }
-                        events.push(disponibility);
-                    });
-                };
+                axios.get(`/api/horary/${medic.id}`)
+                .then(response => {
+                    let disponibilitysMedico = response.data.horarysDisponibles;
+                    let events = [];
+                    if(disponibilitysMedico.length > 0) {
+                        disponibilitysMedico.map((item, index) => {
+                            const disponibility = {
+                                id: item.id,
+                                title: `Disponible`,
+                                start: item.date_disponibility,
+                                end: moment(item.date_disponibility).add(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'),
+                                color: "#56E226",
+                            }
+                            events.push(disponibility);
+                        });
+                    };
 
-                renderCalendarWithDisponibilities(events, medic);
+                    renderCalendarWithDisponibilities(events, medic);
+                });
             });
 
 
@@ -199,36 +202,38 @@
 
                 var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
                 axios.post('/panel/citas', {
-                    horary_medicos_id: horarySelected.id,
+                    horary_medico_id: horarySelected.id,
                     modality: modality
                 }, {
                     headers: {'X-CSRF-TOKEN': laravelToken }
                 })
                 .then(response => {
-                    if (response.data.info === "created") {
-                        swal.fire(
-                            'Registro exitoso!',
-                            'Tu cita se guardó de forma segura!',
-                            'success'
-                        ).then(
-                            function(e) {
-                                if (e.value === true) {
-                                    window.location.replace(`/panel/citas`);
-                                } else {
-                                    window.location.replace(`/panel/citas`);
+                    setTimeout(() => {
+                        if (response.data.info === "created") {
+                            swal.fire(
+                                'Registro exitoso!',
+                                'Tu cita se guardó de forma segura!',
+                                'success'
+                            ).then(
+                                function(e) {
+                                    if (e.value === true) {
+                                        window.location.replace(`/panel/citas`);
+                                    } else {
+                                        window.location.replace(`/panel/citas`);
+                                    }
+                                },
+                                function(dismiss) {
+                                    return false;
                                 }
-                            },
-                            function(dismiss) {
-                                return false;
-                            }
-                        );
-                    } else if(response.data.info === "failed") {
-                        swal.fire(
-                            '¡Opss, Ocurrió un error!',
-                            'Inténtalo más tarde!',
-                            'error'
-                        )
-                    }
+                            );
+                        } else if(response.data.info === "failed") {
+                            swal.fire(
+                                '¡Opss, Ocurrió un error!',
+                                'Inténtalo más tarde!',
+                                'error'
+                            )
+                        }
+                    }, 3000);
                 })
                 .catch(error => {
                     swal.fire(

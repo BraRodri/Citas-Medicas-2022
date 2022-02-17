@@ -25,7 +25,7 @@ class CitasController extends Controller
     {
         try {
             Cita::create([
-                'horary_medicos_id' => $request->horary_medicos_id,
+                'horary_medico_id' => $request->horary_medico_id,
                 'paciente_id' => auth()->user()->paciente->id,
                 'modality' => $request->modality,
                 'created_at' => Carbon::now()

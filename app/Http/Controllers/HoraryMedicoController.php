@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medico;
 use App\Models\HoraryMedico;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class HoraryMedicoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Medico $medico)
     {
-        //
+        $horarysDisponibles = HoraryMedico::where('medico_id', $medico->id)->has('cita', '===', 0)->get();
+        return response()->json(['horarysDisponibles' => $horarysDisponibles]);
     }
 
     /**
