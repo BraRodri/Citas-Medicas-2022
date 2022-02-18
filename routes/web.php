@@ -75,7 +75,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
         Route::get('/contacto', 'index')->name('contacto');
     });
 
-    //para el medico
+    //Medico - Programar disponibilidad
     Route::controller(MedicoController::class)
     ->group(function () {
         Route::get('/medico/programar-horario', 'index')->name('medico.programar_horario');
@@ -84,12 +84,16 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
         Route::post('/medico/programar-horario/delete', 'destroy')->name('medico.programar_horario_destroy');
     });
 
-    //modulo citas
+    // Citas
     Route::controller(CitasController::class)
     ->group(function () {
+        /* Gestión de citas - Paciente */
         Route::get('/citas', 'index')->name('citas');
         Route::get('/citas/create', 'create')->name('citas.create');
         Route::post('/citas', 'store')->name('citas.store');
+
+        /* Gestión de citas - Medico */
+        Route::get('/citas/medico', 'viewAgendMedico')->name('medico.viewAgend');
     });
 
 });

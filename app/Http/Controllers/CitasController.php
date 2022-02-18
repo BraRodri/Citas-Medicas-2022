@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Medico;
 use App\Models\Cita;
+use App\Models\HoraryMedico;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class CitasController extends Controller
@@ -44,5 +46,31 @@ class CitasController extends Controller
         } catch (\Exception $e) {
             return response()->json(['info' => 'failed']);
         }
+    }
+
+
+    /* View agend Medico */
+    public function viewAgendMedico()
+    {
+        if (auth()->user()->roles[0]->name !== "Medico") {
+            /* Ejecutar el policy */
+            $this->authorize('viewAny');
+        }
+
+        $citasByMedico = HoraryMedico::where('medico_id', auth()->user()->medico->id)->has('cita')->with('cita')->get();
+        return view('pages.panel.medico.index', compact('citasByMedico'));
+    }
+
+
+    /* Api - Details of Cita */
+    public function show($idCita)
+    {
+        $cita = Cita::with('horaryMedico')->with('paciente')->find($idCita);
+        $infoCita = [
+            'cita' => $cita,
+            'paciente' => Paciente::with('usuario')->find($cita->paciente_id),
+        ];
+
+        return response()->json($infoCita);
     }
 }

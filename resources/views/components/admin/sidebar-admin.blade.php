@@ -70,7 +70,7 @@
             </a>
             <ul id="nav-medico" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="forms-elements.html">
+                    <a href="{{ route('medico.viewAgend') }}">
                         <i class="bi bi-circle"></i><span>Ver Agenda</span>
                     </a>
                 </li>
