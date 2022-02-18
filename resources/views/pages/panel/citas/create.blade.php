@@ -71,20 +71,23 @@
             $('select[name=medic]').change(function() {
                 var medicText = $(this).find(':selected').val();
                 let medic = JSON.parse(medicText);
+                var dateCurrent = moment().format('YYYY-MM-DD HH:mm:ss');
                 axios.get(`/api/horary/${medic.id}`)
                 .then(response => {
                     let disponibilitysMedico = response.data.horarysDisponibles;
                     let events = [];
                     if(disponibilitysMedico.length > 0) {
                         disponibilitysMedico.map((item, index) => {
-                            const disponibility = {
-                                id: item.id,
-                                title: `Disponible`,
-                                start: item.date_disponibility,
-                                end: moment(item.date_disponibility).add(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'),
-                                color: "#56E226",
-                            }
-                            events.push(disponibility);
+                            if(dateCurrent < item.date_disponibility){
+                                const disponibility = {
+                                    id: item.id,
+                                    title: `Disponible`,
+                                    start: item.date_disponibility,
+                                    end: moment(item.date_disponibility).add(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'),
+                                    color: "#56E226",
+                                }
+                                events.push(disponibility);
+                            };
                         });
                     };
 

@@ -35,8 +35,11 @@ class CitasController extends Controller
             foreach($medic->horary as $horary){
                 /* Añadir unicamente los medicos que tengan disponibilidad */
                 if(!$horary->cita){
-                    array_push($medicsWithHorarysDisponibilities, $medic);
-                    break;
+                    $dateCurrent = Carbon::now();
+                    if($dateCurrent < $horary->date_disponibility){
+                        array_push($medicsWithHorarysDisponibilities, $medic);
+                        break;
+                    }
                 };
             }
         }
