@@ -12,13 +12,22 @@ use Illuminate\Support\Facades\Auth;
 
 class CitasController extends Controller
 {
-    public function index()
+    public function viewAgendPaciente()
     {
-        return view('pages.panel.citas.index');
+        if (auth()->user()->roles[0]->name === "Medico") {
+            /* Ejecutar el policy */
+            $this->authorize('viewAny');
+        }
+        $citasByPacient = Cita::where('paciente_id', auth()->user()->paciente->id)->with('horaryMedico')->get();
+        return view('pages.panel.citas.index', compact('citasByPacient'));
     }
 
     public function create()
     {
+        if (auth()->user()->roles[0]->name === "Medico") {
+            /* Ejecutar el policy */
+            $this->authorize('viewAny');
+        }
         /* Get all medics that have one or more disponibiliies */
         $medicsWithHorarys = Medico::has('horary')->with('usuario')->with('horary')->get();
         $medicsWithHorarysDisponibilities = [];
@@ -70,6 +79,7 @@ class CitasController extends Controller
         $infoCita = [
             'cita' => $cita,
             'paciente' => Paciente::with('usuario')->find($cita->paciente_id),
+            'medico' => Medico::with('usuario')->find($cita->horaryMedico->medico_id)
         ];
 
         return response()->json($infoCita);
