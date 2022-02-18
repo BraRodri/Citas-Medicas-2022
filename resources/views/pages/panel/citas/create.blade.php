@@ -94,7 +94,7 @@
 
 
             /* Show Calendar */
-            const renderCalendarWithDisponibilities = (events, infoMedic) => {
+            const renderCalendarWithDisponibilities = async (events, infoMedic) => {
                 document.getElementById('textSelectHorary').style.display = 'block';
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -109,17 +109,55 @@
                     selectable: true,
                     editable: true,
                     events: events,
-                    eventClick: function(info){
+                    eventClick: async function(info){
                         var check = moment(info.event.startStr).format('YYYY-MM-DD HH:mm:ss');
-                        viewFormCita(check, infoMedic);
+                        //Validar que el paciente no haya apartado otra cita con la misma fecha con otro doctor
+                        const citaWithOtherDoctor = await validateFechaRepeat(check);
+                        if(!citaWithOtherDoctor){
+                            viewFormCita(check, infoMedic);
+                        }else{
+                            swal.fire(
+                                'Atención',
+                                `Ya apartaste una cita con el doctor ${citaWithOtherDoctor} con este mismo horario`,
+                                'info',
+                            );
+                        }
                     },
                     eventDrop: function(event, delta, reverFunc){
-                        //posibilityOfEdit(event);
+                        swal.fire(
+                            'Atención',
+                            'No es posible realizar esta acción',
+                            'warning',
+                        );
+                        event.revert();
                     },
                 });
                 calendar.render();
             };
 
+            /* Validar que el paciente no haya apartado otra cita con la misma fecha con otro doctor */
+            const validateFechaRepeat = (dateSelected) => {
+                return new Promise((resolve, reject) => {
+                    var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
+                    axios.post('/api/cita/validateCitaWithOtherDoctor', {
+                        dateSelected: dateSelected,
+                        auth: {!! json_encode(Auth::user()->id) !!}
+                    }, {
+                        headers: {'X-CSRF-TOKEN': laravelToken }
+                    })
+                    .then(response => {
+                        resolve(response.data.info);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        swal.fire(
+                            '¡Opss, Ocurrió un error!',
+                            'Inténtalo más tarde!',
+                            'error'
+                        )
+                    })
+                });
+            }
 
             /* Show form add Cita */
             const viewFormCita = (check, infoMedic) => {

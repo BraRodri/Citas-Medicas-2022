@@ -8,6 +8,7 @@ use App\Models\Cita;
 use App\Models\HoraryMedico;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CitasController extends Controller
 {
@@ -72,5 +73,20 @@ class CitasController extends Controller
         ];
 
         return response()->json($infoCita);
+    }
+
+    public function validateCitaWithOtherDoctor(Request $request)
+    {
+        $paciente = Paciente::where('users_id', $request->auth)->first();
+        $allCitas = Cita::where('paciente_id', $paciente->id)->get();
+        $response = false;
+        foreach ($allCitas as $cita) {
+            if($cita->horaryMedico->date_disponibility === $request->dateSelected){
+                $response = $cita->horaryMedico->medico->usuario->nombres;
+                break;
+            };
+        };
+
+        return response()->json(['info' => $response]);
     }
 }

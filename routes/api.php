@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/horary/{medico}', [HoraryMedicoController::class, 'index'])->name('horaryByMedico');
 Route::get('/cita/show/{idCita}', [CitasController::class, 'show'])->name('detailsCita');
 
+/* Validate if a paciente have cita with other medic in a horary equal */
+Route::post('/cita/validateCitaWithOtherDoctor', [CitasController::class, 'validateCitaWithOtherDoctor'])->name('validateCitaWithOtherDoctor');
