@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PasarelaNequiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,4 +97,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
         Route::get('/citas/medico', 'viewAgendMedico')->name('medico.viewAgend');
     });
 
+    /* Pagos Nequi */
+    Route::controller(PasarelaNequiController::class)
+    ->group(function () {
+        Route::get('/generateTokenNequi', 'generateTokenNequi')->name('nequi.generateTokenNequi');
+    });
 });

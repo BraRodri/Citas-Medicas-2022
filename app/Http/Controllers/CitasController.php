@@ -8,7 +8,6 @@ use App\Models\Cita;
 use App\Models\HoraryMedico;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CitasController extends Controller
 {
