@@ -100,6 +100,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     /* Pagos Nequi */
     Route::controller(PasarelaNequiController::class)
     ->group(function () {
-        Route::get('/generateTokenNequi', 'generateTokenNequi')->name('nequi.generateTokenNequi');
+        Route::post('/paymentWithNequi', 'paymentWithNequi')->name('nequi.paymentWithNequi');
+        Route::get('/getStatusPaymentNequi/{cita}/{transactionIdNequi}', 'getStatusPaymentNequi')->name('nequi.getStatusPaymentNequi');
     });
 });
