@@ -48,15 +48,25 @@ class CitasController extends Controller
     public function store(Request $request)
     {
         try {
-            Cita::create([
+            $cita = Cita::create([
                 'horary_medico_id' => $request->horary_medico_id,
                 'paciente_id' => auth()->user()->paciente->id,
                 'modality' => $request->modality,
-                'created_at' => Carbon::now()
+                'payed' => false,
+                'typePayment' => $request->typePaymentSelected,
+                'created_at' => Carbon::now('America/Bogota')
             ]);
-            return response()->json(['info' => 'created']);
+            $info = [
+                'message' => 'created',
+                'cita' => $cita
+            ];
+            return response()->json(['info' => $info]);
         } catch (\Exception $e) {
-            return response()->json(['info' => 'failed']);
+            $info = [
+                'message' => 'failed',
+                'cita' => null
+            ];
+            return response()->json(['info' => $info]);
         }
     }
 

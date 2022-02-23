@@ -221,16 +221,109 @@
                     confirmButtonText: 'Si, agendar cita <i class="bi bi-hand-thumbs-up-fill"></i>',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        addCita(modality, check, infoMedic);
+                        selectedTypePayment(modality, check, infoMedic);
+                        //addCita(modality, check, infoMedic);
                     };
                 });
             };
 
+
+            /* Select type of payment */
+            const selectedTypePayment = async (modality, check, infoMedic) => {
+                Swal.fire({
+                    title: 'Seleccione el tipo de pago',
+                    html: `
+                        <div class="row justify-content-center align-items-center">
+                            <label for="methodPay" class="col-form-label text-center">Seleccione el método de pago
+                                preferido</label>
+                        </div>
+
+                        <div class="row mb-3 justify-content-center align-items-center">
+                            <div class="col-md-10 d-flex justify-content-center">
+                                <div class="form-check form-check-inline d-flex align-items-center">
+                                    <input class="form-check-input" type="radio" name="typePaymentCita" id="nequi"
+                                        value="nequi" checked onclick="clickRadioPayment('nequi')">
+                                    <label class="form-check-label" for="nequi">
+                                        <img src="{{asset('images/nequi-logo.png')}}" class="img-fluid"
+                                            style="max-height: 105px;" />
+                                    </label>
+                                </div>
+                                ${modality === 'Presencial' ? `
+                                <div class="form-check form-check-inline d-flex align-items-center">
+                                    <input class="form-check-input" type="radio" name="typePaymentCita" id="efectivo"
+                                        value="efectivo" onclick="clickRadioPayment('efectivo')">
+                                    <label class="form-check-label" for="efectivo">
+                                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_jOH2sn.json"
+                                            background="transparent" speed="1" style="max-height: 100px; max-width: 100px; margin-top: -20px; margin-bottom: -20px;" loop autoplay>
+                                        </lottie-player> Pagar efectivo
+                                    </label>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `,
+                    showConfirmButton: true,
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Pagar ya <i class="bi bi-check-circle-fill"></i>',
+                    denyButtonText: `Pagar despues <i class="bi bi-hourglass-top"></i>`,
+                    cancelButtonText: 'Continuar <i class="bi bi-arrow-right-circle-fill"></i>',
+                    cancelButtonColor: '#F0B825'
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        // Dió clic en Pagar ya
+                        let typePaymentSelected = document.querySelector('input[name="typePaymentCita"]:checked').value;
+                        const cita = await addCita(modality, check, infoMedic, typePaymentSelected);
+                        if(typePaymentSelected === "nequi"){
+                            showFormNequi(cita.id);
+                        }
+                    }else if (result.isDenied){
+                        console.log('Dió clic en Pagar despues');
+                        // Dió clic en Pagar despues
+                        let typePaymentSelected = document.querySelector('input[name="typePaymentCita"]:checked').value;
+                        //await addCita(modality, check, infoMedic, typePaymentSelected);
+                        //Mostrar alerta de que lo de las 12 horas y que no se que
+                    }else{
+                        // Selecciono pagar en efectivo - BTN CONTINUAR
+                        let typePaymentSelected = document.querySelector('input[name="typePaymentCita"]:checked').value;
+                        /*await addCita(modality, check, infoMedic, typePaymentSelected);
+                        swal.fire(
+                            'Registro exitoso!',
+                            '¡Tu cita se guardó de forma segura, recuerda hacer el pago en efectivo!',
+                            'success'
+                        ).then(
+                            function(e) {
+                                if (e.value === true) {
+                                    window.location.replace(`/panel/citas`);
+                                } else {
+                                    window.location.replace(`/panel/citas`);
+                                }
+                            },
+                            function(dismiss) {
+                                return false;
+                            }
+                        );*/
+                    }
+                });
+            }
+
+            function clickRadioPayment(radioChecked) {
+                if (radioChecked === "efectivo"){
+                    Swal.getConfirmButton().style.display = 'none';
+                    Swal.getDenyButton().style.display = 'none';
+                    Swal.getCancelButton().style.display = 'inline-block';
+                }else{
+                    Swal.getConfirmButton().style.display = 'inline-block';
+                    Swal.getDenyButton().style.display = 'inline-block';
+                    Swal.getCancelButton().style.display = 'none';
+                }
+            }
+
             /* Add Cita in BD */
-            const addCita = (modality, check, infoMedic) => {
+            const addCita = async (modality, check, infoMedic, typePaymentSelected) => {
                 swal.fire({
                     title: 'Cargando...',
-                    text: '¡Espera unos segundos mientras se realiza el registro!',
+                    text: '¡Espera unos segundos mientras se agenda la cita!',
                     icon: 'info',
                     allowOutsideClick: false,
                     allowEscapeKey: false,
@@ -242,16 +335,63 @@
                 });
 
                 var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
-                axios.post('/panel/citas', {
-                    horary_medico_id: horarySelected.id,
-                    modality: modality
-                }, {
-                    headers: {'X-CSRF-TOKEN': laravelToken }
-                })
-                .then(response => {
-                    setTimeout(() => {
-                        if (response.data.info === "created") {
-                            swal.fire(
+                return new Promise((resolve, reject) => {
+                    axios.post('/panel/citas', {
+                        horary_medico_id: horarySelected.id,
+                        modality: modality,
+                        typePaymentSelected: typePaymentSelected
+                    }, {
+                        headers: {'X-CSRF-TOKEN': laravelToken }
+                    })
+                    .then(response => {
+                        setTimeout(() => {
+                            if (response.data.info.message === "created") {
+                                resolve(response.data.info.cita);
+                            } else if(response.data.info.message === "failed") {
+                                swal.fire(
+                                    '¡Opss, Ocurrió un error!',
+                                    'Inténtalo más tarde!',
+                                    'error'
+                                )
+                            }
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        swal.fire(
+                            '¡Opss, Ocurrió un error!',
+                            'Inténtalo más tarde!',
+                            'error'
+                        )
+                    })
+                });
+            }
+
+
+            /* Form of Nequi */
+            const showFormNequi = (idCita) => {
+                const telephonePacient = {!! json_encode(Auth::user()->telefono) !!};
+                Swal.fire({
+                    title: 'Formulario Nequi',
+                    inputLabel: 'Cuenta Nequi',
+                    input: 'tel',
+                    inputValue: telephonePacient,
+                    inputPlaceholder: 'Teléfono',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar <i class="bi bi-x-circle-fill"></i>',
+                    confirmButtonText: 'Continuar <i class="bi bi-arrow-right-circle-fill"></i>',
+                    inputValidator: (value) => {
+                        return new Promise((resolve) => {
+                            if (value) {
+                                resolve(value);
+                            } else {
+                                resolve('Escribe el número de teléfono');
+                            }
+                        })
+                    }
+                });
+            }
+
+                                        /*swal.fire(
                                 'Registro exitoso!',
                                 'Tu cita se guardó de forma segura!',
                                 'success'
@@ -266,24 +406,7 @@
                                 function(dismiss) {
                                     return false;
                                 }
-                            );
-                        } else if(response.data.info === "failed") {
-                            swal.fire(
-                                '¡Opss, Ocurrió un error!',
-                                'Inténtalo más tarde!',
-                                'error'
-                            )
-                        }
-                    }, 3000);
-                })
-                .catch(error => {
-                    swal.fire(
-                        '¡Opss, Ocurrió un error!',
-                        'Inténtalo más tarde!',
-                        'error'
-                    )
-                })
-            }
+                            );*/
         </script>
     </x-slot>
 </x-admin>

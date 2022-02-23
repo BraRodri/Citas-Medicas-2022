@@ -14,7 +14,9 @@ class Cita extends Model
     protected $fillable = [
         'horary_medico_id',
         'paciente_id',
-        'modality'
+        'modality',
+        'payed',
+        'typePayment'
     ];
 
     public function horaryMedico()

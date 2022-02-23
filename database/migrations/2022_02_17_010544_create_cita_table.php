@@ -18,6 +18,8 @@ class CreateCitaTable extends Migration
             $table->unsignedBigInteger('horary_medico_id');
             $table->unsignedBigInteger('paciente_id');
             $table->string('modality');
+            $table->boolean('payed');
+            $table->string('typePayment');
             $table->timestamps();
             $table->foreign('horary_medico_id')->references('id')->on('horary_medicos')->onDelete('cascade');
             $table->foreign('paciente_id')->references('id')->on('paciente')->onDelete('cascade');
