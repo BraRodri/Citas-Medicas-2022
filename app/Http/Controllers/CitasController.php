@@ -111,4 +111,9 @@ class CitasController extends Controller
 
         return response()->json(['info' => $response]);
     }
+
+    public function sendEmailPayAfter($cita)
+    {
+        return response()->json();
+    }
 }
