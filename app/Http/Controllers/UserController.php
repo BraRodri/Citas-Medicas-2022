@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Medico;
 use App\Models\User;
+use App\Models\Cita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -414,7 +416,7 @@ class UserController extends Controller
                                 $mensaje = 'Error! Se presento un problema al crear al medico, intenta de nuevo.';
                             }
                         }
-                        
+
                     } else {
                         $error = false;
                         $mensaje = 'Actualización Exitosa!';
@@ -433,4 +435,17 @@ class UserController extends Controller
         echo json_encode(array('error' => $error, 'mensaje' => $mensaje));
     }
 
+    public function userLoggedApi(Cita $cita)
+    {
+        try {
+            return response()->json([
+                'status' => 200,
+                'user' => $cita->paciente->usuario
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 500,
+            ]);
+        }
+    }
 }

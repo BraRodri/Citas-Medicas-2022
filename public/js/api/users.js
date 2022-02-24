@@ -1,13 +1,18 @@
 /* Get user Logued */
-/*const getUserLogued()
-axios.get(`/api/users/userLogued`)
-.then(response => {
-    return response.data;
-})
-.catch(error => {
-    swal.fire(
-        '¡Opss, Ocurrió un error!',
-        'Inténtalo más tarde!',
-        'error'
-    )
-});*/
+var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
+
+function getUserLogged (idCita){
+    const params = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            'X-CSRF-TOKEN': laravelToken,
+        },
+        method: "GET",
+    };
+    return fetch(`/api/users/userLogged/${idCita}`, params)
+    .then(response => {return response.json()})
+    .then(result => {return result})
+    .catch(error => {return error});
+}

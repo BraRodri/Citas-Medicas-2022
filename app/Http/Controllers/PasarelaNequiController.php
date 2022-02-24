@@ -27,7 +27,6 @@ class PasarelaNequiController extends Controller
 
     public function generateTokenNequi()
     {
-        //  dd($request->session()->get('status'));
         $response = Http::withBasicAuth(env('NEQUI_CLIENT_ID'), env('NEQUI_CLIENT_SECRET'))->withHeaders([
             'Content-Type' => 'application/x-www-form-urlencoded',
             'Accept' => 'application/json',

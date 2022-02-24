@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HoraryMedicoController;
 use App\Http\Controllers\CitasController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +24,7 @@ Route::get('/cita/show/{idCita}', [CitasController::class, 'show'])->name('detai
 
 /* Validate if a paciente have cita with other medic in a horary equal */
 Route::post('/cita/validateCitaWithOtherDoctor', [CitasController::class, 'validateCitaWithOtherDoctor'])->name('validateCitaWithOtherDoctor');
+
+Route::get('/users/userLogged/{cita}', [UserController::class, 'userLoggedApi'])->name('userLogged');
+
+
