@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Paciente;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use App\Providers\RouteServiceProvider;
@@ -162,6 +163,14 @@ class RegisterController extends Controller
 
                         if($result = User::create($data)->assignRole('Paciente')){
                             $id = $result->id;
+
+                            //añadir a la tabla paciente
+                            $paciente = array(
+                                'users_id' => $id,
+                                'enfermedad' => ''
+                            );
+                            Paciente::create($paciente);
+
                             $error = false;
                             $mensaje = 'Registro Exitoso!';
                         } else {

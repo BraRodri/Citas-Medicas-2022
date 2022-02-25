@@ -2,7 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta name="csrf_token" content="{{ csrf_token() }}">
-        <title>@yield('pagina')| Citas Medicas</title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>@yield('pagina')| ESSENCE MEDICANN CENTER</title>
+
+        <!-- Favicons -->
+        <link href="{{ asset('images/icon.png') }}" rel="icon">
+        <link href="{{ asset('images/icon.png') }}" rel="apple-touch-icon">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

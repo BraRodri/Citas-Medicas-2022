@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="{{ route('panel') }}" class="logo d-flex align-items-center">
-            <img src="" alt="">
+            <img src="{{ asset('images/icon.png') }}" alt="">
             <span class="d-none d-lg-block">Citas Medicas</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -79,4 +79,4 @@
         </ul>
     </nav><!-- End Icons Navigation -->
 
-  </header>
+</header>

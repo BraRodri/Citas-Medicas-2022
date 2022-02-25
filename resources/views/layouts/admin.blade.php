@@ -2,11 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta name="csrf_token" content="{{ csrf_token() }}">
-        <title>@yield('pagina')| Panel de Gestión Administrativa </title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>@yield('pagina')| Panel | ESSENCE MEDICANN CENTER</title>
 
         <!-- Favicons -->
-        <link href="" rel="icon">
-        <link href="" rel="apple-touch-icon">
+        <link href="{{ asset('images/icon.png') }}" rel="icon">
+        <link href="{{ asset('images/icon.png') }}" rel="apple-touch-icon">
 
         <x-css-admin></x-css-admin>
     </head>
