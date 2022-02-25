@@ -6,9 +6,9 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
-            <h1>Welcome to Medilab</h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <h1>BIENVENIDOS A ESSENCE MEDICANN CENTER</h1>
+            <h2>Agenda tu cita y adquire la formula que ayudará a tu salud</h2>
+            <a href="#about" class="btn-get-started scrollto">Empezar</a>
         </div>
     </section><!-- End Hero -->
 
@@ -21,13 +21,13 @@
             <div class="row">
               <div class="col-lg-4 d-flex align-items-stretch">
                 <div class="content">
-                  <h3>Why Choose Medilab?</h3>
+                  <h3>¿Porque elegir Essence Medicann Center?</h3>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
                     Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
                   </p>
                   <div class="text-center">
-                    <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                    <a href="#" class="more-btn">Leer más <i class="bx bx-chevron-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -37,21 +37,21 @@
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
                         <i class="bx bx-receipt"></i>
-                        <h4>Corporis voluptates sit</h4>
+                        <h4>Exelentes médicos</h4>
                         <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
                       </div>
                     </div>
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
                         <i class="bx bx-cube-alt"></i>
-                        <h4>Ullamco laboris ladore pan</h4>
+                        <h4>Laboratorios certificados</h4>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
                       </div>
                     </div>
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
                         <i class="bx bx-images"></i>
-                        <h4>Labore consequatur</h4>
+                        <h4>Formulas personalizadas</h4>
                         <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
                       </div>
                     </div>
@@ -73,7 +73,7 @@
               </div>
 
               <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-                <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
+                <h3>Conoce más sobre nosotros</h3>
                 <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
 
                 <div class="icon-box">
@@ -110,7 +110,7 @@
                 <div class="count-box">
                   <i class="fas fa-user-md"></i>
                   <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Doctors</p>
+                  <p>Médicos</p>
                 </div>
               </div>
 
@@ -118,7 +118,7 @@
                 <div class="count-box">
                   <i class="far fa-hospital"></i>
                   <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Departments</p>
+                  <p>Departamentos</p>
                 </div>
               </div>
 
@@ -126,7 +126,7 @@
                 <div class="count-box">
                   <i class="fas fa-flask"></i>
                   <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Research Labs</p>
+                  <p>Laboratorios de investigación</p>
                 </div>
               </div>
 
@@ -134,7 +134,7 @@
                 <div class="count-box">
                   <i class="fas fa-award"></i>
                   <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Awards</p>
+                  <p>Reconocimientos</p>
                 </div>
               </div>
 
@@ -148,7 +148,7 @@
           <div class="container">
 
             <div class="section-title">
-              <h2>Services</h2>
+              <h2>Servicios</h2>
               <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
 
@@ -156,7 +156,7 @@
               <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="icon-box">
                   <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                  <h4><a href="">Lorem Ipsum</a></h4>
+                  <h4><a href="">Citas médicas</a></h4>
                   <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                 </div>
               </div>
@@ -164,7 +164,7 @@
               <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                 <div class="icon-box">
                   <div class="icon"><i class="fas fa-pills"></i></div>
-                  <h4><a href="">Sed ut perspiciatis</a></h4>
+                  <h4><a href="">Productos certificados</a></h4>
                   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
                 </div>
               </div>
@@ -172,7 +172,7 @@
               <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div class="icon-box">
                   <div class="icon"><i class="fas fa-hospital-user"></i></div>
-                  <h4><a href="">Magni Dolores</a></h4>
+                  <h4><a href="">Formulas personalizadas</a></h4>
                   <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
                 </div>
               </div>
@@ -211,7 +211,7 @@
           <div class="container">
 
             <div class="section-title">
-              <h2>Frequently Asked Questions</h2>
+              <h2>Preguntas frecuentes</h2>
               <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
 
@@ -362,7 +362,7 @@
           <div class="container">
 
             <div class="section-title">
-              <h2>Contact</h2>
+              <h2>Contáctanos</h2>
               <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
           </div>
@@ -378,19 +378,19 @@
                 <div class="info">
                   <div class="address">
                     <i class="bi bi-geo-alt"></i>
-                    <h4>Location:</h4>
+                    <h4>Ubicación:</h4>
                     <p>A108 Adam Street, New York, NY 535022</p>
                   </div>
 
                   <div class="email">
                     <i class="bi bi-envelope"></i>
-                    <h4>Email:</h4>
+                    <h4>Correo:</h4>
                     <p>info@example.com</p>
                   </div>
 
                   <div class="phone">
                     <i class="bi bi-phone"></i>
-                    <h4>Call:</h4>
+                    <h4>Teléfono:</h4>
                     <p>+1 5589 55488 55s</p>
                   </div>
 
@@ -403,24 +403,24 @@
                 <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Escriba su monbre" required>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Escriba su correo" required>
                     </div>
                   </div>
                   <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Tema" required>
                   </div>
                   <div class="form-group mt-3">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                    <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
                   </div>
                   <div class="my-3">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
                   </div>
-                  <div class="text-center"><button type="submit">Send Message</button></div>
+                  <div class="text-center"><button type="submit">Enviar mensaje</button></div>
                 </form>
 
               </div>
