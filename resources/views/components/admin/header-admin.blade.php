@@ -24,6 +24,37 @@
                 </a>
             </li><!-- End Search Icon-->
 
+            <li class="nav-item dropdown">
+
+                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-bell"></i>
+                  <span class="badge bg-primary badge-number">1</span>
+                </a><!-- End Notification Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                    <li class="dropdown-header">
+                        Tienes 1 cita sin pagar
+                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Ver mis citas</span></a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-exclamation-circle text-warning"></i>
+                        <div class="text-center">
+                            <h4>Cita con la medico Shirly</h4>
+                            <p>La cita está para el día 2022-06-01</p>
+                            <p>Tiempo restante para pagar la cita: 11:03:02</p>
+                        </div>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                </ul><!-- End Notification Dropdown Items -->
+
+            </li><!-- End Notification Nav -->
+
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
