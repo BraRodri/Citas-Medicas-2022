@@ -24,7 +24,7 @@
 
  <script>
     $('#boton_cerrar_sesion').on('click', function() {
-        swal({
+        swal.fire({
             title: "Cerrar Sesión",
             text: "¿Estas seguro de cerrar la sesión actual?",
             icon: "warning",
