@@ -16,7 +16,8 @@ class Cita extends Model
         'paciente_id',
         'modality',
         'payed',
-        'typePayment'
+        'typePayment',
+        'hour_limit_pay'
     ];
 
     public function horaryMedico()

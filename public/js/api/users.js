@@ -1,7 +1,6 @@
 /* Get user Logued */
-var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
-
 function getUserLogged (idCita){
+    var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
     const params = {
         headers: {
             "Content-Type": "application/json",

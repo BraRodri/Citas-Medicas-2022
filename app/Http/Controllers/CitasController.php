@@ -58,6 +58,7 @@ class CitasController extends Controller
                 'modality' => $request->modality,
                 'payed' => false,
                 'typePayment' => $request->typePaymentSelected,
+                'hour_limit_pay' => Carbon::now('America/Bogota')->addHours(12),
                 'created_at' => Carbon::now('America/Bogota')
             ]);
             $info = [

@@ -16,13 +16,17 @@ if(notificationsPayPacient){
                 titleNotifications.textContent = `Tienes ${notifications.citas.length} citas sin pagar`;
                 let allNotificationsHTML = '';
                 notifications.citas.map((notification) => {
+                    var eventTimeOne =  moment(notification.hour_limit_pay).unix();
+                    var currentTimeOne = moment().unix();
+                    var diffTimeOne = eventTimeOne - currentTimeOne;
+
                     let notificationHtml = `
                         <li class="notification-item">
                             <i class="bi bi-exclamation-circle text-warning"></i>
                             <div class="text-center">
                                 <h4>Cita con ${notification.medic.genero === 'Masculino' ? 'el doctor' : 'la doctora'} ${notification.medic.nombres}</h4>
                                 <p>La cita está para el día ${moment(notification.horary_medico.date_disponibility).format('YYYY-MM-DD')}</p>
-                                <p>Tiempo restante para pagar la cita: 11:03:02</p>
+                                <p>Tiempo restante para pagar la cita: <span id="cronometroNotification_${notification.id}">${diffTimeOne}</span></p>
                             </div>
                         </li>
                         <li>
@@ -30,6 +34,16 @@ if(notificationsPayPacient){
                         </li>
                     `;
                     allNotificationsHTML += notificationHtml;
+                    var eventTime =  moment(notification.hour_limit_pay).unix();
+                    var currentTime = moment().unix();
+                    var diffTime = eventTime - currentTime;
+                    var duration = moment.duration(diffTime*1000, 'milliseconds');
+                    var interval = 1000;
+
+                    setInterval(() => {
+                        duration = moment.duration(duration - interval, 'milliseconds');
+                        document.getElementById(`cronometroNotification_${notification.id}`).textContent = `${duration.hours()}:${duration.minutes()}:${duration.seconds()}`;
+                    }, interval);
                 });
 
                 document.getElementById('allNotifications').innerHTML = allNotificationsHTML;
