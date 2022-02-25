@@ -63,9 +63,6 @@
     </section>
 
     <x-slot name="js">
-        <script src="{{ asset('js/api/users.js') }}" defer></script>
-        <script src="{{ asset('js/api/cita.js') }}" defer></script>
-        <script src="{{ asset('js/pasarelaNequi.js') }}" defer></script>
         <script src="{{ asset('js/cita/createCita.js') }}" defer></script>
     </x-slot>
 </x-admin>

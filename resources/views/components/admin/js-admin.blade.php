@@ -11,6 +11,9 @@
  <!-- Template Main JS File -->
  <script src="{{ asset('js/admin.js') }}"></script>
  <script src="{{ asset('js/api/notifications.js') }}" defer></script>
+ <script src="{{ asset('js/api/users.js') }}" defer></script>
+ <script src="{{ asset('js/api/cita.js') }}" defer></script>
+ <script src="{{ asset('js/pasarelaNequi.js') }}" defer></script>
  <script src="{{ asset('js/notifications/notifications.js') }}" defer></script>
 
  <!-- datatable -->
