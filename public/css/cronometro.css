@@ -1,0 +1,88 @@
+.cd__digits,
+.cd__unit-label,
+.cd__progress {
+	font-family: Inconsolata, monospace;
+}
+
+.cd,
+.cd__unit-group,
+.cd__digits {
+	display: flex;
+	justify-content: center;
+}
+.cd {
+	flex-wrap: wrap;
+	text-align: center;
+}
+.cd__unit-group {
+	margin-bottom: 1.5em;
+}
+.cd__unit {
+	font-size: 3.75em;
+	line-height: 1;
+	margin: 0 0.75rem;
+	width: 2ch;
+}
+.cd__digits,
+.cd__digit {
+	position: relative;
+}
+.cd__digits {
+	box-shadow:
+		0 0.1em 0.05em var(--bg1) inset,
+		0 -0.1em 0.05em var(--bg1) inset;
+	font-weight: bold;
+	height: 3.75rem;
+	margin-bottom: 0.5rem;
+	overflow: hidden;
+}
+.cd__digit {
+	width: 1ch;
+	z-index: -1;
+}
+.cd__digit--roll-in {
+	animation: rollIn 0.5s ease-in-out;
+}
+.cd__next-digit-fade {
+	animation: fade 0.5s ease-in-out;
+}
+.cd__prev-digit-fade {
+	animation: fade 0.5s ease-in-out reverse;
+}
+.cd__unit-label {
+	color: var(--fg2);
+	font-size: 0.75rem;
+	line-height: 1;
+}
+.cd__progress {
+	width: 100%;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg1: hsl(var(--hue),10%,10%);
+		--bg2: hsl(var(--hue),10%,20%);
+		--fg1: hsl(var(--hue),10%,90%);
+		--fg2: hsl(var(--hue),10%,70%);
+	}
+	a {
+		color: var(--primary3);
+	}
+	a:active {
+		color: var(--primary2);
+	}
+	a:visited {
+		color: var(--primary4);
+	}
+}
+
+/* Animations */
+@keyframes rollIn {
+	from { transform: translateY(-100%); }
+	to { transform: translateY(0); }
+}
+@keyframes fade {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
