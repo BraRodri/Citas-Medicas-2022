@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medico;
-use App\Models\User;
 use App\Models\Cita;
+use App\Models\User;
+use App\Models\Medico;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -275,6 +276,21 @@ class UserController extends Controller
                             $mensaje = 'Error! Se presento un problema al registrar al medico, intenta de nuevo.';
                         }
 
+                    } else if($tipo_usuario == 'Paciente') {
+
+                        $paciente = array(
+                            'users_id' => $id,
+                            'enfermedad' => ''
+                        );
+
+                        if(Paciente::create($paciente)){
+                            $error = false;
+                             $mensaje = 'Registro Exitoso!';
+                        } else {
+                            $error = true;
+                            $mensaje = 'Error! Se presento un problema al registrar al paciente, intenta de nuevo.';
+                        }
+
                     } else {
                         $error = false;
                         $mensaje = 'Registro Exitoso!';
@@ -304,6 +320,10 @@ class UserController extends Controller
         switch ($tipo_usuario) {
             case 'Medico':
                 Medico::where('users_id', $id)->first()->delete();
+                break;
+
+            case 'Paciente':
+                Paciente::where('users_id', $id)->first()->delete();
                 break;
         }
 

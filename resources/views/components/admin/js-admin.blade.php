@@ -18,6 +18,10 @@
 <script src="{{ asset('asset/vendor/fullcalendar/main.js') }}"></script>
 <script src="{{ asset('asset/vendor/fullcalendar/locales-all.js') }}"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js" integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw==" crossorigin="anonymous"></script>
+
  <script>
     $('#boton_cerrar_sesion').on('click', function() {
         swal({
