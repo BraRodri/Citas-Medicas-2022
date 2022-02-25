@@ -26,5 +26,5 @@ Route::get('/cita/show/{idCita}', [CitasController::class, 'show'])->name('detai
 Route::post('/cita/validateCitaWithOtherDoctor', [CitasController::class, 'validateCitaWithOtherDoctor'])->name('validateCitaWithOtherDoctor');
 
 Route::get('/users/userLogged/{cita}', [UserController::class, 'userLoggedApi'])->name('userLogged');
-
+Route::get('/sendEmailPayAfter/{cita}', [CitasController::class, 'sendEmailPayAfter']);
 

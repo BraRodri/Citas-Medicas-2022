@@ -23,3 +23,5 @@
 
 <!-- Template Main CSS File -->
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+<link href="{{ asset('css/cronometro.css') }}" rel="stylesheet">
+

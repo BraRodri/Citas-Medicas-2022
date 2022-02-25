@@ -9,6 +9,10 @@ use App\Models\HoraryMedico;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class CitasController extends Controller
 {
     public function viewAgendPaciente()
@@ -112,8 +116,52 @@ class CitasController extends Controller
         return response()->json(['info' => $response]);
     }
 
-    public function sendEmailPayAfter($cita)
+    public function sendEmailPayAfter(Cita $cita, Request $request)
     {
-        return response()->json();
+        //Code to send email
+        require base_path('vendor/autoload.php');
+        //Load Composer's autoloader
+        $mail = new PHPMailer(true);
+        try {
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = env('MAIL_ENCRYPTION');
+            $mail->Host = env('MAIL_HOST');
+            $mail->Port = 465;
+            $mail->IsHTML(true);
+            $mail->Username = env('MAIL_USERNAME');
+            $mail->Password = env('MAIL_PASSWORD');
+            $mail->setFrom(env('MAIL_FROM_ADDRESS'), 'Cita Medica', false);
+            $mail->Subject = "Recordatorio de pago de cita";
+
+            $mail->AddEmbeddedImage("images/img-pay-after.jpg", "img-pay-after"); //Controller
+
+            $namePacient = $cita->paciente->usuario->nombres;
+            if($cita->horaryMedico->medico->usuario->genero === "Femenino"){
+                $nameMedic = 'la medico ' . $cita->horaryMedico->medico->usuario->nombres;
+            }else{
+                $nameMedic = 'el medico ' . $cita->horaryMedico->medico->usuario->nombres;
+            }
+            $urlServer =$request->root();
+            $telephoneMedic = $cita->horaryMedico->medico->usuario->telefono;
+            $mail->Body = view('pages.panel.citas.email', compact('namePacient', 'nameMedic', 'urlServer', 'telephoneMedic'))->render();
+            $mail->addAddress($cita->paciente->usuario->email, $cita->paciente->usuario->nombres);
+            if ($mail->Send()) {
+                return response()->json([
+                    'status' => 200,
+                    'emailPaciente' => $cita->paciente->usuario->email
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 503,
+                    'emailPaciente' => $cita->paciente->usuario->email
+                ]);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 500
+            ]);
+        }
     }
 }

@@ -3,6 +3,11 @@
     <!-- title -->
     @section('pagina')Agendar Cita @endsection
 
+
+    <x-slot name="css">
+    </x-slot>
+
+
     <div class="pagetitle">
         <h1>Agendar Cita</h1>
         <nav>

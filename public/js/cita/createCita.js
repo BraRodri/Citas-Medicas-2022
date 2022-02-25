@@ -249,3 +249,157 @@ function clickRadioPayment(radioChecked) {
         Swal.getCancelButton().style.display = 'none';
     }
 }
+
+/* When pay after the cite */
+const payAfter = async (citaId) => {
+    const emailSend = await sendEmailPayAfter(citaId);
+
+    //Mostrar alerta de posible cambio a disponible si no se paga
+    if(emailSend.status === 200){
+        swal.fire({
+            title: '¡Aviso importante!',
+            html: `
+                <h4>Email enviado con exito a ${emailSend.emailPaciente}, tienes 12 horas para realizar el pago de tu cita, de lo contrario el estado de la fecha y hora agendada cambiarán a disponible.</h4>
+                <div class="d-flex justify-content-center">
+                    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_i0mxtka6.json"  background="transparent"  speed="1"
+                        style="width: 350px; height: 350px; margin-top: -80px; margin-bottom: -80px;" loop autoplay
+                    >
+                    </lottie-player>
+                </div>
+                ${showCronometro()}
+            `,
+            confirmButtonText: 'Entendido <i class="bi bi-hand-thumbs-up-fill"></i>',
+        }).then(
+            function(e) {
+                if (e.value === true) {
+                    window.location.replace(`/panel/citas`);
+                } else {
+                    window.location.replace(`/panel/citas`);
+                }
+            },
+            function(dismiss) {
+                return false;
+            }
+        );
+
+        /* Cronometro */
+        var eventTime =  moment().add(12, 'hours').unix();
+        var currentTime = moment().unix();
+        var diffTime = eventTime - currentTime;
+        var duration = moment.duration(diffTime*1000, 'milliseconds');
+        var interval = 1000;
+
+        setInterval(() => {
+            duration = moment.duration(duration - interval, 'milliseconds');
+            if(duration.hours() > 9){
+                var hour = duration.hours();
+                var hourText = hour.toString();
+                var hourArray = hourText.split("");
+                document.getElementById('hourFirst').textContent = hourArray[0];
+                document.getElementById('hourSecond').textContent = hourArray[1];
+            }else{
+                document.getElementById('hourFirst').textContent = 0;
+                document.getElementById('hourSecond').textContent = duration.hours();
+            }
+
+            if(duration.hours() > 9){
+                var hour = duration.minutes();
+                var hourText = hour.toString();
+                var hourArray = hourText.split("");
+                document.getElementById('minuteFirst').textContent = hourArray[0];
+                document.getElementById('minuteSecond').textContent = hourArray[1];
+            }else{
+                document.getElementById('minuteFirst').textContent = 0;
+                document.getElementById('minuteSecond').textContent = duration.minutes();
+            }
+
+            if(duration.hours() > 9){
+                var hour = duration.seconds();
+                var hourText = hour.toString();
+                var hourArray = hourText.split("");
+                document.getElementById('secondFirst').textContent = hourArray[0];
+                document.getElementById('secondSecond').textContent = hourArray[1];
+            }else{
+                document.getElementById('secondFirst').textContent = 0;
+                document.getElementById('secondSecond').textContent = duration.seconds();
+            }
+        }, interval);
+    }else if(emailSend.status === 503){
+        swal.fire(
+            '¡Opss, Ocurrió una novedad!',
+            `No se pudo enviar el email al correo ${emailSend.emailPaciente}`,
+            'warning'
+        ).then(
+            function(e) {
+                if (e.value === true) {
+                    window.location.replace(`/panel/citas`);
+                } else {
+                    window.location.replace(`/panel/citas`);
+                }
+            },
+            function(dismiss) {
+                return false;
+            }
+        );
+    }else if(emailSend.status === 500){
+        swal.fire(
+            '¡Opss, Ocurrió un error!',
+            `Error en el servidor, inténtalo más tarde`,
+            'error'
+        ).then(
+            function(e) {
+                if (e.value === true) {
+                    window.location.replace(`/panel/citas`);
+                } else {
+                    window.location.replace(`/panel/citas`);
+                }
+            },
+            function(dismiss) {
+                return false;
+            }
+        );
+    }
+}
+
+const showCronometro = () => {
+    return `
+        <div class="cd__unit-group">
+            <div class="cd__unit">
+                <div class="cd__digits">
+                    <div class="cd__digit" data-col>
+                        <div data-pos="next" id="hourFirst" >1</div>
+                    </div>
+                    <div class="cd__digit" data-col>
+                        <div data-pos="next" id="hourSecond">2</div>
+                    </div>
+                </div>
+                <div class="cd__unit-label">Hora(s)</div>
+            </div>
+            <div class="cd__unit">
+                <div class="cd__digits">
+                    <div class="cd__digit" data-col>
+                        <div data-pos="next" id="minuteFirst">0</div>
+                    </div>
+                    <div class="cd__digit" data-col>
+                        <div data-pos="next" id="minuteSecond">0</div>
+                    </div>
+                </div>
+                <div class="cd__unit-label">Minuto(s)</div>
+            </div>
+            <div class="cd__unit">
+                <div class="cd__digits">
+                    <div class="cd__digit" data-col>
+                        <div data-pos="next" id="secondFirst">0</div>
+                    </div>
+                    <div class="cd__digit" data-col>
+                        <div data-pos="next" id="secondSecond">0</div>
+                    </div>
+                </div>
+                <div class="cd__unit-label">Segundo(s)</div>
+            </div>
+        </div>
+    `;
+}
+
+
+

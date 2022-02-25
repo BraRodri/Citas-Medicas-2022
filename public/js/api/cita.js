@@ -1,6 +1,5 @@
 var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
 
-
 /* Add Cita in BD */
 const addCita = async (modality, check, infoMedic, typePaymentSelected) => {
     swal.fire({
@@ -46,13 +45,6 @@ const addCita = async (modality, check, infoMedic, typePaymentSelected) => {
             )
         })
     });
-}
-
-const payAfter = async (citaId) => {
-    const emailSend = await sendEmailPayAfter(citaId);
-    console.log(emailSend);
-
-    //Mostrar alerta de que lo de las 12 horas y que no se que
 }
 
 /* Send email when pay after */
