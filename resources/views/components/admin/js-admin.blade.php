@@ -10,6 +10,8 @@
 
  <!-- Template Main JS File -->
  <script src="{{ asset('js/admin.js') }}"></script>
+ <script src="{{ asset('js/api/notifications.js') }}" defer></script>
+ <script src="{{ asset('js/notifications/notifications.js') }}" defer></script>
 
  <!-- datatable -->
  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.js"></script>
