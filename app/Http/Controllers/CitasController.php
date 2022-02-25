@@ -58,6 +58,7 @@ class CitasController extends Controller
                 'modality' => $request->modality,
                 'payed' => false,
                 'typePayment' => $request->typePaymentSelected,
+                'hour_limit_pay' => Carbon::now('America/Bogota')->addHours(12),
                 'created_at' => Carbon::now('America/Bogota')
             ]);
             $info = [
@@ -159,6 +160,26 @@ class CitasController extends Controller
                 ]);
             }
         } catch (Exception $e) {
+            return response()->json([
+                'status' => 500
+            ]);
+        }
+    }
+
+    public function notificationsPayAfter($paciente)
+    {
+        try {
+            $citas = Cita::where('paciente_id', $paciente)->where('payed', 0)->where('typePayment', '<>', 'efectivo')->with('horaryMedico')->get();
+            if(count($citas) > 0){
+                foreach ($citas as $cita) {
+                    $cita->medic = $cita->horaryMedico->medico->usuario;
+                }
+            }
+            return response()->json([
+                'status' => 200,
+                'citas' => $citas
+            ]);
+        } catch (\Exception $e) {
             return response()->json([
                 'status' => 500
             ]);

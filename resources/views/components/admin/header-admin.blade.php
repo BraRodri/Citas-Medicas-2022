@@ -24,6 +24,30 @@
                 </a>
             </li><!-- End Search Icon-->
 
+            {{-- Notifications Pay --}}
+            @hasrole('Paciente')
+                <input type="hidden" id="pacientLogued" value="{{ Auth::user()->paciente->id }}">
+                <li class="nav-item dropdown" id="notificationsPayPacient">
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge bg-primary badge-number" id="numberNotifications"></span>
+                    </a><!-- End Notification Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                        <li class="dropdown-header">
+                            <span id="titleNotifications"></span>
+                            <a href="{{route('citas')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">Ver mis citas</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <span id="allNotifications"></span>
+                    </ul><!-- End Notification Dropdown Items -->
+
+                </li><!-- End Notification Nav -->
+            @endhasrole
+
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">

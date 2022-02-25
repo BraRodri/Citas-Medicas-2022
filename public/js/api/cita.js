@@ -1,5 +1,3 @@
-var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
-
 /* Add Cita in BD */
 const addCita = async (modality, check, infoMedic, typePaymentSelected) => {
     swal.fire({
@@ -49,6 +47,7 @@ const addCita = async (modality, check, infoMedic, typePaymentSelected) => {
 
 /* Send email when pay after */
 const sendEmailPayAfter = (citaId) => {
+    var laravelToken = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
     const url = `/api/sendEmailPayAfter/${citaId}`;
     const params = {
         headers: {

@@ -1,4 +1,4 @@
-/* Select medic */
+// * Select medic
 $('select[name=medic]').change(function() {
     var medicText = $(this).find(':selected').val();
     let medic = JSON.parse(medicText);
@@ -154,7 +154,6 @@ const confirmCita = async (modality, check, infoMedic) => {
     }).then((result) => {
         if (result.isConfirmed) {
             selectedTypePayment(modality, check, infoMedic);
-            //addCita(modality, check, infoMedic);
         };
     });
 };
@@ -215,14 +214,21 @@ const selectedTypePayment = async (modality, check, infoMedic) => {
             const cita = await addCita(modality, check, infoMedic, typePaymentSelected);
             await payAfter(cita.id);
         }else{
-            // Selecciono pagar en efectivo - BTN CONTINUAR
+            // ? Selecciono pagar en efectivo - BTN CONTINUAR
             let typePaymentSelected = document.querySelector('input[name="typePaymentCita"]:checked').value;
-            /*await addCita(modality, check, infoMedic, typePaymentSelected);
-            swal.fire(
-                'Registro exitoso!',
-                '¡Tu cita se guardó de forma segura, recuerda hacer el pago en efectivo!',
-                'success'
-            ).then(
+            await addCita(modality, check, infoMedic, typePaymentSelected);
+            swal.fire({
+                title: '¡Cita agendada!',
+                html: `
+                    <h4>Tu cita se guardó de forma segura, recuerda hacer el pago en efectivo.</h4>
+                    <div class="d-flex justify-content-center">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_djwnoxew.json"  background="transparent"  speed="1"
+                            style="width: 350px; height: 350px; margin-top: -80px; margin-bottom: -80px;" loop autoplay
+                        >
+                        </lottie-player>
+                    </div>
+                `,
+            }).then(
                 function(e) {
                     if (e.value === true) {
                         window.location.replace(`/panel/citas`);
@@ -233,7 +239,7 @@ const selectedTypePayment = async (modality, check, infoMedic) => {
                 function(dismiss) {
                     return false;
                 }
-            );*/
+            );
         }
     });
 }

@@ -10,6 +10,11 @@
 
  <!-- Template Main JS File -->
  <script src="{{ asset('js/admin.js') }}"></script>
+ <script src="{{ asset('js/api/notifications.js') }}" defer></script>
+ <script src="{{ asset('js/api/users.js') }}" defer></script>
+ <script src="{{ asset('js/api/cita.js') }}" defer></script>
+ <script src="{{ asset('js/pasarelaNequi.js') }}" defer></script>
+ <script src="{{ asset('js/notifications/notifications.js') }}" defer></script>
 
  <!-- datatable -->
  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.js"></script>
@@ -24,7 +29,7 @@
 
  <script>
     $('#boton_cerrar_sesion').on('click', function() {
-        swal({
+        swal.fire({
             title: "Cerrar Sesión",
             text: "¿Estas seguro de cerrar la sesión actual?",
             icon: "warning",
