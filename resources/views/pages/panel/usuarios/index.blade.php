@@ -110,16 +110,17 @@
             });
 
             function eliminarUsuario(id){
-                swal({
-                    title: "Eliminar Usuario",
+
+                Swal.fire({
+                    title: 'Eliminar Usuario',
                     text: "¿Estas seguro de eliminar al usuario?",
-                    icon: "warning",
-                    buttons: ["Cancelar", "Si, eliminar"],
-                    dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                    if (willDelete) {
-                        
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
                         var url = route('usuarios.eliminar', id);
 
                         $.ajax({
@@ -131,18 +132,23 @@
                             url: url,
                             dataType:'json',
                             beforeSend:function(){
-                                swal("Elimnando usuario, espere...", {
-                                    button: false,
-                                    timer: 3000
+                                Swal.fire({
+                                    text: 'Eliminando usuario, espere...',
+                                    timer: 4000,
+                                    timerProgressBar: true,
+                                    didOpen: () => {
+                                        Swal.showLoading()
+                                    },
                                 });
                                 tabla_usuarios.ajax.reload();
                             }
                         }).done(function(respuesta){
                             //console.log(respuesta);
                             if (!respuesta.error) {
-                                swal("Usualio Eliminado!", {
-                                    icon: "success",
-                                    button: true,
+                                Swal.fire({
+                                    title: 'Usualio Eliminado!',
+                                    icon: 'success',
+                                    showConfirmButton: true,
                                     timer: 2000
                                 });
 
@@ -150,10 +156,11 @@
 
                             } else {
                                 setTimeout(function(){
-                                    swal(respuesta.mensaje, {
-                                        icon: "error",
-                                        button: false,
-                                        timer: 5000
+                                    Swal.fire({
+                                        title: espuesta.mensaje,
+                                        icon: 'error',
+                                        showConfirmButton: true,
+                                        timer: 4000
                                     });
                                 },2000);
                             }
@@ -162,7 +169,8 @@
                         });
 
                     }
-                });
+                })
+
             }
 
         </script>

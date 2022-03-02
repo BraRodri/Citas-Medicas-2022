@@ -29,15 +29,17 @@
 
  <script>
     $('#boton_cerrar_sesion').on('click', function() {
-        swal.fire({
+        Swal.fire({
             title: "Cerrar Sesión",
             text: "¿Estas seguro de cerrar la sesión actual?",
             icon: "warning",
-            buttons: ["Cancelar", "Si, salir"],
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Si, salir',
+            cancelButtonText: `Cancelar`,
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
                 $('#form_cerrar_sesion').submit();
             }
         });

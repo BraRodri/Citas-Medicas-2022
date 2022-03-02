@@ -6,7 +6,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
-            <h1>BIENVENIDOS A ESSENCE MEDICANN CENTER</h1>
+            <h1>BIENVENIDOS</h1>
             <h2>Agenda tu cita y adquire la formula que ayudará a tu salud</h2>
             <a href="#about" class="btn-get-started scrollto">Empezar</a>
         </div>

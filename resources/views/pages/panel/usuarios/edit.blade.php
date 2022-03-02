@@ -272,17 +272,22 @@
                         contentType: false,
                         dataType:'json',
                         beforeSend:function(){
-                            swal("Validando datos, espere porfavor...", {
-                                button: false,
-                                timer: 3000
+                            Swal.fire({
+                                text: 'Validando datos, espere porfavor...',
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                },
                             });
                         }
                     }).done(function(respuesta){
                         //console.log(respuesta);
                         if (!respuesta.error) {
-                            swal("Actualización exitosa!", {
-                                icon: "success",
-                                button: true,
+                            Swal.fire({
+                                title: 'Actualización exitosa!',
+                                icon: 'success',
+                                showConfirmButton: true,
                                 timer: 2000
                             });
 
@@ -292,10 +297,11 @@
 
                         } else {
                             setTimeout(function(){
-                                swal(respuesta.mensaje, {
-                                    icon: "error",
-                                    button: false,
-                                    timer: 5000
+                                Swal.fire({
+                                    title: espuesta.mensaje,
+                                    icon: 'error',
+                                    showConfirmButton: true,
+                                    timer: 4000
                                 });
                             },2000);
                         }
