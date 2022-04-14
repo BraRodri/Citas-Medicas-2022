@@ -24,4 +24,4 @@
 <!-- Template Main CSS File -->
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/cronometro.css') }}" rel="stylesheet">
-
+<link href="{{ asset('css/breadcrumbMedicalHistory.css') }}" rel="stylesheet">

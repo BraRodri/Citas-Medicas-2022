@@ -103,4 +103,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
         Route::post('/paymentWithNequi', 'paymentWithNequi')->name('nequi.paymentWithNequi');
         Route::get('/getStatusPaymentNequi/{cita}/{transactionIdNequi}', 'getStatusPaymentNequi')->name('nequi.getStatusPaymentNequi');
     });
+
+    /* History Medical */
+    Route::get('/historyMedical', function(){
+        return view('pages.panel.historyMedical.create');
+    });
 });

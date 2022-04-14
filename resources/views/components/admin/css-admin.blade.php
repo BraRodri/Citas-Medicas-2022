@@ -25,3 +25,4 @@
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 <link href="{{ asset('css/cronometro.css') }}" rel="stylesheet">
 
+<link href="{{ asset('css/breadcrumbMedicalHistory.css') }}" rel="stylesheet">
