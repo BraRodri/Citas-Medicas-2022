@@ -205,6 +205,112 @@
                 newDiv.innerHTML = fieldHTML;
                 wrapper.appendChild(newDiv);
             };
+
+            var addButtonreubications = document.getElementById('add_reubications');
+            addButtonreubications.onclick = function() { //Once add button is clicked
+                var wrapper = document.getElementById('reubications'); //Input field wrapper
+                var newDiv  = document.createElement('div');
+                var fieldHTML = `
+                    <br>
+                    <div class="card">
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="areaReubicado" class="col-md-6 col-form-label text-md-end">Área Reubicado:</label>
+                                    <div class="col-md-6">
+                                        <input id="areaReubicado[]" type="text" class="form-control"
+                                        name="areaReubicado[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="diagnosticoReubicaciones[]" class="col-md-6 col-form-label text-md-end">Diagnóstico:</label>
+                                    <div class="col-md-6">
+                                        <input id="diagnosticoReubicaciones[]" type="text" class="form-control"
+                                        name="diagnosticoReubicaciones[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="fechaReubicado" class="col-md-6 col-form-label text-md-end">Fecha:</label>
+                                    <div class="col-md-6">
+                                        <input id="fechaReubicado[]" type="date" class="form-control"
+                                        name="fechaReubicado[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="tiempoReubicado[]" class="col-md-6 col-form-label text-md-end">Tiempo reubicado:</label>
+                                    <div class="col-md-6">
+                                        <input id="tiempoReubicado[]" type="text" class="form-control"
+                                        name="tiempoReubicado[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                newDiv.innerHTML = fieldHTML;
+                wrapper.appendChild(newDiv);
+            };
+
+            var addButtonRestriccionesORecomendaciones = document.getElementById('add_RestriccionesORecomendaciones');
+            addButtonRestriccionesORecomendaciones.onclick = function() { //Once add button is clicked
+                var wrapper = document.getElementById('RestriccionesORecomendaciones'); //Input field wrapper
+                var newDiv  = document.createElement('div');
+                var fieldHTML = `
+                    <br>
+                    <div class="card">
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="tipoRestriccion" class="col-md-6 col-form-label text-md-end">Tipo de Restricción:</label>
+                                    <div class="col-md-6">
+                                        <input id="tipoRestriccion[]" type="text" class="form-control"
+                                        name="tipoRestriccion[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="diagnosticoRestriccion[]" class="col-md-6 col-form-label text-md-end">Diagnóstico:</label>
+                                    <div class="col-md-6">
+                                        <input id="diagnosticoRestriccion[]" type="text" class="form-control"
+                                        name="diagnosticoRestriccion[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="tiempoRestriccion" class="col-md-6 col-form-label text-md-end">Por cuanto tiempo:</label>
+                                    <div class="col-md-6">
+                                        <input id="tiempoRestriccion[]" type="text" class="form-control"
+                                        name="tiempoRestriccion[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label for="entidadQueOrdeno[]" class="col-md-6 col-form-label text-md-end">Entidad que ordenó:</label>
+                                    <div class="col-md-6">
+                                        <input id="entidadQueOrdeno[]" type="text" class="form-control"
+                                        name="entidadQueOrdeno[]" placeholder="Escribe aquí" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                newDiv.innerHTML = fieldHTML;
+                wrapper.appendChild(newDiv);
+            };
         });
         </script>
     </x-slot>

@@ -763,8 +763,8 @@
             <div class="container" style="margin-top: -5px;">
                 <div>
                     <label class="switch">
-                        <input type="checkbox" id="cardiacsF"
-                            name="cardiacsF" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+                        <input type="checkbox" id="checkantGineCoobstetricos"
+                            name="checkantGineCoobstetricos" data-bs-toggle="collapse" href="#collapseAntGineCoobstetricos" role="button" aria-expanded="true" aria-controls="collapseAntGineCoobstetricos">
                         <span class="slider"></span>
                         <p class="off"><b>Niega</b></p>
                         <p class="on"><b>Sí</b></p>
@@ -774,7 +774,7 @@
         </div>
     </div>
 
-    <div class="collapse" id="collapseExample">
+    <div class="collapse" id="collapseAntGineCoobstetricos">
         <div class="card card-body">
             <div id="antGinecoobstetricos">
                 <div class="card">
