@@ -752,3 +752,80 @@
         </div>
     </div>
 </div>
+<div class="row mt-3">
+    <label><b>Observaciones</b></label>
+    <textarea name="observationsAntPer" id="observationsAntPer" rows="4" class="form-control"></textarea>
+</div>
+<div class="row mt-2">
+    <div class="d-flex">
+        <p style="margin-right: 30px;"><b>ANTECEDENTES GINECOOBSTÉTRICOS </b></p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="cardiacsF"
+                            name="cardiacsF" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <div id="antGinecoobstetricos">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Menarca: </label>
+                                <input type="text" class="form-control" placeholder="Escribe aquí" name="menarca[]"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>FUM: </label>
+                                <input type="text" class="form-control" placeholder="Escribe aquí" name="fum[]"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Gestaciones: </label>
+                                <input type="text" class="form-control" placeholder="Escribe aquí" name="gestaciones[]"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label for="planificacion" class="col-md-6 col-form-label text-md-end">Planificación</label>
+                                <div class="col-md-6">
+                                    <input id="planificacion[]" type="text" class="form-control"
+                                    name="planificacion[]" placeholder="Escribe aquí" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label for="citologia[]" class="col-md-6 col-form-label text-md-end">Citología</label>
+                                <div class="col-md-6">
+                                    <input id="citologia[]" type="text" class="form-control"
+                                    name="citologia[]" placeholder="Escribe aquí" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <a class="btn btn-success add_button form-control" id="add_antGinecoobstetricos">Nuevo Antecedente</a>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>

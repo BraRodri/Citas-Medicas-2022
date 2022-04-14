@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AntPatologicos;
+use App\Models\AntPatologicosPer;
 use Illuminate\Http\Request;
 
-class AntPatologicosController extends Controller
+class AntPatologicosPerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,7 +44,7 @@ class AntPatologicosController extends Controller
      * @param  \App\Models\AntPatologicos  $antPatologicos
      * @return \Illuminate\Http\Response
      */
-    public function show(AntPatologicos $antPatologicos)
+    public function show(AntPatologicosPer $antPatologicosPer)
     {
         //
     }
@@ -55,7 +55,7 @@ class AntPatologicosController extends Controller
      * @param  \App\Models\AntPatologicos  $antPatologicos
      * @return \Illuminate\Http\Response
      */
-    public function edit(AntPatologicos $antPatologicos)
+    public function edit(AntPatologicosPer $antPatologicosPer)
     {
         //
     }
@@ -67,7 +67,7 @@ class AntPatologicosController extends Controller
      * @param  \App\Models\AntPatologicos  $antPatologicos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AntPatologicos $antPatologicos)
+    public function update(Request $request, AntPatologicosPer $antPatologicosPer)
     {
         //
     }
@@ -78,7 +78,7 @@ class AntPatologicosController extends Controller
      * @param  \App\Models\AntPatologicos  $antPatologicos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AntPatologicos $antPatologicos)
+    public function destroy(AntPatologicosPer $antPatologicosPer)
     {
         //
     }
