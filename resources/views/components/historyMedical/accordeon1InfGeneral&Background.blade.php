@@ -12,7 +12,7 @@
                           </h2>
                           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                @include('components.historyMedical.forms.formInfGeneral')
+                                @include('components.historyMedical.forms.section1.form1InfGeneral')
                             </div>
                           </div>
                         </div>
@@ -24,7 +24,7 @@
                           </h2>
                           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                @include('components.historyMedical.forms.formAntPatologicosPer')
+                                @include('components.historyMedical.forms.section1.form2AntPatologicosPer')
                             </div>
                           </div>
                         </div>
@@ -36,7 +36,7 @@
                           </h2>
                           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                @include('components.historyMedical.forms.formAntLaboralesEmpresa')
+                                @include('components.historyMedical.forms.section1.form3AntLaboralesEmpresa')
                             </div>
                           </div>
                         </div>
@@ -48,12 +48,18 @@
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                               <div class="accordion-body">
-                                  @include('components.historyMedical.forms.formAntPatologicosOcupacionales')
+                                  @include('components.historyMedical.forms.section1.form4AntPatologicosOcupacionales')
                               </div>
                             </div>
                           </div>
                       </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-12 text-center d-flex justify-content-center">
+                <a class="btn btn-success btn-block m-2" onclick="showNextSection(2)">Siguiente</a>
             </div>
         </div>
     </div>
