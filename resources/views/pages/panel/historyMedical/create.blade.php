@@ -52,6 +52,10 @@
         @include('components.historyMedical.accordeon3ExamenFisico')
     </div>
 
+    <div id="divOfSection4" style="display: none;">
+        @include('components.historyMedical.accordeon4Evaluaciones')
+    </div>
+
     <x-slot name="js">
         <script src="{{ asset('js/medicalHistory/indexMedicalHistory.js') }}" type="module" defer></script>
         <script src="{{ asset('js/medicalHistory/funtionsGeneral.js') }}" defer></script>
