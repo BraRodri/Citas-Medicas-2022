@@ -12,7 +12,7 @@
                           </h2>
                           <div id="collapseOneSection6" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionSection6">
                             <div class="accordion-body">
-                                @include('components.historyMedical.forms.section2.form5HabitosYEstilosDeVida')
+                                @include('components.historyMedical.forms.section6.form16RESTRICCIONESORECOMENDACIONES')
                             </div>
                           </div>
                         </div>
@@ -24,7 +24,7 @@
                           </h2>
                           <div id="collapseTwoSection6" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSection6">
                             <div class="accordion-body">
-                                @include('components.historyMedical.forms.section2.form6Inmunizaciones')
+                                @include('components.historyMedical.forms.section6.form17CONDUCTASYRECOMENDACIONESOCUPACIONALESPREVENTIVAS')
                             </div>
                           </div>
                         </div>
@@ -36,7 +36,7 @@
                           </h2>
                           <div id="collapseThreeSection6" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionSection6">
                             <div class="accordion-body">
-                                @include('components.historyMedical.forms.section2.form7REVISIONPORSISTEMASYENFERMEDADACTUAL')
+                                @include('components.historyMedical.forms.section6.form18Observaciones')
                             </div>
                           </div>
                         </div>
@@ -45,7 +45,10 @@
             </div>
         </div>
 
-        <h1>FIRMAAAAA</h1>
+        <div style="margin-right: 30px; margin-left: 30px;">
+            <h3>FIRMAS</h3>
+            @include('components.historyMedical.forms.section6.form19FirmasUltimoForm')
+        </div>
 
         <div class="row justify-content-center mb-3">
             <div class="col-md-12 text-center d-flex justify-content-center">
