@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class InfGeneral extends Model
 {
     use HasFactory;
+
+    protected $table = 'inf_general';
+
+    protected $fillable = [
+        'historia_medica_id',
+        'nameCompany',
+        'placeBirth',
+        'statusCivil',
+        'sons',
+        'profession',
+        'ocupation',
+        'dateAdmission',
+        'seniorityCompany',
+        'dateExam',
+        'eps',
+        'afp',
+        'rh',
+        'scholarship',
+        'areaWork',
+        'stratum'
+    ];
 }
