@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AntPatologicosOcupacionales extends Model
+class RestriccionesORecomendacionesDeAnt extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'historia_medica_id',
-        'tipoAfeccion',
-        'parteCuerpoAfectada',
-        'tiempoDeOcurrencia',
-        'secuelas',
+        'tipoRestriccion',
+        'diagnosticoRestriccion',
+        'tiempoRestriccion',
+        'entidadQueOrdeno'
     ];
 }
