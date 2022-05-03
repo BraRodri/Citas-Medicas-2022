@@ -15,7 +15,14 @@ class CreateAntLaboralesTable extends Migration
     {
         Schema::create('ant_laborales', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+            $table->string('area');
+            $table->string('oficio');
+            $table->string('tiempoPermanencia');
+            $table->string('fDeR');
+            $table->string('elementosProPersonal');
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 

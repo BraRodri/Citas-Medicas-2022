@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class AntLaborales extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'historia_medica_id',
+        'area',
+        'oficio',
+        'tiempoPermanencia',
+        'fDeR',
+        'elementosProPersonal',
+    ];
 }
