@@ -59,5 +59,7 @@ class AntPatologicosPersonales extends Model
         'hipoacusiaF',
         'intoxicacionesP',
         'intoxicacionesF',
+
+        'observationsAntPer'
     ];
 }
