@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class AntGinecoobstetricos extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'historia_medica_id',
+        'checkantGineCoobstetricos',
+        'menarca',
+        'fum',
+        'gestaciones',
+        'planificacion'
+    ];
+
 }
