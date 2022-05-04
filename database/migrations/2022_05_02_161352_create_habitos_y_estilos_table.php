@@ -15,7 +15,13 @@ class CreateHabitosYEstilosTable extends Migration
     {
         Schema::create('habitos_y_estilos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+            $table->boolean('checkHabitoTabaquismo')->default(0);
+            $table->string('tipoHabitoTabaquismo')->nullable();
+            $table->string('frecuenciaHabitoTabaquismo')->nullable();
+            $table->string('antiguedadHabitoTabaquismo')->nullable();
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 
