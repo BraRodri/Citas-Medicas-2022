@@ -15,7 +15,11 @@ class CreateRevisionPorSistemasTable extends Migration
     {
         Schema::create('revision_por_sistemas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+
+            $table->text('revisionPorSistemasYEnfermedadActual');
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 
