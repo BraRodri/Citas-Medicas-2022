@@ -13,9 +13,30 @@ class HabitosYEstilos extends Model
 
     protected $fillable = [
         'historia_medica_id',
+
         'checkHabitoTabaquismo',
         'tipoHabitoTabaquismo',
         'frecuenciaHabitoTabaquismo',
-        'antiguedadHabitoTabaquismo'
+        'antiguedadHabitoTabaquismo',
+
+        'checkHabitoLicor',
+        'tipoHabitoLicor',
+        'frecuenciaHabitoLicor',
+        'antiguedadHabitoLicor',
+
+        'checkHabitoSustanciassicoactivas',
+        'tipoHabitoSustanciassicoactivas',
+        'frecuenciaHabitoSustanciassicoactivas',
+        'antiguedadHabitoSustanciassicoactivas',
+
+        'checkHabitoDeportesoactividadfisica',
+        'tipoHabitoDeportesoactividadfisica',
+        'frecuenciaHabitoDeportesoactividadfisica',
+        'antiguedadHabitoDeportesoactividadfisica',
+
+        'checkHabitoActividadesextralaborales',
+        'tipoHabitoActividadesextralaborales',
+        'frecuenciaHabitoActividadesextralaborales',
+        'antiguedadHabitoActividadesextralaborales'
     ];
 }
