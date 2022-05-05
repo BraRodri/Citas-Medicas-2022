@@ -54,7 +54,7 @@ class CreateEvaluacionOsteomuscularsTable extends Migration
             $table->boolean('SENSIBILIDADEvaluacionOsteomuscular')->default(1);
             $table->boolean('MOTILIDADEvaluacionOsteomuscular')->default(1);
 
-            $table->text('AmpliacionEvaluacionOsteomuscular');
+            $table->text('AmpliacionEvaluacionOsteomuscular')->nullable();
             $table->timestamps();
             $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });

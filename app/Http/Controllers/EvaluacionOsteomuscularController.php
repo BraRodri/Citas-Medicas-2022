@@ -36,7 +36,48 @@ class EvaluacionOsteomuscularController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        EvaluacionOsteomuscular::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'hombrosEvaluacionOsteomuscularDer' => $request['hombrosEvaluacionOsteomuscularDer'],
+            'hombrosEvaluacionOsteomuscularIzq' => $request['hombrosEvaluacionOsteomuscularIzq'],
+            'BrazosEvaluacionOsteomuscularDer' => $request['BrazosEvaluacionOsteomuscularDer'],
+            'BrazosEvaluacionOsteomuscularIzq' => $request['BrazosEvaluacionOsteomuscularIzq'],
+            'CodosEvaluacionOsteomuscularDer' => $request['CodosEvaluacionOsteomuscularDer'],
+            'CodosEvaluacionOsteomuscularIzq' => $request['CodosEvaluacionOsteomuscularIzq'],
+            'AntebrazosEvaluacionOsteomuscularDer' => $request['AntebrazosEvaluacionOsteomuscularDer'],
+            'AntebrazosEvaluacionOsteomuscularIzq' => $request['AntebrazosEvaluacionOsteomuscularIzq'],
+            'MunecasEvaluacionOsteomuscularDer' => $request['MunecasEvaluacionOsteomuscularDer'],
+            'MunecasEvaluacionOsteomuscularIzq' => $request['MunecasEvaluacionOsteomuscularIzq'],
+            'ManosEvaluacionOsteomuscularDer' => $request['ManosEvaluacionOsteomuscularDer'],
+            'ManosEvaluacionOsteomuscularIzq' => $request['ManosEvaluacionOsteomuscularIzq'],
+
+            'CaderasEvaluacionOsteomuscularDer' => $request['CaderasEvaluacionOsteomuscularDer'],
+            'CaderasEvaluacionOsteomuscularIzq' => $request['CaderasEvaluacionOsteomuscularIzq'],
+            'MuslosEvaluacionOsteomuscularDer' => $request['MuslosEvaluacionOsteomuscularDer'],
+            'MuslosEvaluacionOsteomuscularIzq' => $request['MuslosEvaluacionOsteomuscularIzq'],
+            'RodillasEvaluacionOsteomuscularDer' => $request['RodillasEvaluacionOsteomuscularDer'],
+            'RodillasEvaluacionOsteomuscularIzq' => $request['RodillasEvaluacionOsteomuscularIzq'],
+            'PiernasEvaluacionOsteomuscularDer' => $request['PiernasEvaluacionOsteomuscularDer'],
+            'PiernasEvaluacionOsteomuscularIzq' => $request['PiernasEvaluacionOsteomuscularIzq'],
+            'TobillosEvaluacionOsteomuscularDer' => $request['TobillosEvaluacionOsteomuscularDer'],
+            'TobillosEvaluacionOsteomuscularIzq' => $request['TobillosEvaluacionOsteomuscularIzq'],
+            'PiesEvaluacionOsteomuscularDer' => $request['PiesEvaluacionOsteomuscularDer'],
+            'PiesEvaluacionOsteomuscularIzq' => $request['PiesEvaluacionOsteomuscularIzq'],
+
+            'TINNELEvaluacionOsteomuscularDer' => $request['TINNELEvaluacionOsteomuscularDer'],
+            'TINNELEvaluacionOsteomuscularIzq' => $request['TINNELEvaluacionOsteomuscularIzq'],
+            'PHANELEvaluacionOsteomuscularDer' => $request['PHANELEvaluacionOsteomuscularDer'],
+            'PHANELEvaluacionOsteomuscularIzq' => $request['PHANELEvaluacionOsteomuscularIzq'],
+            'REFLEJOSEvaluacionOsteomuscularDer' => $request['REFLEJOSEvaluacionOsteomuscularDer'],
+            'REFLEJOSEvaluacionOsteomuscularIzq' => $request['REFLEJOSEvaluacionOsteomuscularIzq'],
+
+            'FUERZAMUSCULAREvaluacionOsteomuscular' => $request['FUERZAMUSCULAREvaluacionOsteomuscular'],
+            'SENSIBILIDADEvaluacionOsteomuscular' => $request['SENSIBILIDADEvaluacionOsteomuscular'],
+            'MOTILIDADEvaluacionOsteomuscular' => $request['MOTILIDADEvaluacionOsteomuscular'],
+
+            'AmpliacionEvaluacionOsteomuscular' => $request['AmpliacionEvaluacionOsteomuscular']
+        ]);
     }
 
     /**
