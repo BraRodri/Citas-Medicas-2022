@@ -9,6 +9,8 @@ class AntGinecoobstetricos extends Model
 {
     use HasFactory;
 
+    protected $table = 'ant_ginecoobstetricos';
+
     protected $fillable = [
         'historia_medica_id',
         'checkantGineCoobstetricos',

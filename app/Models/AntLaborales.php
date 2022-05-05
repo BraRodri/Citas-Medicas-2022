@@ -9,6 +9,8 @@ class AntLaborales extends Model
 {
     use HasFactory;
 
+    protected $table = 'ant_laborales';
+
     protected $fillable = [
         'historia_medica_id',
         'area',
