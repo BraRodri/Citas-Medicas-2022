@@ -15,7 +15,11 @@ class CreateObservacionesTable extends Migration
     {
         Schema::create('observaciones', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+
+            $table->text('descripcionObservacionesForm18')->nullable();
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 
