@@ -36,7 +36,18 @@ class ReubicacionesController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        foreach ($request['areaReubicado'] as $key => $value) {
+            if($request['areaReubicado'][$key] || $request['diagnosticoReubicaciones'][$key] || $request['fechaReubicado'][$key] || $request['tiempoReubicado'][$key]){
+                Reubicaciones::create([
+                    'historia_medica_id' => $historiaMedica->id,
+                    'checkReubicaciones' => 1,
+                    'areaReubicado' => $request['areaReubicado'][$key],
+                    'diagnosticoReubicaciones' => $request['diagnosticoReubicaciones'][$key],
+                    'fechaReubicado' => $request['fechaReubicado'][$key],
+                    'tiempoReubicado' => $request['tiempoReubicado'][$key],
+                ]);
+            }
+        }
     }
 
     /**

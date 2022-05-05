@@ -16,11 +16,11 @@ class CreateReubicacionesTable extends Migration
         Schema::create('reubicaciones', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('historia_medica_id');
-            $table->boolean('checkReubicaciones')->default(0);
-            $table->string('areaReubicado');
-            $table->string('diagnosticoReubicaciones');
-            $table->date('fechaReubicado');
-            $table->string('tiempoReubicado');
+            $table->boolean('checkReubicaciones')->default(0)->nullable();
+            $table->string('areaReubicado')->nullable();
+            $table->string('diagnosticoReubicaciones')->nullable();
+            $table->date('fechaReubicado')->nullable();
+            $table->string('tiempoReubicado')->nullable();
             $table->timestamps();
             $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
