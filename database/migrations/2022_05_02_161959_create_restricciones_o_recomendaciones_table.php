@@ -15,7 +15,11 @@ class CreateRestriccionesORecomendacionesTable extends Migration
     {
         Schema::create('restricciones_o_recomendaciones', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+
+            $table->text('restriccionesOrecomendaciones')->nullable();
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 
