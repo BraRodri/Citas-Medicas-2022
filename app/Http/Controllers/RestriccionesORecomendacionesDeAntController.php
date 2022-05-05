@@ -36,7 +36,17 @@ class RestriccionesORecomendacionesDeAntController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        foreach ($request['tipoRestriccion'] as $key => $value) {
+            if($request['tipoRestriccion'][$key] || $request['diagnosticoRestriccion'][$key] || $request['tiempoRestriccion'][$key] || $request['entidadQueOrdeno'][$key]){
+                RestriccionesORecomendacionesDeAnt::create([
+                    'historia_medica_id' => $historiaMedica->id,
+                    'tipoRestriccion' => $request['tipoRestriccion'][$key],
+                    'diagnosticoRestriccion' => $request['diagnosticoRestriccion'][$key],
+                    'tiempoRestriccion' => $request['tiempoRestriccion'][$key],
+                    'entidadQueOrdeno' => $request['entidadQueOrdeno'][$key],
+                ]);
+            }
+        }
     }
 
     /**
