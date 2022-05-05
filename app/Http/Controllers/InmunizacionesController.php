@@ -36,7 +36,15 @@ class InmunizacionesController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        Inmunizaciones::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'checkIndemnizacionTetanos' => $request['checkIndemnizacionTetanos'] ? 1 : 0,
+            'checkIndemnizacionFiebreAmarilla' => $request['checkIndemnizacionFiebreAmarilla'] ? 1 : 0,
+            'checkIndemnizacionHepatitisB' => $request['checkIndemnizacionHepatitisB'] ? 1 : 0,
+            'checkIndemnizacionINFLUENZA' => $request['checkIndemnizacionINFLUENZA'] ? 1 : 0,
+            'checkIndemnizacionOtras' => $request['checkIndemnizacionOtras'] ? 1 : 0,
+        ]);
     }
 
     /**
