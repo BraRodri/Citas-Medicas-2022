@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ExamenFisico;
 use Illuminate\Http\Request;
+use App\Models\HistoriaMedica;
 
 class ExamenFisicoController extends Controller
 {
@@ -33,7 +34,7 @@ class ExamenFisicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
         //
     }

@@ -7,6 +7,11 @@
             <div id="yaExiste"></div>
         @endif
     @endif
+    @if (Session::has('success'))
+        @if (Session::get('success') == 'saved')
+            <div id="saved"></div>
+        @endif
+    @endif
 
     <div class="pagetitle">
         <h1>Historia Clinica</h1>

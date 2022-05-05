@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reubicaciones;
 use Illuminate\Http\Request;
+use App\Models\Reubicaciones;
+use App\Models\HistoriaMedica;
 
 class ReubicacionesController extends Controller
 {
@@ -33,7 +34,7 @@ class ReubicacionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
         //
     }

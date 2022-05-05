@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AntLaborales;
 use Illuminate\Http\Request;
+use App\Models\HistoriaMedica;
 
 class AntLaboralesController extends Controller
 {
@@ -33,7 +34,7 @@ class AntLaboralesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
         //
     }

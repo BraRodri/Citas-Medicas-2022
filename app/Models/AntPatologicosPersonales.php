@@ -11,6 +11,8 @@ class AntPatologicosPersonales extends Model
     protected $table = 'ant_patologicos_personales';
 
     protected $fillable = [
+        'historia_medica_id',
+
         'cardiacsP',
         'cardiacsF',
         'hiperP',

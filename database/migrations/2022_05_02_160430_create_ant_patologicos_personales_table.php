@@ -65,7 +65,7 @@ class CreateAntPatologicosPersonalesTable extends Migration
             $table->boolean('hipoacusiaF')->default(0);
             $table->boolean('intoxicacionesP')->default(0);
             $table->boolean('intoxicacionesF')->default(0);
-            $table->text('observationsAntPer');
+            $table->text('observationsAntPer')->nullable();
             $table->timestamps();
             $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AntGinecoobstetricos;
 use Illuminate\Http\Request;
+use App\Models\HistoriaMedica;
+use App\Models\AntGinecoobstetricos;
 
 class AntGinecoobstetricosController extends Controller
 {
@@ -33,7 +34,7 @@ class AntGinecoobstetricosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
         //
     }

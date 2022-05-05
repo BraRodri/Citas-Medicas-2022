@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AyudasDiagnosticas;
 use Illuminate\Http\Request;
+use App\Models\HistoriaMedica;
+use App\Models\AyudasDiagnosticas;
 
 class AyudasDiagnosticasController extends Controller
 {
@@ -33,7 +34,7 @@ class AyudasDiagnosticasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
         //
     }

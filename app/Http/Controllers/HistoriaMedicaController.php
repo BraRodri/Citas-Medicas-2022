@@ -4,8 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\InfGeneralController;
 use App\Models\HistoriaMedica;
+use App\Http\Controllers\InfGeneralController;
+use App\Http\Controllers\AntLaboralesController;
+use App\Http\Controllers\ExamenFisicoController;
+use App\Http\Controllers\ObservacionesController;
+use App\Http\Controllers\ReubicacionesController;
+use App\Http\Controllers\ConceptoMedicoController;
+use App\Http\Controllers\InmunizacionesController;
+use App\Http\Controllers\HabitosYEstilosController;
+use App\Http\Controllers\AyudasDiagnosticasController;
+use App\Http\Controllers\EvaluacionDeColumnaController;
+use App\Http\Controllers\ExamenFisicoGeneralController;
+use App\Http\Controllers\RevisionPorSistemasController;
+use App\Http\Controllers\AntGinecoobstetricosController;
+use App\Http\Controllers\ImpresionDiagnosticaController;
+use App\Http\Controllers\ExamenesDeLaboratorioController;
+use App\Http\Controllers\EvaluacionOsteomuscularController;
+use App\Http\Controllers\AntPatologicosPersonalesController;
+use App\Http\Controllers\ConductasYRecomendacionesController;
+use App\Http\Controllers\AntPatologicosOcupacionalesController;
+use App\Http\Controllers\RestriccionesORecomendacionesController;
+use App\Http\Controllers\RestriccionesORecomendacionesDeAntController;
 
 class HistoriaMedicaController extends Controller
 {
@@ -41,8 +61,42 @@ class HistoriaMedicaController extends Controller
             $historiaMedica = HistoriaMedica::create([
                 'user_id' => $paciente->id
             ]);
+
+            // * Sección 1 - Inf General y Antecedentes
             InfGeneralController::store($historiaMedica, $request);
-            dd("se fuardo la inf");
+            AntPatologicosPersonalesController::store($historiaMedica, $request);
+            AntGinecoobstetricosController::store($historiaMedica, $request);
+            AntLaboralesController::store($historiaMedica, $request);
+            AntPatologicosOcupacionalesController::store($historiaMedica, $request);
+            ReubicacionesController::store($historiaMedica, $request);
+            RestriccionesORecomendacionesDeAntController::store($historiaMedica, $request);
+
+            // * Sección 2 - Hábitos, Inmunizaciones y Revisión
+            HabitosYEstilosController::store($historiaMedica, $request);
+            InmunizacionesController::store($historiaMedica, $request);
+            RevisionPorSistemasController::store($historiaMedica, $request);
+
+            // * Sección 3 - Examen Físico
+            ExamenFisicoController::store($historiaMedica, $request);
+            ExamenFisicoGeneralController::store($historiaMedica, $request);
+
+            // * Sección 4 - Evaluaciones
+            EvaluacionOsteomuscularController::store($historiaMedica, $request);
+            EvaluacionDeColumnaController::store($historiaMedica, $request);
+
+            // * Sección 5 - Exámenes y Diagnósticos
+            ExamenesDeLaboratorioController::store($historiaMedica, $request);
+            AyudasDiagnosticasController::store($historiaMedica, $request);
+            ImpresionDiagnosticaController::store($historiaMedica, $request);
+            ConceptoMedicoController::store($historiaMedica, $request);
+
+            // * Sección 6 - Recomendaciones y Firma
+            RestriccionesORecomendacionesController::store($historiaMedica, $request);
+            ConductasYRecomendacionesController::store($historiaMedica, $request);
+            ObservacionesController::store($historiaMedica, $request);
+
+            session()->flash('success', 'saved');
+            return back();
         }else{
             session()->flash('error', 'ya existe');
             return back();
