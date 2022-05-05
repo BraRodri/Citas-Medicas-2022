@@ -36,7 +36,22 @@ class ExamenFisicoController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        ExamenFisico::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'Sp02' => $request['Sp02'],
+            'TemperaturaExamenFisico' => $request['TemperaturaExamenFisico'],
+            'PulsoExamenFisico' => $request['PulsoExamenFisico'],
+            'RitmoExamenFisico' => $request['RitmoExamenFisico'],
+            'PresionArterialExamenFisico' => $request['PresionArterialExamenFisico'],
+            'DominanciaExamenFisico' => $request['DominanciaExamenFisico'],
+            'FRespiratoriaExamenFisico' => $request['FRespiratoriaExamenFisico'],
+
+            'PesoExamenFisico' => $request['PesoExamenFisico'],
+            'TallaExamenFisico' => $request['TallaExamenFisico'],
+            'IMCExamenFisico' => $request['IMCExamenFisico'],
+            'DescripcionExamenFisico' => $request['DescripcionExamenFisico'],
+        ]);
     }
 
     /**
