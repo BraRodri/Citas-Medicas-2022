@@ -36,7 +36,35 @@ class EvaluacionDeColumnaController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        EvaluacionDeColumna::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'InspeccionEvaluacionDeColumna' => $request['InspeccionEvaluacionDeColumna'],
+            'PalpacionEvaluacionDeColumna' => $request['PalpacionEvaluacionDeColumna'],
+            'SensibilidadEvaluacionDeColumna' => $request['SensibilidadEvaluacionDeColumna'],
+            'MotricidadEvaluacionDeColumna' => $request['MotricidadEvaluacionDeColumna'],
+            'EquilibrioestaticoEvaluacionDeColumna' => $request['EquilibrioestaticoEvaluacionDeColumna'],
+
+            'AlineacionescapularEvaluacionDeColumna' => $request['AlineacionescapularEvaluacionDeColumna'],
+            'AlineacionpelvicaEvaluacionDeColumna' => $request['AlineacionpelvicaEvaluacionDeColumna'],
+            'CifosisEvaluacionDeColumna' => $request['CifosisEvaluacionDeColumna'],
+            'LordosisEvaluacionDeColumna' => $request['LordosisEvaluacionDeColumna'],
+            'EscoliosisEvaluacionDeColumna' => $request['EscoliosisEvaluacionDeColumna'],
+
+            'FlexionanteriorEvaluacionDeColumna' => $request['FlexionanteriorEvaluacionDeColumna'],
+            'ExtensionposteriorEvaluacionDeColumna' => $request['ExtensionposteriorEvaluacionDeColumna'],
+            'FlexionlateralEvaluacionDeColumna' => $request['FlexionlateralEvaluacionDeColumna'],
+            'RotacionEvaluacionDeColumna' => $request['RotacionEvaluacionDeColumna'],
+            'MedicionextremidadesEvaluacionDeColumna' => $request['MedicionextremidadesEvaluacionDeColumna'],
+
+            'TestdeWellsEvaluacionDeColumna' => $request['TestdeWellsEvaluacionDeColumna'],
+            'PruebadeLassegueEvaluacionDeColumna' => $request['PruebadeLassegueEvaluacionDeColumna'],
+            'SignodeltimbreEvaluacionDeColumna' => $request['SignodeltimbreEvaluacionDeColumna'],
+            'MarchaentalonesEvaluacionDeColumna' => $request['MarchaentalonesEvaluacionDeColumna'],
+            'MarchaenpuntasEvaluacionDeColumna' => $request['MarchaenpuntasEvaluacionDeColumna'],
+
+            'AmpliacionEvaluacionDeColumna' => $request['AmpliacionEvaluacionDeColumna']
+        ]);
     }
 
     /**
