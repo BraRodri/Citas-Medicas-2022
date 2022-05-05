@@ -43,7 +43,7 @@
             <label for="dateBirth" class="col-md-6 col-form-label text-md-end">Fecha Nacimiento</label>
             <div class="col-md-6">
                 <input id="dateBirth" type="date" class="form-control {{ $errors->has('dateBirth') ? 'is-invalid' : '' }}"
-                name="dateBirth" value="" autocomplete="dateBirth" placeholder="Escribe aquí" >
+                name="dateBirth" value="{{$paciente->fecha_nacimiento}}" autocomplete="dateBirth" placeholder="Escribe aquí" >
 
                 @error('dateBirth')
                     <span class="invalid-feedback d-block" role="alert">
@@ -56,7 +56,7 @@
             <label for="age" class="col-md-6 col-form-label text-md-end">Edad</label>
             <div class="col-md-6">
                 <input id="age" type="number" class="form-control {{ $errors->has('age') ? 'is-invalid' : '' }}"
-                name="age" value="" autocomplete="age" placeholder="Escribe aquí" >
+                name="age" value="{{$paciente->confirm_edad}}" autocomplete="age" placeholder="Escribe aquí" >
 
                 @error('age')
                     <span class="invalid-feedback d-block" role="alert">
@@ -69,9 +69,9 @@
             <label for="sex" class="col-md-6 col-form-label text-md-end">Sexo</label>
             <div class="col-md-6">
                 <select id="sex" class="form-control {{ $errors->has('sex') ? 'is-invalid' : '' }}" name="sex" >
-                    <option selected disabled>Selecciona</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
+                    <option disabled>Selecciona</option>
+                    <option value="Masculino" {{$paciente->genero === 'Masculino' ? 'selected' : ''}}>Masculino</option>
+                    <option value="Femenino" {{$paciente->genero === 'Femenino' ? 'selected' : ''}}>Femenino</option>
                 </select>
                 @error('sex')
                     <span class="invalid-feedback d-block" role="alert">
@@ -115,7 +115,7 @@
             <label for="address" class="col-md-6 col-form-label text-md-end">Dirección</label>
             <div class="col-md-6">
                 <input id="address" type="text" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
-                name="address" value="" autocomplete="address" placeholder="Escribe aquí" >
+                name="address" value="{{$paciente->direccion}}" autocomplete="address" placeholder="Escribe aquí" >
 
                 @error('address')
                     <span class="invalid-feedback d-block" role="alert">
@@ -128,7 +128,7 @@
             <label for="municipality" class="col-md-6 col-form-label text-md-end">Municipio</label>
             <div class="col-md-6">
                 <input id="municipality" type="text" class="form-control {{ $errors->has('municipality') ? 'is-invalid' : '' }}"
-                name="municipality" value="" autocomplete="municipality" placeholder="Escribe aquí" >
+                name="municipality" value="{{$paciente->departamento}}" autocomplete="municipality" placeholder="Escribe aquí" >
 
                 @error('municipality')
                     <span class="invalid-feedback d-block" role="alert">
@@ -141,7 +141,7 @@
             <label for="phone" class="col-md-6 col-form-label text-md-end">Teléfono</label>
             <div class="col-md-6">
                 <input id="phone" type="number" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
-                name="phone" value="" autocomplete="phone" placeholder="Escribe aquí" >
+                name="phone" value="{{$paciente->telefono}}" autocomplete="phone" placeholder="Escribe aquí" >
 
                 @error('phone')
                     <span class="invalid-feedback d-block" role="alert">
@@ -192,7 +192,7 @@
         <div class="row mt-2">
             <label for="seniorityCompany" class="col-md-6 col-form-label text-md-end">Antigüedad en la empresa</label>
             <div class="col-md-6">
-                <input id="seniorityCompany" type="text" class="form-control {{ $errors->has('seniorityCompany') ? 'is-invalid' : '' }}"
+                <input id="seniorityCompany" type="number" class="form-control {{ $errors->has('seniorityCompany') ? 'is-invalid' : '' }}"
                 name="seniorityCompany" value="" autocomplete="seniorityCompany" placeholder="Escribe aquí" >
 
                 @error('seniorityCompany')
@@ -234,10 +234,11 @@
             <label for="typeDocument" class="col-md-6 col-form-label text-md-end">Tipo de Dócumento</label>
             <div class="col-md-6">
                 <select id="typeDocument" class="form-control {{ $errors->has('typeDocument') ? 'is-invalid' : '' }}" name="typeDocument">
-                    <option selected disabled>Selecciona</option>
-                    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                    <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
-                    <option value="Otro">Otro</option>
+                    <option value="" disabled>- Seleccionar -</option>
+                    <option value="Cédula de Ciudadanía" {{$paciente->tipo_documento === 'Cédula de Ciudadanía' ? 'selected' : '' }}>Cédula de Ciudadanía</option>
+                    <option value="Cédula de Extranjería" {{$paciente->tipo_documento === 'Cédula de Extranjería' ? 'selected' : '' }}>Cédula de Extranjería</option>
+                    <option value="Pasaporte" {{$paciente->tipo_documento === 'Pasaporte' ? 'selected' : '' }}>Pasaporte</option>
+                    <option value="Documento País Origen" {{$paciente->tipo_documento === 'Documento País Origen' ? 'selected' : '' }}>Documento País Origen</option>
                 </select>
 
                 @error('typeDocument')
@@ -251,7 +252,7 @@
             <label for="document" class="col-md-6 col-form-label text-md-end">Dócumento</label>
             <div class="col-md-6">
                 <input id="document" type="number" class="form-control {{ $errors->has('document') ? 'is-invalid' : '' }}"
-                name="document" value="" autocomplete="document" placeholder="Escribe aquí">
+                name="document" value="{{$paciente->numero_documento}}" autocomplete="document" placeholder="Escribe aquí">
 
                 @error('document')
                     <span class="invalid-feedback d-block" role="alert">

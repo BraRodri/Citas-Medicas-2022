@@ -2,6 +2,12 @@
     <!-- title -->
     @section('pagina')Historia Clinica @endsection
 
+    @if (Session::has('error'))
+        @if (Session::get('error') == 'ya existe')
+            <div id="yaExiste"></div>
+        @endif
+    @endif
+
     <div class="pagetitle">
         <h1>Historia Clinica</h1>
         <nav>

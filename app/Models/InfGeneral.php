@@ -29,4 +29,9 @@ class InfGeneral extends Model
         'areaWork',
         'stratum'
     ];
+
+    public function historyMedica()
+    {
+        return $this->belongsTo(HistoriaMedica::class, 'historia_medica_id');
+    }
 }

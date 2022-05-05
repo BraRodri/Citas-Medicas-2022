@@ -14,4 +14,9 @@ class HistoriaMedica extends Model
     protected $fillable = [
         'user_id'
     ];
+
+    public function infGeneral()
+    {
+        return $this->hasOne(InfGeneral::class);
+    }
 }

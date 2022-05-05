@@ -37,11 +37,16 @@ class HistoriaMedicaController extends Controller
      */
     public function store(User $paciente, Request $request)
     {
-        $historiaMedica = HistoriaMedica::create([
-            'user_id' => $paciente->id
-        ]);
-        InfGeneralController::store($historiaMedica, $request);
-        dd("se fuardo la inf");
+        if(HistoriaMedica::where('user_id', $paciente->id)->count() === 0){
+            $historiaMedica = HistoriaMedica::create([
+                'user_id' => $paciente->id
+            ]);
+            InfGeneralController::store($historiaMedica, $request);
+            dd("se fuardo la inf");
+        }else{
+            session()->flash('error', 'ya existe');
+            return back();
+        }
     }
 
     /**
