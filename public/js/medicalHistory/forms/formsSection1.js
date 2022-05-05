@@ -32,7 +32,7 @@ addButtonantGinecoobstetricos.onclick = function() { //Once add button is clicke
                         <label for="planificacion" class="col-md-6 col-form-label text-md-end">Planificación</label>
                         <div class="col-md-6">
                             <input id="planificacion[]" type="text" class="form-control"
-                            name="planificacion[]" placeholder="Escribe aquí" required>
+                            name="planificacion[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ addButtonantGinecoobstetricos.onclick = function() { //Once add button is clicke
                         <label for="citologia[]" class="col-md-6 col-form-label text-md-end">Citología</label>
                         <div class="col-md-6">
                             <input id="citologia[]" type="text" class="form-control"
-                            name="citologia[]" placeholder="Escribe aquí" required>
+                            name="citologia[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ addButtonantLaboralesEmpresa.onclick = function() { //Once add button is clicked
                         <label for="fDeR" class="col-md-6 col-form-label text-md-end">F. de R.</label>
                         <div class="col-md-6">
                             <input id="fDeR[]" type="text" class="form-control"
-                            name="fDeR[]" placeholder="Escribe aquí" required>
+                            name="fDeR[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ addButtonantLaboralesEmpresa.onclick = function() { //Once add button is clicked
                         <label for="elementosProPersonal[]" class="col-md-6 col-form-label text-md-end">Elementos de protección personal</label>
                         <div class="col-md-6">
                             <input id="elementosProPersonal[]" type="text" class="form-control"
-                            name="elementosProPersonal[]" placeholder="Escribe aquí" required>
+                            name="elementosProPersonal[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ addButtonantPatologicosOcupacionales.onclick = function() { //Once add button is
                         <label for="tipoAfeccion" class="col-md-6 col-form-label text-md-end">Tipo de afección</label>
                         <div class="col-md-6">
                             <input id="tipoAfeccion[]" type="text" class="form-control"
-                            name="tipoAfeccion[]" placeholder="Escribe aquí" required>
+                            name="tipoAfeccion[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ addButtonantPatologicosOcupacionales.onclick = function() { //Once add button is
                         <label for="parteCuerpoAfectada[]" class="col-md-6 col-form-label text-md-end">Parte del cuerpo afectada</label>
                         <div class="col-md-6">
                             <input id="parteCuerpoAfectada[]" type="text" class="form-control"
-                            name="parteCuerpoAfectada[]" placeholder="Escribe aquí" required>
+                            name="parteCuerpoAfectada[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@ addButtonantPatologicosOcupacionales.onclick = function() { //Once add button is
                         <label for="tiempoDeOcurrencia" class="col-md-6 col-form-label text-md-end">Tiempo de ocurrencia</label>
                         <div class="col-md-6">
                             <input id="tiempoDeOcurrencia[]" type="text" class="form-control"
-                            name="tiempoDeOcurrencia[]" placeholder="Escribe aquí" required>
+                            name="tiempoDeOcurrencia[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ addButtonantPatologicosOcupacionales.onclick = function() { //Once add button is
                         <label for="secuelas[]" class="col-md-6 col-form-label text-md-end">Secuelas</label>
                         <div class="col-md-6">
                             <input id="secuelas[]" type="text" class="form-control"
-                            name="secuelas[]" placeholder="Escribe aquí" required>
+                            name="secuelas[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@ addButtonreubications.onclick = function() { //Once add button is clicked
                         <label for="areaReubicado" class="col-md-6 col-form-label text-md-end">Área Reubicado:</label>
                         <div class="col-md-6">
                             <input id="areaReubicado[]" type="text" class="form-control"
-                            name="areaReubicado[]" placeholder="Escribe aquí" required>
+                            name="areaReubicado[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@ addButtonreubications.onclick = function() { //Once add button is clicked
                         <label for="diagnosticoReubicaciones[]" class="col-md-6 col-form-label text-md-end">Diagnóstico:</label>
                         <div class="col-md-6">
                             <input id="diagnosticoReubicaciones[]" type="text" class="form-control"
-                            name="diagnosticoReubicaciones[]" placeholder="Escribe aquí" required>
+                            name="diagnosticoReubicaciones[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@ addButtonreubications.onclick = function() { //Once add button is clicked
                         <label for="fechaReubicado" class="col-md-6 col-form-label text-md-end">Fecha:</label>
                         <div class="col-md-6">
                             <input id="fechaReubicado[]" type="date" class="form-control"
-                            name="fechaReubicado[]" placeholder="Escribe aquí" required>
+                            name="fechaReubicado[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -200,7 +200,7 @@ addButtonreubications.onclick = function() { //Once add button is clicked
                         <label for="tiempoReubicado[]" class="col-md-6 col-form-label text-md-end">Tiempo reubicado:</label>
                         <div class="col-md-6">
                             <input id="tiempoReubicado[]" type="text" class="form-control"
-                            name="tiempoReubicado[]" placeholder="Escribe aquí" required>
+                            name="tiempoReubicado[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@ addButtonRestriccionesORecomendaciones.onclick = function() { //Once add button 
                         <label for="tipoRestriccion" class="col-md-6 col-form-label text-md-end">Tipo de Restricción:</label>
                         <div class="col-md-6">
                             <input id="tipoRestriccion[]" type="text" class="form-control"
-                            name="tipoRestriccion[]" placeholder="Escribe aquí" required>
+                            name="tipoRestriccion[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -233,7 +233,7 @@ addButtonRestriccionesORecomendaciones.onclick = function() { //Once add button 
                         <label for="diagnosticoRestriccion[]" class="col-md-6 col-form-label text-md-end">Diagnóstico:</label>
                         <div class="col-md-6">
                             <input id="diagnosticoRestriccion[]" type="text" class="form-control"
-                            name="diagnosticoRestriccion[]" placeholder="Escribe aquí" required>
+                            name="diagnosticoRestriccion[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@ addButtonRestriccionesORecomendaciones.onclick = function() { //Once add button 
                         <label for="tiempoRestriccion" class="col-md-6 col-form-label text-md-end">Por cuanto tiempo:</label>
                         <div class="col-md-6">
                             <input id="tiempoRestriccion[]" type="text" class="form-control"
-                            name="tiempoRestriccion[]" placeholder="Escribe aquí" required>
+                            name="tiempoRestriccion[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -253,7 +253,7 @@ addButtonRestriccionesORecomendaciones.onclick = function() { //Once add button 
                         <label for="entidadQueOrdeno[]" class="col-md-6 col-form-label text-md-end">Entidad que ordenó:</label>
                         <div class="col-md-6">
                             <input id="entidadQueOrdeno[]" type="text" class="form-control"
-                            name="entidadQueOrdeno[]" placeholder="Escribe aquí" required>
+                            name="entidadQueOrdeno[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>

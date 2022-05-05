@@ -17,10 +17,10 @@ class CreateAntGinecoobstetricosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('historia_medica_id');
             $table->boolean('checkantGineCoobstetricos')->nullable();
-            $table->string('menarca');
-            $table->string('fum');
-            $table->string('gestaciones');
-            $table->string('planificacion');
+            $table->string('menarca')->nullable();
+            $table->string('fum')->nullable();
+            $table->string('gestaciones')->nullable();
+            $table->string('planificacion')->nullable();
             $table->timestamps();
             $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });

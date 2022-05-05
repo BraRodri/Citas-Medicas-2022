@@ -36,7 +36,18 @@ class AntGinecoobstetricosController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        foreach ($request['menarca'] as $key => $value) {
+            if($request['menarca'][$key] || $request['fum'][$key] || $request['gestaciones'][$key] || $request['planificacion'][$key]){
+                AntGinecoobstetricos::create([
+                    'historia_medica_id' => $historiaMedica->id,
+                    'checkantGineCoobstetricos' => 1,
+                    'menarca' => $request['menarca'][$key],
+                    'fum' => $request['fum'][$key],
+                    'gestaciones' => $request['gestaciones'][$key],
+                    'planificacion' => $request['planificacion'][$key],
+                ]);
+            }
+        }
     }
 
     /**
