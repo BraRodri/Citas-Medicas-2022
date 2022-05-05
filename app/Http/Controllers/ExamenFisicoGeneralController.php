@@ -36,7 +36,54 @@ class ExamenFisicoGeneralController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        ExamenFisicoGeneral::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'CraneoExamenFisicoGeneral' => $request['CraneoExamenFisicoGeneral'],
+            'ParescranealesExamenFisicoGeneral' => $request['ParescranealesExamenFisicoGeneral'],
+            'ParpadosExamenFisicoGeneral' => $request['ParpadosExamenFisicoGeneral'],
+            'ConjuntivasExamenFisicoGeneral' => $request['ConjuntivasExamenFisicoGeneral'],
+            'PupilasExamenFisicoGeneral' => $request['PupilasExamenFisicoGeneral'],
+            'FondodeojoExamenFisicoGeneral' => $request['FondodeojoExamenFisicoGeneral'],
+            'PabellonExamenFisicoGeneral' => $request['PabellonExamenFisicoGeneral'],
+            'ConductosExamenFisicoGeneral' => $request['ConductosExamenFisicoGeneral'],
+            'TimpanosExamenFisicoGeneral' => $request['TimpanosExamenFisicoGeneral'],
+            'TabiqueExamenFisicoGeneral' => $request['TabiqueExamenFisicoGeneral'],
+            'CornetasMucosasExamenFisicoGeneral' => $request['CornetasMucosasExamenFisicoGeneral'],
+            'LabiosExamenFisicoGeneral' => $request['LabiosExamenFisicoGeneral'],
+            'LenguaExamenFisicoGeneral' => $request['LenguaExamenFisicoGeneral'],
+            'DientesExamenFisicoGeneral' => $request['DientesExamenFisicoGeneral'],
+            'PaladarExamenFisicoGeneral' => $request['PaladarExamenFisicoGeneral'],
+            'AmigdalasExamenFisicoGeneral' => $request['AmigdalasExamenFisicoGeneral'],
+            'CuelloExamenFisicoGeneral' => $request['CuelloExamenFisicoGeneral'],
+            'ToraxExamenFisicoGeneral' => $request['ToraxExamenFisicoGeneral'],
+            'EspaldaExamenFisicoGeneral' => $request['EspaldaExamenFisicoGeneral'],
+            'PielExamenFisicoGeneral' => $request['PielExamenFisicoGeneral'],
+
+
+            'CardiacoExamenFisicoGeneral' => $request['CardiacoExamenFisicoGeneral'],
+            'CirculatorioExamenFisicoGeneral' => $request['CirculatorioExamenFisicoGeneral'],
+            'PulmonarExamenFisicoGeneral' => $request['PulmonarExamenFisicoGeneral'],
+            'SenosExamenFisicoGeneral' => $request['SenosExamenFisicoGeneral'],
+            'AbdomenaspectoExamenFisicoGeneral' => $request['AbdomenaspectoExamenFisicoGeneral'],
+            'ViscerasExamenFisicoGeneral' => $request['ViscerasExamenFisicoGeneral'],
+            'GenitalesexternosExamenFisicoGeneral' => $request['GenitalesexternosExamenFisicoGeneral'],
+            'HerniasExamenFisicoGeneral' => $request['HerniasExamenFisicoGeneral'],
+            'AdenopatiasExamenFisicoGeneral' => $request['AdenopatiasExamenFisicoGeneral'],
+            'MiembrossuperioresExamenFisicoGeneral' => $request['MiembrossuperioresExamenFisicoGeneral'],
+            'MiembrosinferioresExamenFisicoGeneral' => $request['MiembrosinferioresExamenFisicoGeneral'],
+            'VascularperifericoExamenFisicoGeneral' => $request['VascularperifericoExamenFisicoGeneral'],
+            'NeurologicoExamenFisicoGeneral' => $request['NeurologicoExamenFisicoGeneral'],
+            'ReflejostendinososExamenFisicoGeneral' => $request['ReflejostendinososExamenFisicoGeneral'],
+            'MarchaExamenFisicoGeneral' => $request['MarchaExamenFisicoGeneral'],
+            'EquilibrioExamenFisicoGeneral' => $request['EquilibrioExamenFisicoGeneral'],
+            'EstadomentalExamenFisicoGeneral' => $request['EstadomentalExamenFisicoGeneral'],
+            'CicatricesExamenFisicoGeneral' => $request['CicatricesExamenFisicoGeneral'],
+            'GrupoExamenFisicoGeneral' => $request['GrupoExamenFisicoGeneral'],
+
+
+            'AmpliacionExamenFisicoGeneral' => $request['AmpliacionExamenFisicoGeneral'],
+        ]);
     }
 
     /**
