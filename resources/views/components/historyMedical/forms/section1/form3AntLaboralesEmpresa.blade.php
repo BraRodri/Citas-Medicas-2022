@@ -27,7 +27,7 @@
                         <label for="fDeR" class="col-md-6 col-form-label text-md-end">F. de R.</label>
                         <div class="col-md-6">
                             <input id="fDeR[]" type="text" class="form-control"
-                            name="fDeR[]" placeholder="Escribe aquí" required>
+                            name="fDeR[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <label for="elementosProPersonal[]" class="col-md-6 col-form-label text-md-end">Elementos de protección personal</label>
                         <div class="col-md-6">
                             <input id="elementosProPersonal[]" type="text" class="form-control"
-                            name="elementosProPersonal[]" placeholder="Escribe aquí" required>
+                            name="elementosProPersonal[]" placeholder="Escribe aquí" >
                         </div>
                     </div>
                 </div>

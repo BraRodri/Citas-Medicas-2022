@@ -49,29 +49,32 @@
             </div>
         </div>
 
-        <div id="divOfSection1">
-            @include('components.historyMedical.accordeon1InfGeneral&Background')
-        </div>
+        <form action="{{route('historiaMedica.store', ['paciente' => $paciente->id])}}" method="post">
+            @csrf
+            <div id="divOfSection1">
+                @include('components.historyMedical.accordeon1InfGeneral&Background')
+            </div>
 
-        <div id="divOfSection2" style="display: none;">
-            @include('components.historyMedical.accordeon2HabitosInmunizacionesYRevision')
-        </div>
+            <div id="divOfSection2" style="display: none;">
+                @include('components.historyMedical.accordeon2HabitosInmunizacionesYRevision')
+            </div>
 
-        <div id="divOfSection3" style="display: none;">
-            @include('components.historyMedical.accordeon3ExamenFisico')
-        </div>
+            <div id="divOfSection3" style="display: none;">
+                @include('components.historyMedical.accordeon3ExamenFisico')
+            </div>
 
-        <div id="divOfSection4" style="display: none;">
-            @include('components.historyMedical.accordeon4Evaluaciones')
-        </div>
+            <div id="divOfSection4" style="display: none;">
+                @include('components.historyMedical.accordeon4Evaluaciones')
+            </div>
 
-        <div id="divOfSection5" style="display: none;">
-            @include('components.historyMedical.accordeon5ExamenesYDiagnosticos')
-        </div>
+            <div id="divOfSection5" style="display: none;">
+                @include('components.historyMedical.accordeon5ExamenesYDiagnosticos')
+            </div>
 
-        <div id="divOfSection6" style="display: none;">
-            @include('components.historyMedical.accordeon6RecomendacionesYFirma')
-        </div>
+            <div id="divOfSection6" style="display: none;">
+                @include('components.historyMedical.accordeon6RecomendacionesYFirma')
+            </div>
+        </form>
     </div>
 
 

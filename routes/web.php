@@ -9,6 +9,7 @@ use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasarelaNequiController;
+use App\Http\Controllers\HistoriaMedicaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,7 +106,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     });
 
     /* History Medical */
-    Route::get('/historyMedical', function(){
-        return view('pages.panel.historyMedical.create');
+    Route::controller(HistoriaMedicaController::class)
+    ->group(function () {
+        Route::get('/historyMedical/{paciente}', 'create')->name('historiaMedica.create');
+        Route::post('/historyMedical/{paciente}', 'store')->name('historiaMedica.store');
     });
 });

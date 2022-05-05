@@ -13,7 +13,7 @@ class CreateRestriccionesORecomendacionesDeAntsTable extends Migration
      */
     public function up()
     {
-        Schema::create('restricciones_o_recomendaciones_de_ants', function (Blueprint $table) {
+        Schema::create('restricciones_de_ants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('historia_medica_id');
             $table->string('tipoRestriccion');
@@ -32,6 +32,6 @@ class CreateRestriccionesORecomendacionesDeAntsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restricciones_o_recomendaciones_de_ants');
+        Schema::dropIfExists('restricciones_de_ants');
     }
 }

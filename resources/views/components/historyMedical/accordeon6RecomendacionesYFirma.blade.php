@@ -53,7 +53,7 @@
         <div class="row justify-content-center mb-3">
             <div class="col-md-12 text-center d-flex justify-content-center">
                 <a class="btn btn-success btn-block m-2" onclick="showNextSection(5)">Anterior</a>
-                <a class="btn btn-success btn-block m-2">Guardar</a>
+                <input type="submit" class="btn btn-success btn-block m-2" value="Guardar">
             </div>
         </div>
     </div>

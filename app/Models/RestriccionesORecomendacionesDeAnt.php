@@ -9,7 +9,7 @@ class RestriccionesORecomendacionesDeAnt extends Model
 {
     use HasFactory;
 
-    protected $table = 'restricciones_o_recomendaciones_de_ants';
+    protected $table = 'restricciones_de_ants';
 
     protected $fillable = [
         'historia_medica_id',

@@ -804,7 +804,7 @@
                                 <label for="planificacion" class="col-md-6 col-form-label text-md-end">Planificación</label>
                                 <div class="col-md-6">
                                     <input id="planificacion[]" type="text" class="form-control"
-                                    name="planificacion[]" placeholder="Escribe aquí" required>
+                                    name="planificacion[]" placeholder="Escribe aquí" >
                                 </div>
                             </div>
                         </div>
@@ -813,7 +813,7 @@
                                 <label for="citologia[]" class="col-md-6 col-form-label text-md-end">Citología</label>
                                 <div class="col-md-6">
                                     <input id="citologia[]" type="text" class="form-control"
-                                    name="citologia[]" placeholder="Escribe aquí" required>
+                                    name="citologia[]" placeholder="Escribe aquí" >
                                 </div>
                             </div>
                         </div>

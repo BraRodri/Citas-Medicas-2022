@@ -25,7 +25,7 @@ class CreateConductasYRecomendacionesTable extends Migration
             $table->boolean('checkSuministrarcapacitaryentrenarenelusodelosEPI')->nullable();
             $table->boolean('checkUsoadecuadodelosEPIquelesuministrelaempresa')->nullable();
             $table->boolean('checkUsodeproteccionnivelcondicionestrabajadorytipodetrabajo')->nullable();
-            $table->boolean('checkUtilizarproteccionauditivaenambientesruidosostantoporfueradeltrabajo')->nullable();
+            $table->boolean('checkUtilizarproteccionauditivaenambientesruidosostanto')->nullable();
 
             $table->boolean('checkUtilizarunaadecuadahigieneposturalymecanicacorporal')->nullable();
             $table->boolean('checkEntrenamientoscontinuossobrelamecanicacorporal')->nullable();

@@ -22,7 +22,7 @@ class ConductasYRecomendaciones extends Model
         'checkSuministrarcapacitaryentrenarenelusodelosEPI',
         'checkUsoadecuadodelosEPIquelesuministrelaempresa',
         'checkUsodeproteccionnivelcondicionestrabajadorytipodetrabajo',
-        'checkUtilizarproteccionauditivaenambientesruidosostantoporfueradeltrabajo',
+        'checkUtilizarproteccionauditivaenambientesruidosostanto',
 
         'checkUtilizarunaadecuadahigieneposturalymecanicacorporal',
         'checkEntrenamientoscontinuossobrelamecanicacorporal',

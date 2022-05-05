@@ -134,8 +134,8 @@
             <div class="container" style="margin-top: -5px;">
                 <div>
                     <label class="switch">
-                        <input type="checkbox" id="checkUtilizarproteccionauditivaenambientesruidosostantoporfueradeltrabajo"
-                            name="checkUtilizarproteccionauditivaenambientesruidosostantoporfueradeltrabajo">
+                        <input type="checkbox" id="checkUtilizarproteccionauditivaenambientesruidosostanto"
+                            name="checkUtilizarproteccionauditivaenambientesruidosostanto">
                         <span class="slider"></span>
                         <p class="off"><b>Niega</b></p>
                         <p class="on"><b>Sí</b></p>
