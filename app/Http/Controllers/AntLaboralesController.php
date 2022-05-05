@@ -36,7 +36,18 @@ class AntLaboralesController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        foreach ($request['area'] as $key => $value) {
+            if($request['area'][$key] || $request['oficio'][$key] || $request['tiempoPermanencia'][$key] || $request['fDeR'][$key] || $request['elementosProPersonal'][$key]){
+                AntLaborales::create([
+                    'historia_medica_id' => $historiaMedica->id,
+                    'area' => $request['area'][$key],
+                    'oficio' => $request['oficio'][$key],
+                    'tiempoPermanencia' => $request['tiempoPermanencia'][$key],
+                    'fDeR' => $request['fDeR'][$key],
+                    'elementosProPersonal' => $request['elementosProPersonal'][$key],
+                ]);
+            }
+        }
     }
 
     /**
