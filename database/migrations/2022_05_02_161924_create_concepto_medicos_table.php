@@ -13,9 +13,17 @@ class CreateConceptoMedicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('concepto_medicos', function (Blueprint $table) {
+        Schema::create('concepto_medico', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+
+            $table->boolean('checkAPTOPARACONTINUARLABORANDO')->default(1)->nullable();
+            $table->boolean('checkAPTOPARALABORARCONPATOLOGIANORESTRICTIVA')->default(0)->nullable();
+            $table->boolean('checkAPTOPARALABOARACONRECOMENDACIONESOCUPACIONAL')->default(0)->nullable();
+            $table->boolean('checkAPLAZADO')->default(0)->nullable();
+
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 
@@ -26,6 +34,6 @@ class CreateConceptoMedicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('concepto_medicos');
+        Schema::dropIfExists('concepto_medico');
     }
 }
