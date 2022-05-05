@@ -36,7 +36,34 @@ class HabitosYEstilosController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        HabitosYEstilos::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'checkHabitoTabaquismo' => $request['checkHabitoTabaquismo'] ? 1 : 0,
+            'tipoHabitoTabaquismo',
+            'frecuenciaHabitoTabaquismo',
+            'antiguedadHabitoTabaquismo',
+
+            'checkHabitoLicor' => $request['checkHabitoLicor'] ? 1 : 0,
+            'tipoHabitoLicor' => $request['tipoHabitoLicor'],
+            'frecuenciaHabitoLicor' => $request['frecuenciaHabitoLicor'],
+            'antiguedadHabitoLicor' => $request['antiguedadHabitoLicor'],
+
+            'checkHabitoSustanciassicoactivas' => $request['checkHabitoSustanciassicoactivas'] ? 1 : 0,
+            'tipoHabitoSustanciassicoactivas' => $request['tipoHabitoSustanciassicoactivas'],
+            'frecuenciaHabitoSustanciassicoactivas' => $request['frecuenciaHabitoSustanciassicoactivas'],
+            'antiguedadHabitoSustanciassicoactivas' => $request['antiguedadHabitoSustanciassicoactivas'],
+
+            'checkHabitoDeportesoactividadfisica' => $request['checkHabitoDeportesoactividadfisica'] ? 1 : 0,
+            'tipoHabitoDeportesoactividadfisica' => $request['tipoHabitoDeportesoactividadfisica'],
+            'frecuenciaHabitoDeportesoactividadfisica' => $request['frecuenciaHabitoDeportesoactividadfisica'],
+            'antiguedadHabitoDeportesoactividadfisica' => $request['antiguedadHabitoDeportesoactividadfisica'],
+
+            'checkHabitoActividadesextralaborales' => $request['checkHabitoActividadesextralaborales'] ? 1 : 0,
+            'tipoHabitoActividadesextralaborales' => $request['tipoHabitoActividadesextralaborales'],
+            'frecuenciaHabitoActividadesextralaborales' => $request['frecuenciaHabitoActividadesextralaborales'],
+            'antiguedadHabitoActividadesextralaborales' => $request['antiguedadHabitoActividadesextralaborales'],
+        ]);
     }
 
     /**
