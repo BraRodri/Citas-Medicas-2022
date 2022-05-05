@@ -13,9 +13,14 @@ class CreateImpresionDiagnosticasTable extends Migration
      */
     public function up()
     {
-        Schema::create('impresion_diagnosticas', function (Blueprint $table) {
+        Schema::create('impresion_diagnostica', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('historia_medica_id');
+
+            $table->text('descripcionEXAMENDESALUDOCUPACIONAL')->nullable();
+
             $table->timestamps();
+            $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
     }
 
@@ -26,6 +31,6 @@ class CreateImpresionDiagnosticasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('impresion_diagnosticas');
+        Schema::dropIfExists('impresion_diagnostica');
     }
 }
