@@ -145,3 +145,151 @@
         </div>
     </div>
 </div>
+
+<div class="row mt-3">
+    <strong>HIGIENE POSTURAL </strong>
+</div>
+
+<div class="row">
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Utilizar una adecuada higiene postural y mecánica corporal para la movilización de cargas y las demás tareas de su ocupación. </p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkUtilizarunaadecuadahigieneposturalymecanicacorporal"
+                            name="checkUtilizarunaadecuadahigieneposturalymecanicacorporal">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Entrenamientos continuos sobre la mecánica corporal adecuada ocupación y fortalecimiento corporal. </p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkEntrenamientoscontinuossobrelamecanicacorporal"
+                            name="checkEntrenamientoscontinuossobrelamecanicacorporal">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Las mujeres no deben movilizar cargas desde el piso superiores a 12.5 Kg ó 25 Kg sobre hombros o espalda. </p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkLasmujeresnodebenmovilizarcargasdesdeelpiso"
+                            name="checkLasmujeresnodebenmovilizarcargasdesdeelpiso">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Hacer seguimiento continuo de las recomendaciones para que no se excedan las capacidades físicas del trabajador.</p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkHacerseguimientocontinuodelasrecomendacionespara"
+                            name="checkHacerseguimientocontinuodelasrecomendacionespara">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <strong>SISTEMAS DE VIGILANCIA EPIDEMIOLOGICA: Debe asistir al seguimiento del programa de:  </strong>
+</div>
+
+<div class="row">
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Conservación Auditiva </p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkConservacionAuditiva"
+                            name="checkConservacionAuditiva">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Prevención de la accidentalidad laboral</p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkPrevenciondelaaccidentalidadlaboral"
+                            name="checkPrevenciondelaaccidentalidadlaboral">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Prevención de patologías osteomusculares </p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkPrevenciondepatologiasosteomusculares"
+                            name="checkPrevenciondepatologiasosteomusculares">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <p style="margin-right: 30px;">Prevención manejo de sustancias químicas</p>
+        <div class="text-center">
+            <div class="container" style="margin-top: -5px;">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="checkPrevencionmanejodesustanciasquimicas"
+                            name="checkPrevencionmanejodesustanciasquimicas">
+                        <span class="slider"></span>
+                        <p class="off"><b>Niega</b></p>
+                        <p class="on"><b>Sí</b></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
