@@ -36,7 +36,11 @@ class RevisionPorSistemasController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        RevisionPorSistemas::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'revisionPorSistemasYEnfermedadActual' => $request['revisionPorSistemasYEnfermedadActual']
+        ]);
     }
 
     /**

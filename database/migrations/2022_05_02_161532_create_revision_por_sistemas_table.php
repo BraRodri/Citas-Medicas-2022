@@ -17,7 +17,7 @@ class CreateRevisionPorSistemasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('historia_medica_id');
 
-            $table->text('revisionPorSistemasYEnfermedadActual');
+            $table->text('revisionPorSistemasYEnfermedadActual')->nullable();
             $table->timestamps();
             $table->foreign('historia_medica_id')->references('id')->on('historia_medica')->onDelete('cascade');
         });
