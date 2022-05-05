@@ -37,7 +37,7 @@ class InfGeneralController extends Controller
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
         InfGeneral::create([
-            'historia_medica_id' => 6,//$historiaMedica->id,
+            'historia_medica_id' => $historiaMedica->id,
             'nameCompany' => $request['nameCompany'],
             'placeBirth' => $request['placeBirth'],
             'statusCivil' => $request['statusCivil'],
