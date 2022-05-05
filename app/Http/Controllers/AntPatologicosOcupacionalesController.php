@@ -36,7 +36,17 @@ class AntPatologicosOcupacionalesController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        foreach ($request['tipoAfeccion'] as $key => $value) {
+            if($request['tipoAfeccion'][$key] || $request['parteCuerpoAfectada'][$key] || $request['tiempoDeOcurrencia'][$key] || $request['secuelas'][$key]){
+                AntPatologicosOcupacionales::create([
+                    'historia_medica_id' => $historiaMedica->id,
+                    'tipoAfeccion' => $request['tipoAfeccion'][$key],
+                    'parteCuerpoAfectada' => $request['parteCuerpoAfectada'][$key],
+                    'tiempoDeOcurrencia' => $request['tiempoDeOcurrencia'][$key],
+                    'secuelas' => $request['secuelas'][$key],
+                ]);
+            }
+        }
     }
 
     /**
