@@ -36,7 +36,11 @@ class ImpresionDiagnosticaController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        ImpresionDiagnostica::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'descripcionEXAMENDESALUDOCUPACIONAL' => $request['descripcionEXAMENDESALUDOCUPACIONAL']
+        ]);
     }
 
     /**
