@@ -36,7 +36,14 @@ class ConceptoMedicoController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        ConceptoMedico::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'checkAPTOPARACONTINUARLABORANDO' => $request['checkAPTOPARACONTINUARLABORANDO'] ? 1 : 0,
+            'checkAPTOPARALABORARCONPATOLOGIANORESTRICTIVA' => $request['checkAPTOPARALABORARCONPATOLOGIANORESTRICTIVA'] ? 1: 0,
+            'checkAPTOPARALABOARACONRECOMENDACIONESOCUPACIONAL' => $request['checkAPTOPARALABOARACONRECOMENDACIONESOCUPACIONAL'] ? 1 : 0,
+            'checkAPLAZADO' => $request['checkAPLAZADO'] ? 1 : 0,
+        ]);
     }
 
     /**
