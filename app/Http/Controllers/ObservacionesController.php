@@ -36,7 +36,11 @@ class ObservacionesController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        Observaciones::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'descripcionObservacionesForm18' => $request['descripcionObservacionesForm18']
+        ]);
     }
 
     /**
