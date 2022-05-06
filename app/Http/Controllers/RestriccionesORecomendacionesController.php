@@ -36,7 +36,15 @@ class RestriccionesORecomendacionesController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        foreach ($request['restriccionesOrecomendaciones'] as $key => $value) {
+            if($request['restriccionesOrecomendaciones'][$key]){
+                RestriccionesORecomendaciones::create([
+                    'historia_medica_id' => $historiaMedica->id,
+
+                    'restriccionesOrecomendaciones' => $request['restriccionesOrecomendaciones'][$key]
+                ]);
+            }
+        }
     }
 
     /**
