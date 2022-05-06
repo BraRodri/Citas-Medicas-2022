@@ -36,7 +36,35 @@ class ExamenesDeLaboratorioController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        ExamenesDeLaboratorio::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'dateHemogramaExamen' => $request['dateHemogramaExamen'],
+            'HemoglobinaHemogramaExamen' => $request['HemoglobinaHemogramaExamen'],
+            'HematocritoHemogramaExamen' => $request['HematocritoHemogramaExamen'],
+
+            'dateGlicemiaExamen' => $request['dateGlicemiaExamen'],
+            'GlicemiaExamen' => $request['GlicemiaExamen'],
+
+            'datePERFILLIPIDICOExamen' => $request['datePERFILLIPIDICOExamen'],
+            'ColesterolTotalExamen' => $request['ColesterolTotalExamen'],
+            'ColesterolHDLExamen' => $request['ColesterolHDLExamen'],
+            'ColesterolLDLExamen' => $request['ColesterolLDLExamen'],
+            'TrigliceridosExamen' => $request['TrigliceridosExamen'],
+
+            'dateCitoQuimicoExamen' => $request['dateCitoQuimicoExamen'],
+            'CitoQuimicoAspectoExamen' => $request['CitoQuimicoAspectoExamen'],
+            'CitoQuimicoQuimicaExamen' => $request['CitoQuimicoQuimicaExamen'],
+            'CitoQuimicoMicroscopioExamen' => $request['CitoQuimicoMicroscopioExamen'],
+
+            'dateOtrosExamen' => $request['dateOtrosExamen'],
+            'otrosExamen' => $request['otrosExamen'],
+
+            'dateMANIPULADORESExamen' => $request['dateMANIPULADORESExamen'],
+            'KOHMANIPULADORESExamen' => $request['KOHMANIPULADORESExamen'],
+            'FROTISMANIPULADORESExamen' => $request['FROTISMANIPULADORESExamen'],
+            'COPROLOGICOMANIPULADORESExamen' => $request['COPROLOGICOMANIPULADORESExamen']
+        ]);
     }
 
     /**
