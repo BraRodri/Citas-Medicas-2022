@@ -36,7 +36,30 @@ class AyudasDiagnosticasController extends Controller
      */
     static public function store(HistoriaMedica $historiaMedica, Request $request)
     {
-        //
+        AyudasDiagnosticas::create([
+            'historia_medica_id' => $historiaMedica->id,
+
+            'dateAgudezatamizExamen' => $request['dateAgudezatamizExamen'],
+            'OJODERECHOExamen' => $request['OJODERECHOExamen'],
+            'OJOIZQUIERDOExamen' => $request['OJOIZQUIERDOExamen'],
+            'ResultadoAgudezaExamen' => $request['ResultadoAgudezaExamen'],
+
+            'dateAudiometriaTamizExamen' => $request['dateAudiometriaTamizExamen'],
+            'AudiometriaTamizExamen' => $request['AudiometriaTamizExamen'],
+            'ResultadoAudiometriaTamizExamen' => $request['ResultadoAudiometriaTamizExamen'],
+
+            'dateAudiometriaclinicaExamen' => $request['dateAudiometriaclinicaExamen'],
+            'SALExamen' => $request['SALExamen'],
+            'ELIExamen' => $request['ELIExamen'],
+            'LARSENExamen' => $request['LARSENExamen'],
+            'ResultadoAudiometriaclinicaExamen' => $request['ResultadoAudiometriaclinicaExamen'],
+
+            'dateEspirometriaExamen' => $request['dateEspirometriaExamen'],
+            'EspirometriaFVCExamen' => $request['EspirometriaFVCExamen'],
+            'EspirometriaFEV1Examen' => $request['EspirometriaFEV1Examen'],
+            'EspirometriaFEV1_FVCExamen' => $request['EspirometriaFEV1_FVCExamen'],
+            'ResultadoEspirometriaExamen' => $request['ResultadoEspirometriaExamen'],
+        ]);
     }
 
     /**

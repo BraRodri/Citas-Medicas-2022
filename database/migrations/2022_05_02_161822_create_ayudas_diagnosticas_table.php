@@ -35,7 +35,7 @@ class CreateAyudasDiagnosticasTable extends Migration
             $table->date('dateEspirometriaExamen')->nullable();
             $table->string('EspirometriaFVCExamen')->nullable();
             $table->string('EspirometriaFEV1Examen')->nullable();
-            $table->string('EspirometriaFEV1')->nullable();
+            $table->string('EspirometriaFEV1_FVCExamen')->nullable();
             $table->string('ResultadoEspirometriaExamen')->nullable();
 
             $table->timestamps();

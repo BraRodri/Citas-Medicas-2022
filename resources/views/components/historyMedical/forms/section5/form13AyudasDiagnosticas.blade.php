@@ -26,7 +26,7 @@
           </tr>
           <tr>
             <td>
-                <input id="dateAudiometriaTamizExamen" type="date" class="form-control" name="dateAgudezatamizExamen" value="" autocomplete="dateAudiometriaTamizExamen" placeholder="Escribe aquí">
+                <input id="dateAudiometriaTamizExamen" type="date" class="form-control" name="dateAudiometriaTamizExamen" value="" autocomplete="dateAudiometriaTamizExamen" placeholder="Escribe aquí">
             </td>
             <td><strong>Audiometría Tamiz</strong></td>
             <td colspan="3">
@@ -66,7 +66,7 @@
                 <input id="EspirometriaFEV1Examen" type="text" class="form-control" name="EspirometriaFEV1Examen" value="" autocomplete="EspirometriaFEV1Examen" placeholder="FEV1 %">
             </td>
             <td colspan="1">
-                <input id="EspirometriaFEV1-FVCExamen" type="text" class="form-control" name="EspirometriaFEV1-FVCExamen" value="" autocomplete="EspirometriaFEV1-FVCExamen" placeholder="FEV1/FVC %">
+                <input id="EspirometriaFEV1_FVCExamen" type="text" class="form-control" name="EspirometriaFEV1_FVCExamen" value="" autocomplete="EspirometriaFEV1_FVCExamen" placeholder="FEV1/FVC %">
             </td>
             <td>
                 <input id="ResultadoEspirometriaExamen" type="text" class="form-control" name="ResultadoEspirometriaExamen" value="" autocomplete="ResultadoEspirometriaExamen" placeholder="Resultado Espirometría">

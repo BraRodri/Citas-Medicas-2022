@@ -32,7 +32,7 @@ class AyudasDiagnosticas extends Model
         'dateEspirometriaExamen',
         'EspirometriaFVCExamen',
         'EspirometriaFEV1Examen',
-        'EspirometriaFEV1',
+        'EspirometriaFEV1_FVCExamen',
         'ResultadoEspirometriaExamen'
     ];
 }
