@@ -7,8 +7,11 @@ use App\Models\Medico;
 use App\Models\Cita;
 use App\Models\HoraryMedico;
 use App\Models\Paciente;
+use App\Models\PaymentPlatform;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -21,8 +24,26 @@ class CitasController extends Controller
             /* Ejecutar el policy */
             $this->authorize('viewAny');
         }
-        $citasByPacient = Cita::where('paciente_id', auth()->user()->paciente->id)->with('horaryMedico')->get();
-        return view('pages.panel.citas.index', compact('citasByPacient'));
+        //$citasByPacient = Cita::where('paciente_id', auth()->user()->paciente->id)->with('horaryMedico')->get();
+
+        $paciente_id = Auth::user()->paciente->id;
+        $fecha_actual = date('Y-m-d');
+        $fechaMenosUnaSemana =  date("Y-m-d",strtotime($fecha_actual."- 1 week"));
+        $citas_semana = Cita::where('paciente_id', $paciente_id)
+            ->whereBetween(DB::raw('DATE(created_at)'), [$fechaMenosUnaSemana, $fecha_actual])
+            ->get();
+        return view('pages.panel.citas.index')->with([
+            'citas_semana' => $citas_semana
+        ]);
+    }
+
+    public function citasFull(Request $request)
+    {
+        $paciente_id = Auth::user()->paciente->id;
+        $citas = Cita::where('paciente_id', $paciente_id)->get();
+        return view('pages.panel.citas.full')->with([
+            'citas' => $citas
+        ]);
     }
 
     public function create()
@@ -59,6 +80,7 @@ class CitasController extends Controller
                 'payed' => false,
                 'typePayment' => $request->typePaymentSelected,
                 'hour_limit_pay' => Carbon::now('America/Bogota')->addHours(12),
+                'status' => 1,
                 'created_at' => Carbon::now('America/Bogota')
             ]);
             $info = [
@@ -75,6 +97,49 @@ class CitasController extends Controller
         }
     }
 
+    public function viewInformacion($id)
+    {
+        $payments = PaymentPlatform::all();
+        $cita = Cita::findOrFail($id);
+
+        //para el pago
+        $key = config('services.payu.key');
+
+        $url_form = 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/';
+        $merchantId = config('services.payu.merchant_id');
+        $accountId = config('services.payu.account_id');
+        $description = 'Pago de la Cita #'.$cita->id.', Modalidad: '.$cita->modality;
+        $referenceCode = 'PagoCita'.$cita->id;
+        $amount = '150000';
+        $tax = '0';
+        $taxReturnBase = '0';
+        $currency = 'COP';
+        $signature = md5("{$key}~{$merchantId}~{$referenceCode}~{$amount}~{$currency}");
+        $test = '1';
+        $buyerEmail = 'brarodriguez14@gmail.com';
+        $responseUrl = route('payment.respuesta');
+        $confirmationUrl = route('payment.confirmacion');
+        $extra1 = $cita->id;
+
+        return view('pages.panel.citas.view')->with([
+            'cita' => $cita,
+            'url_form' => $url_form,
+            'merchantId' => $merchantId,
+            'accountId' => $accountId,
+            'description' => $description,
+            'referenceCode' => $referenceCode,
+            'amount' => $amount,
+            'tax' => $tax,
+            'taxReturnBase' => $taxReturnBase,
+            'currency' => $currency,
+            'signature' => $signature,
+            'test' => $test,
+            'buyerEmail' => $buyerEmail,
+            'responseUrl' => $responseUrl,
+            'confirmationUrl' => $confirmationUrl,
+            'extra1' => $extra1
+        ]);
+    }
 
     /* View agend Medico */
     public function viewAgendMedico()
@@ -87,7 +152,6 @@ class CitasController extends Controller
         $citasByMedico = HoraryMedico::where('medico_id', auth()->user()->medico->id)->has('cita')->with('cita')->get();
         return view('pages.panel.medico.index', compact('citasByMedico'));
     }
-
 
     /* Api - Details of Cita */
     public function show($idCita)
@@ -184,5 +248,13 @@ class CitasController extends Controller
                 'status' => 500
             ]);
         }
+    }
+
+    public function viewCita($id)
+    {
+        $cita = Cita::findOrFail($id);
+        return view('pages.panel.medico.view-cita')->with([
+            'cita' => $cita
+        ]);
     }
 }

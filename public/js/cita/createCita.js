@@ -151,9 +151,12 @@ const confirmCita = async (modality, check, infoMedic) => {
         showCancelButton: true,
         cancelButtonText: 'No, cancelar <i class="bi bi-x-circle-fill"></i>',
         confirmButtonText: 'Si, agendar cita <i class="bi bi-hand-thumbs-up-fill"></i>',
-    }).then((result) => {
+    }).then(async (result) => {
         if (result.isConfirmed) {
-            selectedTypePayment(modality, check, infoMedic);
+            //selectedTypePayment(modality, check, infoMedic);
+            let typePaymentSelected = '';
+            const cita = await addCita(modality, check, infoMedic, typePaymentSelected);
+            await payAfter(cita.id);
         };
     });
 };
@@ -263,12 +266,12 @@ const payAfter = async (citaId) => {
     //Mostrar alerta de posible cambio a disponible si no se paga
     if(emailSend.status === 200){
         swal.fire({
-            title: '¡Aviso importante!',
+            title: '¡Cita agendada!',
             html: `
-                <h4>Email enviado con exito a ${emailSend.emailPaciente}, tienes 12 horas para realizar el pago de tu cita, de lo contrario el estado de la fecha y hora agendada cambiarán a disponible.</h4>
+                <h6>Tu cita se guardó de forma segura, Email enviado con exito a ${emailSend.emailPaciente}, tienes 12 horas para realizar el pago de tu cita, de lo contrario el estado de la fecha y hora agendada cambiarán a disponible.</h6>
                 <div class="d-flex justify-content-center">
                     <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_i0mxtka6.json"  background="transparent"  speed="1"
-                        style="width: 350px; height: 350px; margin-top: -80px; margin-bottom: -80px;" loop autoplay
+                        style="width: 250px; height: 250px; margin-top: -40px; margin-bottom: -40px;" loop autoplay
                     >
                     </lottie-player>
                 </div>
@@ -278,9 +281,11 @@ const payAfter = async (citaId) => {
         }).then(
             function(e) {
                 if (e.value === true) {
-                    window.location.replace(`/panel/citas`);
+                    window.location.href = route('citas.viewInformacion', citaId);
+                    //window.location.replace(`/panel/citas`);
                 } else {
-                    window.location.replace(`/panel/citas`);
+                    window.location.href = route('citas.viewInformacion', citaId);
+                    //window.location.replace(`/panel/citas`);
                 }
             },
             function(dismiss) {

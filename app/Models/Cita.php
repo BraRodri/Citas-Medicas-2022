@@ -17,6 +17,7 @@ class Cita extends Model
         'modality',
         'payed',
         'typePayment',
+        'status',
         'hour_limit_pay'
     ];
 
@@ -29,4 +30,5 @@ class Cita extends Model
     {
         return $this->belongsTo(Paciente::class, 'paciente_id');
     }
+
 }

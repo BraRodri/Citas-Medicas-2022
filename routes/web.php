@@ -10,6 +10,8 @@ use App\Http\Controllers\PanelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasarelaNequiController;
 use App\Http\Controllers\HistoriaMedicaController;
+use App\Http\Controllers\PaymentController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 Auth::routes();
 
@@ -93,9 +94,12 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
         Route::get('/citas', 'viewAgendPaciente')->name('citas');
         Route::get('/citas/create', 'create')->name('citas.create');
         Route::post('/citas', 'store')->name('citas.store');
+        Route::get('/citas/ver-informacion/{id}', 'viewInformacion')->name('citas.viewInformacion');
+        Route::match(['get', 'post'], '/citas/todas', 'citasFull')->name('citas.full');
 
         /* Gestión de citas - Medico */
         Route::get('/citas/medico', 'viewAgendMedico')->name('medico.viewAgend');
+        Route::get('/citas/medico/view/{id}', 'viewCita')->name('medico.viewCita');
     });
 
     /* Pagos Nequi */
@@ -110,5 +114,13 @@ Route::group(['middleware' => 'auth', 'prefix' => '/panel'], function () {
     ->group(function () {
         Route::get('/historyMedical/{paciente}', 'create')->name('historiaMedica.create');
         Route::post('/historyMedical/{paciente}', 'store')->name('historiaMedica.store');
+    });
+
+    /* Payment */
+    Route::controller(PaymentController::class)
+    ->group(function () {
+        Route::get('/payment/respuesta', 'respuesta')->name('payment.respuesta');
+        Route::get('/payment/confirmacion', 'confirmacion')->name('payment.confirmacion');
+        Route::get('/payment/detalles-pago/{cita}/{pago}', 'mostrarPago')->name('payment.mostrarPago');
     });
 });

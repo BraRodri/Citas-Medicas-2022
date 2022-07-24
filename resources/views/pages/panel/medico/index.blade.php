@@ -72,7 +72,8 @@
                     events: events,
                     eventClick: function(info){
                         var check = moment(info.event.startStr).format('YYYY-MM-DD HH:mm:ss');
-                        showDetailsByCita(info.event.id, check);
+                        //showDetailsByCita(info.event.id, check);
+                        window.location.href = route('medico.viewCita', info.event.id);
                     },
                     eventDrop: function(event, delta, reverFunc){
                         swal.fire(

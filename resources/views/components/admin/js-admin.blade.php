@@ -8,6 +8,8 @@
  <script src="{{ asset('asset/vendor/quill/quill.min.js') }}"></script>
  <script src="{{ asset('asset/vendor/tinymce/tinymce.min.js') }}"></script>
 
+ <script src="{{ asset('js/moment.min.js') }}"></script>
+
  <!-- Template Main JS File -->
  <script src="{{ asset('js/admin.js') }}"></script>
  <script src="{{ asset('js/api/notifications.js') }}" defer></script>

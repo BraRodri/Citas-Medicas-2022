@@ -68,6 +68,10 @@
                                 <div class="col-lg-9 col-md-8">{{ Auth::user()->numero_documento }}</div>
                             </div>
                             <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Especialidad</div>
+                                <div class="col-lg-9 col-md-8">{{ Auth::user()->medico->especialidad  }}</div>
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Fecha Nacimiento</div>
                                 <div class="col-lg-9 col-md-8">{{ Auth::user()->fecha_nacimiento }}</div>
                             </div>
@@ -289,7 +293,7 @@
                         contentType: false,
                         dataType:'json',
                         beforeSend:function(){
-                            swal("Validando datos, espere porfavor...", {
+                            swal.fire("Validando datos, espere porfavor...", {
                                 button: false,
                                 timer: 3000
                             });
@@ -298,7 +302,7 @@
                         //console.log(respuesta);
                         if (!respuesta.error) {
 
-                            swal("Datos Actualizados con exitoso.", {
+                            swal.fire("Datos Actualizados con exitoso.", {
                                 icon: "success",
                                 button: true,
                                 timer: 2000
@@ -310,7 +314,7 @@
 
                         } else {
                             setTimeout(function(){
-                                swal(respuesta.mensaje, {
+                                swal.fire(respuesta.mensaje, {
                                     icon: "error",
                                     button: false,
                                     timer: 4000
@@ -352,7 +356,7 @@
                         contentType: false,
                         dataType:'json',
                         beforeSend:function(){
-                            swal("Validando datos, espere porfavor...", {
+                            swal.fire("Validando datos, espere porfavor...", {
                                 button: false,
                                 timer: 3000
                             });
@@ -361,7 +365,7 @@
                         //console.log(respuesta);
                         if (!respuesta.error) {
 
-                            swal("Contraseña Actualizada exitosamente!", {
+                            swal.fire("Contraseña Actualizada exitosamente!", {
                                 icon: "success",
                                 button: true,
                                 timer: 2000
@@ -372,7 +376,7 @@
 
                         } else {
                             setTimeout(function(){
-                                swal(respuesta.mensaje, {
+                                swal.fire(respuesta.mensaje, {
                                     icon: "error",
                                     button: false,
                                     timer: 4000
@@ -423,7 +427,7 @@
                         contentType: false,
                         dataType:'json',
                         beforeSend:function(){
-                            swal("Validando datos, espere porfavor...", {
+                            swal.fire("Validando datos, espere porfavor...", {
                                 button: false,
                                 timer: 3000
                             });
@@ -432,7 +436,7 @@
                         //console.log(respuesta);
                         if (!respuesta.error) {
 
-                            swal("Firma Actualizada exitosamente!", {
+                            swal.fire("Firma Actualizada exitosamente!", {
                                 icon: "success",
                                 button: true,
                                 timer: 2000
@@ -444,7 +448,7 @@
 
                         } else {
                             setTimeout(function(){
-                                swal(respuesta.mensaje, {
+                                swal.fire(respuesta.mensaje, {
                                     icon: "error",
                                     button: false,
                                     timer: 4000

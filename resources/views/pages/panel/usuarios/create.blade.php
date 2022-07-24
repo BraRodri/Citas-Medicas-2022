@@ -154,7 +154,9 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Especialidad <span>(*)</span></label>
-                                                    <input type="text" class="form-control" id="especialidad_medico" name="especialidad_medico" value="{{ old('especialidad_medico') }}" >
+                                                    <select class="form-control" name="especialidad_medico" id="especialidad_medico">
+                                                        <option value="">- Seleccione -</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">

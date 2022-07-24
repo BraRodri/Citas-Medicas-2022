@@ -19,9 +19,14 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <p class="mt-4">
-                            En esta sección podrás visualizar las citas que tu apartaste
-                        </p>
+                        <div class="d-flex pt-4">
+                            <p class="flex-grow-1">
+                                Tus Citas
+                            </p>
+                           <a href="{{ route('citas.full') }}" class="btn btn-success btn-sm">Ver todas mis citas</a>
+                        </div>
+                        <hr>
+                        @php /*
                         <div class="mt-4">
                             @if (count($citasByPacient) === 0)
                                 <h3 class="text-center">No hay citas apartadas por tí, puedes agendar con el médico de tu preferencia dando clic <a href="{{route('citas.create')}}" >aquí</a></h3>
@@ -32,6 +37,48 @@
                                 <div id='calendar'></div>
                             @endif
                         </div>
+                        */ @endphp
+
+                        <h6>Tus Citas agendadas de esta semana!</h6>
+                        @if (count($citas_semana) > 0)
+
+                            <div class="row">
+                                @foreach ($citas_semana as $item)
+                                    @php
+                                        $estado = '';
+                                        if($item->status == 1){
+                                            $estado = '<span class="badge bg-secondary">Pendiente</span>';
+                                        } else if($item->status == 2){
+                                            $estado = '<span class="badge bg-success">Agendada</span>';
+                                        } else if($item->status == 3){
+                                            $estado = '<span class="badge bg-danger">Rechazada</span>';
+                                        } else if($item->status == 4){
+                                            $estado = '<span class="badge bg-secondary">Pago Pendiente</span>';
+                                        }
+                                    @endphp
+                                    <div class="col-lg-6 col-12 mt-3">
+                                        <div class="card border">
+                                            <div class="card-body pt-2">
+                                                <strong class="pt-3">Cita:</strong> #{{ $item->id }} <br>
+                                                <strong>Fecha de la Cita:</strong> {{ $item->horaryMedico->date_disponibility }} <br>
+                                                <strong>Medico:</strong> {{ $item->horaryMedico->medico->usuario->nombres }} <br>
+                                                <strong>Especialidad:</strong> {{ $item->horaryMedico->medico->especialidad }} <br>
+                                                <strong>Forma:</strong> {{ $item->modality }} <br>
+                                                <strong>Estado:</strong> {!! $estado !!} <hr>
+                                                <div class="text-end mt-2">
+                                                    <a href="{{ route('citas.viewInformacion', $item->id) }}" class="btn btn-success btn-sm">Ver Detalles</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            @else
+                            <div class="border mt-3 text-center p-4">
+                                Actualmente no tienes ninguna cita para esta semana, agenda una!
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -39,6 +86,7 @@
     </section>
 
     <x-slot name="js">
+        @php /*
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 let citasByPacient = {!! json_encode($citasByPacient) !!};
@@ -86,8 +134,7 @@
                 calendar.render();
             });
 
-
-            /* show details of cita */
+            /* show details of cita
             const showDetailsByCita = async (idCita, date) => {
                 const infoCita = await getInfoCitaApi(idCita);
                 if(infoCita) {
@@ -101,8 +148,7 @@
                 }
             };
 
-
-            /* Get info cita and pacient API */
+            /* Get info cita and pacient API
             const getInfoCitaApi = async (idCita) => {
                 return new Promise((resolve, reject) => {
                     swal.fire({
@@ -163,6 +209,7 @@
                 });
             }
         </script>
+        */ @endphp
     </x-slot>
 
 </x-admin>

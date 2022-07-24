@@ -3,9 +3,9 @@
     <div class="row">
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="Sp02" class="col-md-6 col-form-label text-md-end">Sp02 %</label>
-                <div class="col-md-6">
-                    <input id="Sp02" type="text" class="form-control {{ $errors->has('Sp02') ? 'is-invalid' : '' }}"
+                <label for="Sp02" class="form-label">Sp02 %</label>
+                <div class="">
+                    <input id="Sp02" type="number" class="form-control {{ $errors->has('Sp02') ? 'is-invalid' : '' }}"
                     name="Sp02" value="" autocomplete="Sp02" placeholder="Escribe aquí" >
 
                     @error('Sp02')
@@ -18,9 +18,9 @@
         </div>
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="TemperaturaExamenFisico" class="col-md-6 col-form-label text-md-end">Temperatura</label>
-                <div class="col-md-6">
-                    <input id="TemperaturaExamenFisico" type="text" class="form-control {{ $errors->has('TemperaturaExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="TemperaturaExamenFisico" class="form-label">Temperatura</label>
+                <div class="">
+                    <input id="TemperaturaExamenFisico" type="number" class="form-control {{ $errors->has('TemperaturaExamenFisico') ? 'is-invalid' : '' }}"
                     name="TemperaturaExamenFisico" value="" autocomplete="TemperaturaExamenFisico" placeholder="Escribe aquí" >
 
                     @error('TemperaturaExamenFisico')
@@ -33,9 +33,9 @@
         </div>
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="PulsoExamenFisico" class="col-md-6 col-form-label text-md-end">Pulso</label>
-                <div class="col-md-6">
-                    <input id="PulsoExamenFisico" type="text" class="form-control {{ $errors->has('PulsoExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="PulsoExamenFisico" class="form-label">Pulso</label>
+                <div class="">
+                    <input id="PulsoExamenFisico" type="number" class="form-control {{ $errors->has('PulsoExamenFisico') ? 'is-invalid' : '' }}"
                     name="PulsoExamenFisico" value="" autocomplete="PulsoExamenFisico" placeholder="Escribe aquí" >
 
                     @error('PulsoExamenFisico')
@@ -48,9 +48,9 @@
         </div>
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="RitmoExamenFisico" class="col-md-6 col-form-label text-md-end">Ritmo</label>
-                <div class="col-md-6">
-                    <input id="RitmoExamenFisico" type="text" class="form-control {{ $errors->has('RitmoExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="RitmoExamenFisico" class="form-label">Ritmo</label>
+                <div class="">
+                    <input id="RitmoExamenFisico" type="number" class="form-control {{ $errors->has('RitmoExamenFisico') ? 'is-invalid' : '' }}"
                     name="RitmoExamenFisico" value="" autocomplete="RitmoExamenFisico" placeholder="Escribe aquí" >
 
                     @error('RitmoExamenFisico')
@@ -65,9 +65,9 @@
     <div class="row">
         <div class="col-md-4">
             <div class="row mt-2">
-                <label for="PresionArterialExamenFisico" class="col-md-6 col-form-label text-md-end">Presión Arterial *</label>
-                <div class="col-md-6">
-                    <input id="PresionArterialExamenFisico" type="text" class="form-control {{ $errors->has('PresionArterialExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="PresionArterialExamenFisico" class="form-label">Presión Arterial *</label>
+                <div class="">
+                    <input id="PresionArterialExamenFisico" type="number" class="form-control {{ $errors->has('PresionArterialExamenFisico') ? 'is-invalid' : '' }}"
                     name="PresionArterialExamenFisico" value="" autocomplete="PresionArterialExamenFisico" placeholder="Escribe aquí" >
 
                     @error('PresionArterialExamenFisico')
@@ -80,9 +80,9 @@
         </div>
         <div class="col-md-4">
             <div class="row mt-2">
-                <label for="DominanciaExamenFisico" class="col-md-6 col-form-label text-md-end">Dominancia</label>
-                <div class="col-md-6">
-                    <input id="DominanciaExamenFisico" type="text" class="form-control {{ $errors->has('DominanciaExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="DominanciaExamenFisico" class="form-label">Dominancia</label>
+                <div class="">
+                    <input id="DominanciaExamenFisico" type="number" class="form-control {{ $errors->has('DominanciaExamenFisico') ? 'is-invalid' : '' }}"
                     name="DominanciaExamenFisico" value="" autocomplete="DominanciaExamenFisico" placeholder="Escribe aquí" >
 
                     @error('DominanciaExamenFisico')
@@ -95,9 +95,9 @@
         </div>
         <div class="col-md-4">
             <div class="row mt-2">
-                <label for="FRespiratoriaExamenFisico" class="col-md-6 col-form-label text-md-end">F Respiratoria</label>
-                <div class="col-md-6">
-                    <input id="FRespiratoriaExamenFisico" type="text" class="form-control {{ $errors->has('FRespiratoriaExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="FRespiratoriaExamenFisico" class="form-label">F Respiratoria</label>
+                <div class="">
+                    <input id="FRespiratoriaExamenFisico" type="number" class="form-control {{ $errors->has('FRespiratoriaExamenFisico') ? 'is-invalid' : '' }}"
                     name="FRespiratoriaExamenFisico" value="" autocomplete="FRespiratoriaExamenFisico" placeholder="Escribe aquí" >
 
                     @error('FRespiratoriaExamenFisico')
@@ -115,9 +115,9 @@
     <div class="row">
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="PesoExamenFisico" class="col-md-6 col-form-label text-md-end">Peso</label>
-                <div class="col-md-6">
-                    <input id="PesoExamenFisico" type="text" class="form-control {{ $errors->has('PesoExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="PesoExamenFisico" class="form-label">Peso</label>
+                <div class="">
+                    <input id="PesoExamenFisico" type="number" class="form-control {{ $errors->has('PesoExamenFisico') ? 'is-invalid' : '' }}"
                     name="PesoExamenFisico" value="" autocomplete="PesoExamenFisico" placeholder="Escribe aquí" >
 
                     @error('PesoExamenFisico')
@@ -130,9 +130,9 @@
         </div>
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="TallaExamenFisico" class="col-md-6 col-form-label text-md-end">Talla</label>
-                <div class="col-md-6">
-                    <input id="TallaExamenFisico" type="text" class="form-control {{ $errors->has('TallaExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="TallaExamenFisico" class="form-label">Talla</label>
+                <div class="">
+                    <input id="TallaExamenFisico" type="number" class="form-control {{ $errors->has('TallaExamenFisico') ? 'is-invalid' : '' }}"
                     name="TallaExamenFisico" value="" autocomplete="TallaExamenFisico" placeholder="Escribe aquí" >
 
                     @error('TallaExamenFisico')
@@ -145,9 +145,9 @@
         </div>
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="IMCExamenFisico" class="col-md-6 col-form-label text-md-end">IMC *</label>
-                <div class="col-md-6">
-                    <input id="IMCExamenFisico" type="text" class="form-control {{ $errors->has('IMCExamenFisico') ? 'is-invalid' : '' }}"
+                <label for="IMCExamenFisico" class="form-label">IMC *</label>
+                <div class="">
+                    <input id="IMCExamenFisico" type="number" class="form-control {{ $errors->has('IMCExamenFisico') ? 'is-invalid' : '' }}"
                     name="IMCExamenFisico" value="" autocomplete="IMCExamenFisico" placeholder="Escribe aquí" >
 
                     @error('IMCExamenFisico')
@@ -160,8 +160,8 @@
         </div>
         <div class="col-md-3">
             <div class="row mt-2">
-                <label for="DescripcionExamenFisico" class="col-md-6 col-form-label text-md-end">Descripción</label>
-                <div class="col-md-6">
+                <label for="DescripcionExamenFisico" class="form-label">Descripción</label>
+                <div class="">
                     <input id="DescripcionExamenFisico" type="text" class="form-control {{ $errors->has('DescripcionExamenFisico') ? 'is-invalid' : '' }}"
                     name="DescripcionExamenFisico" value="" autocomplete="DescripcionExamenFisico" placeholder="Escribe aquí" >
 

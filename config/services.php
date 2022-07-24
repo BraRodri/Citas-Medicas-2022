@@ -30,4 +30,20 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'currency_conversion' => [
+        'base_uri' => env('CURRENCY_CONVERSION_BASE_URI'),
+        'api_key' => env('CURRENCY_CONVERSION_API_KEY')
+    ],
+
+    'payu' => [
+        'base_uri' => env('PAYU_BASE_URI'),
+        'account_id' => env('PAYU_ACCOUNT_ID'),
+        'merchant_id' => env('PAY_MERCHANT_ID'),
+        'key' => env('PAY_KEY'),
+        'key_public' => env('PAY_KEY_PUBLIC'),
+        'secret' => env('PAY_SECRET'),
+        'class' => App\Services\PayUService::class,
+        'base_currency' => 'cop'
+    ],
+
 ];

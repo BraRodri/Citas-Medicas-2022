@@ -3,9 +3,9 @@
         <div class="card">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="row">
-                        <label for="tipoAfeccion" class="col-md-6 col-form-label text-md-end">Tipo de afección</label>
-                        <div class="col-md-6">
+                    <div class="">
+                        <label for="tipoAfeccion" class="form-label">Tipo de afección</label>
+                        <div class="">
                             <input id="tipoAfeccion[]" type="text" class="form-control"
                             name="tipoAfeccion[]" placeholder="Escribe aquí" >
                         </div>
@@ -13,8 +13,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <label for="parteCuerpoAfectada[]" class="col-md-6 col-form-label text-md-end">Parte del cuerpo afectada</label>
-                        <div class="col-md-6">
+                        <label for="parteCuerpoAfectada[]" class="form-label">Parte del cuerpo afectada</label>
+                        <div class="">
                             <input id="parteCuerpoAfectada[]" type="text" class="form-control"
                             name="parteCuerpoAfectada[]" placeholder="Escribe aquí" >
                         </div>
@@ -24,8 +24,8 @@
             <div class="row mt-2">
                 <div class="col-md-6">
                     <div class="row">
-                        <label for="tiempoDeOcurrencia" class="col-md-6 col-form-label text-md-end">Tiempo de ocurrencia</label>
-                        <div class="col-md-6">
+                        <label for="tiempoDeOcurrencia" class="form-label">Tiempo de ocurrencia</label>
+                        <div class="">
                             <input id="tiempoDeOcurrencia[]" type="text" class="form-control"
                             name="tiempoDeOcurrencia[]" placeholder="Escribe aquí" >
                         </div>
@@ -33,8 +33,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <label for="secuelas[]" class="col-md-6 col-form-label text-md-end">Secuelas</label>
-                        <div class="col-md-6">
+                        <label for="secuelas[]" class="form-label">Secuelas</label>
+                        <div class="">
                             <input id="secuelas[]" type="text" class="form-control"
                             name="secuelas[]" placeholder="Escribe aquí" >
                         </div>
@@ -45,13 +45,13 @@
     </div>
 
     <div class="row">
-        <div class="col-md-2 col-sm-2 col-xs-12">
+        <div class="col-md-4 col-sm-2 col-xs-12">
             <a class="btn btn-success add_button form-control" id="add_antPatologicosOcupacionales">Nuevo Antecedente</a>
         </div>
     </div>
 </div>
 
-<div class="row mt-2">
+<div class="row mt-4">
     <div class="d-flex">
         <p style="margin-right: 30px;"><b>Reubicaciones </b></p>
         <div class="text-center">
@@ -76,8 +76,8 @@
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="areaReubicado" class="col-md-6 col-form-label text-md-end">Área Reubicado:</label>
-                                <div class="col-md-6">
+                                <label for="areaReubicado" class="form-label">Área Reubicado:</label>
+                                <div class="">
                                     <input id="areaReubicado[]" type="text" class="form-control"
                                     name="areaReubicado[]" placeholder="Escribe aquí" >
                                 </div>
@@ -85,8 +85,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="diagnosticoReubicaciones[]" class="col-md-6 col-form-label text-md-end">Diagnóstico:</label>
-                                <div class="col-md-6">
+                                <label for="diagnosticoReubicaciones[]" class="form-label">Diagnóstico:</label>
+                                <div class="">
                                     <input id="diagnosticoReubicaciones[]" type="text" class="form-control"
                                     name="diagnosticoReubicaciones[]" placeholder="Escribe aquí" >
                                 </div>
@@ -96,8 +96,8 @@
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="fechaReubicado" class="col-md-6 col-form-label text-md-end">Fecha:</label>
-                                <div class="col-md-6">
+                                <label for="fechaReubicado" class="form-label">Fecha:</label>
+                                <div class="">
                                     <input id="fechaReubicado[]" type="date" class="form-control"
                                     name="fechaReubicado[]" placeholder="Escribe aquí" >
                                 </div>
@@ -105,8 +105,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="tiempoReubicado[]" class="col-md-6 col-form-label text-md-end">Tiempo reubicado:</label>
-                                <div class="col-md-6">
+                                <label for="tiempoReubicado[]" class="form-label">Tiempo reubicado:</label>
+                                <div class="">
                                     <input id="tiempoReubicado[]" type="text" class="form-control"
                                     name="tiempoReubicado[]" placeholder="Escribe aquí" >
                                 </div>
@@ -150,8 +150,8 @@
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="tipoRestriccion" class="col-md-6 col-form-label text-md-end">Tipo de Restricción:</label>
-                                <div class="col-md-6">
+                                <label for="tipoRestriccion" class="form-label">Tipo de Restricción:</label>
+                                <div class="">
                                     <input id="tipoRestriccion[]" type="text" class="form-control"
                                     name="tipoRestriccion[]" placeholder="Escribe aquí" >
                                 </div>
@@ -159,8 +159,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="diagnosticoRestriccion[]" class="col-md-6 col-form-label text-md-end">Diagnóstico:</label>
-                                <div class="col-md-6">
+                                <label for="diagnosticoRestriccion[]" class="form-label">Diagnóstico:</label>
+                                <div class="">
                                     <input id="diagnosticoRestriccion[]" type="text" class="form-control"
                                     name="diagnosticoRestriccion[]" placeholder="Escribe aquí" >
                                 </div>
@@ -170,8 +170,8 @@
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="tiempoRestriccion" class="col-md-6 col-form-label text-md-end">Por cuanto tiempo:</label>
-                                <div class="col-md-6">
+                                <label for="tiempoRestriccion" class="form-label">Por cuanto tiempo:</label>
+                                <div class="">
                                     <input id="tiempoRestriccion[]" type="text" class="form-control"
                                     name="tiempoRestriccion[]" placeholder="Escribe aquí" >
                                 </div>
@@ -179,8 +179,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <label for="entidadQueOrdeno[]" class="col-md-6 col-form-label text-md-end">Entidad que ordenó:</label>
-                                <div class="col-md-6">
+                                <label for="entidadQueOrdeno[]" class="form-label">Entidad que ordenó:</label>
+                                <div class="">
                                     <input id="entidadQueOrdeno[]" type="text" class="form-control"
                                     name="entidadQueOrdeno[]" placeholder="Escribe aquí" >
                                 </div>
