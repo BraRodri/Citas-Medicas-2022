@@ -95,3 +95,29 @@ $( '#no_aplica_antc_patolo_per' ).on( 'click', function() {
         $('#div_info_aplica_antc_patolo_per').show();
     }
 });
+
+//validar gestaciones
+$(".input_abortos").prop("disabled", true);
+$(".input_vivos").prop("disabled", true);
+$(".input_mortinados").prop("disabled", true);
+$('.input_gestaciones').on('input', function() {
+    var valor = $(this).val();
+    if(valor === '0'){
+        $(".input_abortos").prop("disabled", true);
+        $(".input_vivos").prop("disabled", true);
+        $(".input_mortinados").prop("disabled", true);
+    } else {
+        $(".input_abortos").prop("disabled", false);
+        $(".input_vivos").prop("disabled", false);
+        $(".input_mortinados").prop("disabled", false);
+    }
+});
+
+//desabilitar todo lo de antecedentes patologicos ocupacionales
+$( '#no_aplica_antc_pato_ocupa' ).on( 'click', function() {
+    if( $(this).is(':checked') ){
+        $('#div_apli_antc_pato_ocupa').hide();
+    } else {
+        $('#div_apli_antc_pato_ocupa').show();
+    }
+});
