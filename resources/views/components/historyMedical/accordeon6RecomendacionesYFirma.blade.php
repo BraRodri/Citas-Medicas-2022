@@ -7,7 +7,7 @@
                         <div class="accordion-item bg-white shadow">
                           <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneSection6" aria-expanded="true" aria-controls="collapseOneSection6">
-                              <strong>RESTRICCIONES O RECOMENDACIONES </strong>
+                              <strong>RECOMENDACIONES Y FORMULACIÓN</strong>
                             </button>
                           </h2>
                           <div id="collapseOneSection6" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionSection6">
@@ -19,7 +19,7 @@
                         <div class="accordion-item bg-white shadow">
                           <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoSection6" aria-expanded="false" aria-controls="collapseTwoSection6">
-                                <strong>CONDUCTAS Y RECOMENDACIONES  OCUPACIONALES PREVENTIVAS  </strong>
+                                <strong>CONDUCTAS Y RECOMENDACIONES</strong>
                             </button>
                           </h2>
                           <div id="collapseTwoSection6" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSection6">

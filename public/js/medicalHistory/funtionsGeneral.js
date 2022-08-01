@@ -121,3 +121,33 @@ $( '#no_aplica_antc_pato_ocupa' ).on( 'click', function() {
         $('#div_apli_antc_pato_ocupa').show();
     }
 });
+
+//funcion para mostrar observacion cuando es anormal
+function funcionMostrarObservaciones(select, name){
+    var valor = select.value;
+    if(valor === 'Anormal'){
+        $(`#div_observaciones_${name}`).show();
+    } else {
+        $(`#div_observaciones_${name}`).hide();
+    }
+}
+
+//agregar otra fila para "otros para clinicos"
+function agregarOtroClinicos(){
+    var markup = `<tr>
+    <td>
+        <input id="dateMANIPULADORESExamen" type="date" class="form-control" name="dateMANIPULADORESExamen[]" value="" autocomplete="dateMANIPULADORESExamen" placeholder="Escribe aquí">
+    </td>
+    <td><strong>OTRO PARA CLÍNICOS</strong></td>
+    <td colspan="1">
+        <input id="KOHMANIPULADORESExamen" type="text" class="form-control" name="KOHMANIPULADORESExamen[]" value="" autocomplete="KOHMANIPULADORESExamen" placeholder="KOH">
+    </td>
+    <td colspan="1">
+        <input id="FROTISMANIPULADORESExamen" type="text" class="form-control" name="FROTISMANIPULADORESExamen[]" value="" autocomplete="FROTISMANIPULADORESExamen" placeholder="FROTIS FARINGEO">
+    </td>
+    <td colspan="2">
+        <input id="COPROLOGICOMANIPULADORESExamen" type="text" class="form-control" name="COPROLOGICOMANIPULADORESExamen[]" value="" autocomplete="COPROLOGICOMANIPULADORESExamen" placeholder="COPROLOGICO">
+    </td>
+  </tr>`;
+    $("#tabla_examenes_de_laboratorio tbody").append(markup);
+}

@@ -43,7 +43,7 @@
                         <div class="accordion-item bg-white shadow">
                             <h2 class="accordion-header" id="headingThree">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourSection5" aria-expanded="false" aria-controls="collapseFourSection5">
-                                <b>CONCEPTO MEDICO DE APTITUD OCUPACIONAL</b>
+                                <b>CONCEPTO MEDICO</b>
                               </button>
                             </h2>
                             <div id="collapseFourSection5" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionSection5">

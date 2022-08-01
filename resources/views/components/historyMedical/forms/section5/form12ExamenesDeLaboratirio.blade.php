@@ -1,5 +1,5 @@
 <div class="row mt-2">
-    <table class="table table-hover table-bordered border-secondary">
+    <table class="table table-hover table-bordered border-secondary" id="tabla_examenes_de_laboratorio">
         <thead class="table-dark">
           <tr>
             <th scope="col">Fecha</th>
@@ -73,19 +73,23 @@
           </tr>
           <tr>
             <td>
-                <input id="dateMANIPULADORESExamen" type="date" class="form-control" name="dateMANIPULADORESExamen" value="" autocomplete="dateMANIPULADORESExamen" placeholder="Escribe aquí">
+                <input id="dateMANIPULADORESExamen" type="date" class="form-control" name="dateMANIPULADORESExamen[]" value="" autocomplete="dateMANIPULADORESExamen" placeholder="Escribe aquí">
             </td>
-            <td><strong>CONTROL MANIPULADORES</strong></td>
+            <td><strong>OTRO PARA CLÍNICOS</strong></td>
             <td colspan="1">
-                <input id="KOHMANIPULADORESExamen" type="text" class="form-control" name="KOHMANIPULADORESExamen" value="" autocomplete="KOHMANIPULADORESExamen" placeholder="KOH">
+                <input id="KOHMANIPULADORESExamen" type="text" class="form-control" name="KOHMANIPULADORESExamen[]" value="" autocomplete="KOHMANIPULADORESExamen" placeholder="KOH">
             </td>
             <td colspan="1">
-                <input id="FROTISMANIPULADORESExamen" type="text" class="form-control" name="FROTISMANIPULADORESExamen" value="" autocomplete="FROTISMANIPULADORESExamen" placeholder="FROTIS FARINGEO">
+                <input id="FROTISMANIPULADORESExamen" type="text" class="form-control" name="FROTISMANIPULADORESExamen[]" value="" autocomplete="FROTISMANIPULADORESExamen" placeholder="FROTIS FARINGEO">
             </td>
             <td colspan="2">
-                <input id="COPROLOGICOMANIPULADORESExamen" type="text" class="form-control" name="COPROLOGICOMANIPULADORESExamen" value="" autocomplete="COPROLOGICOMANIPULADORESExamen" placeholder="COPROLOGICO">
+                <input id="COPROLOGICOMANIPULADORESExamen" type="text" class="form-control" name="COPROLOGICOMANIPULADORESExamen[]" value="" autocomplete="COPROLOGICOMANIPULADORESExamen" placeholder="COPROLOGICO">
             </td>
           </tr>
         </tbody>
-      </table>
+    </table>
+
+    <div class="col-lg-4 col-12">
+        <button class="btn btn-success" onclick="agregarOtroClinicos();">Agregar Otro Para Clínicos</button>
+    </div>
 </div>

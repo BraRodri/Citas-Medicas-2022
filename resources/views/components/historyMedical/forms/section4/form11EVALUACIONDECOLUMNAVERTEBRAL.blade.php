@@ -5,67 +5,72 @@
 
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">1. Inspección</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="InspeccionEvaluacionDeColumna" id="InspeccionEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="InspeccionEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="InspeccionEvaluacionDeColumna" id="InspeccionEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="InspeccionEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="InspeccionEvaluacionDeColumna" id="InspeccionEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'InspeccionEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_InspeccionEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="InspeccionEvaluacionDeColumna_observaciones" id="InspeccionEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">2. Palpación</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="PalpacionEvaluacionDeColumna" id="PalpacionEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="PalpacionEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="PalpacionEvaluacionDeColumna" id="PalpacionEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="PalpacionEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="PalpacionEvaluacionDeColumna" id="PalpacionEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'PalpacionEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_PalpacionEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="PalpacionEvaluacionDeColumna_observaciones" id="PalpacionEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">3. Sensibilidad</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="SensibilidadEvaluacionDeColumna" id="SensibilidadEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="SensibilidadEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="SensibilidadEvaluacionDeColumna" id="SensibilidadEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="SensibilidadEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="SensibilidadEvaluacionDeColumna" id="SensibilidadEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'SensibilidadEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_SensibilidadEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="SensibilidadEvaluacionDeColumna_observaciones" id="SensibilidadEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">4. Motricidad</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MotricidadEvaluacionDeColumna" id="MotricidadEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="MotricidadEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MotricidadEvaluacionDeColumna" id="MotricidadEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="MotricidadEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="MotricidadEvaluacionDeColumna" id="MotricidadEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'MotricidadEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_MotricidadEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="MotricidadEvaluacionDeColumna_observaciones" id="MotricidadEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">5. Equilibrio estático</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="EquilibrioestaticoEvaluacionDeColumna" id="EquilibrioestaticoEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="EquilibrioestaticoEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="EquilibrioestaticoEvaluacionDeColumna" id="EquilibrioestaticoEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="EquilibrioestaticoEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="EquilibrioestaticoEvaluacionDeColumna" id="EquilibrioestaticoEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'EquilibrioestaticoEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_EquilibrioestaticoEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="EquilibrioestaticoEvaluacionDeColumna_observaciones" id="EquilibrioestaticoEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
         </div>
@@ -74,67 +79,72 @@
 
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">6. Alineación escapular</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="AlineacionescapularEvaluacionDeColumna" id="AlineacionescapularEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="AlineacionescapularEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="AlineacionescapularEvaluacionDeColumna" id="AlineacionescapularEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="AlineacionescapularEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="AlineacionescapularEvaluacionDeColumna" id="AlineacionescapularEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'AlineacionescapularEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_AlineacionescapularEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="AlineacionescapularEvaluacionDeColumna_observaciones" id="AlineacionescapularEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">7. Alineación pélvica</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="AlineacionpelvicaEvaluacionDeColumna" id="AlineacionpelvicaEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="AlineacionpelvicaEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="AlineacionpelvicaEvaluacionDeColumna" id="AlineacionpelvicaEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="AlineacionpelvicaEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="AlineacionpelvicaEvaluacionDeColumna" id="AlineacionpelvicaEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'AlineacionpelvicaEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_AlineacionpelvicaEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="AlineacionpelvicaEvaluacionDeColumna_observaciones" id="AlineacionpelvicaEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">8. Cifosis</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="CifosisEvaluacionDeColumna" id="CifosisEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="CifosisEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="CifosisEvaluacionDeColumna" id="CifosisEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="CifosisEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="CifosisEvaluacionDeColumna" id="CifosisEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'CifosisEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_CifosisEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="CifosisEvaluacionDeColumna_observaciones" id="CifosisEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">9. Lordosis</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="LordosisEvaluacionDeColumna" id="LordosisEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="LordosisEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="LordosisEvaluacionDeColumna" id="LordosisEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="LordosisEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="LordosisEvaluacionDeColumna" id="LordosisEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'LordosisEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_LordosisEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="LordosisEvaluacionDeColumna_observaciones" id="LordosisEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">10. Escoliosis</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="EscoliosisEvaluacionDeColumna" id="EscoliosisEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="EscoliosisEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="EscoliosisEvaluacionDeColumna" id="EscoliosisEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="EscoliosisEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="EscoliosisEvaluacionDeColumna" id="EscoliosisEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'EscoliosisEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_EscoliosisEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="EscoliosisEvaluacionDeColumna_observaciones" id="EscoliosisEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
         </div>
@@ -148,70 +158,76 @@
 
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">11. Flexión anterior</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="FlexionanteriorEvaluacionDeColumna" id="FlexionanteriorEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="FlexionanteriorEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="FlexionanteriorEvaluacionDeColumna" id="FlexionanteriorEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="FlexionanteriorEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="FlexionanteriorEvaluacionDeColumna" id="FlexionanteriorEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'FlexionanteriorEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_FlexionanteriorEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="FlexionanteriorEvaluacionDeColumna_observaciones" id="FlexionanteriorEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">12. Extensión posterior</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="ExtensionposteriorEvaluacionDeColumna" id="ExtensionposteriorEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="ExtensionposteriorEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="ExtensionposteriorEvaluacionDeColumna" id="ExtensionposteriorEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="ExtensionposteriorEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="ExtensionposteriorEvaluacionDeColumna" id="ExtensionposteriorEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'ExtensionposteriorEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_ExtensionposteriorEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="ExtensionposteriorEvaluacionDeColumna_observaciones" id="ExtensionposteriorEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">13. Flexión lateral</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="FlexionlateralEvaluacionDeColumna" id="FlexionlateralEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="FlexionlateralEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="FlexionlateralEvaluacionDeColumna" id="FlexionlateralEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="FlexionlateralEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="FlexionlateralEvaluacionDeColumna" id="FlexionlateralEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'FlexionlateralEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_FlexionlateralEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="FlexionlateralEvaluacionDeColumna_observaciones" id="FlexionlateralEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">14. Rotación </label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="RotacionEvaluacionDeColumna" id="RotacionEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="RotacionEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="RotacionEvaluacionDeColumna" id="RotacionEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="RotacionEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="RotacionEvaluacionDeColumna" id="RotacionEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'RotacionEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_RotacionEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="RotacionEvaluacionDeColumna_observaciones" id="RotacionEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">15. Medición extremidades</label>
-                <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MedicionextremidadesEvaluacionDeColumna" id="MedicionextremidadesEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="MedicionextremidadesEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MedicionextremidadesEvaluacionDeColumna" id="MedicionextremidadesEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="MedicionextremidadesEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                <div class="col-md-7 mb-3">
+                    <select class="form-select form-select-sm" name="MedicionextremidadesEvaluacionDeColumna" id="MedicionextremidadesEvaluacionDeColumna" onchange="funcionMostrarObservaciones(this, 'MedicionextremidadesEvaluacionDeColumna');">
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                        <option value="No Aplica">No Aplica</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="div_observaciones_MedicionextremidadesEvaluacionDeColumna" style="display: none;">
+                    <label for="" class="form-label">Observaciones:</label>
+                    <textarea class="form-control" name="MedicionextremidadesEvaluacionDeColumna_observaciones" id="MedicionextremidadesEvaluacionDeColumna_observaciones" rows="2"></textarea>
                 </div>
             </div>
         </div>
+
         <div class="col-md-6">
             <br>
             <h4 class="text-center"><b>EXAMENES ESPECIALES</b></h4>
@@ -219,66 +235,46 @@
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">16. Test de Wells (cm)</label>
                 <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="TestdeWellsEvaluacionDeColumna" id="TestdeWellsEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="TestdeWellsEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="TestdeWellsEvaluacionDeColumna" id="TestdeWellsEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="TestdeWellsEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                    <select class="form-select form-select-sm" name="TestdeWellsEvaluacionDeColumna" id="TestdeWellsEvaluacionDeColumna">
+                        <option value="Positivo">Positivo</option>
+                        <option value="Negativo">Negativo</option>
+                    </select>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">17. Prueba de Lassegue</label>
                 <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="PruebadeLassegueEvaluacionDeColumna" id="PruebadeLassegueEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="PruebadeLassegueEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="PruebadeLassegueEvaluacionDeColumna" id="PruebadeLassegueEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="PruebadeLassegueEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                    <select class="form-select form-select-sm" name="PruebadeLassegueEvaluacionDeColumna" id="PruebadeLassegueEvaluacionDeColumna">
+                        <option value="Positivo">Positivo</option>
+                        <option value="Negativo">Negativo</option>
+                    </select>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">18. Signo del timbre</label>
                 <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="SignodeltimbreEvaluacionDeColumna" id="SignodeltimbreEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="SignodeltimbreEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="SignodeltimbreEvaluacionDeColumna" id="SignodeltimbreEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="SignodeltimbreEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                    <select class="form-select form-select-sm" name="SignodeltimbreEvaluacionDeColumna" id="SignodeltimbreEvaluacionDeColumna">
+                        <option value="Positivo">Positivo</option>
+                        <option value="Negativo">Negativo</option>
+                    </select>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">19. Marcha en talones</label>
                 <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MarchaentalonesEvaluacionDeColumna" id="MarchaentalonesEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="MarchaentalonesEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MarchaentalonesEvaluacionDeColumna" id="MarchaentalonesEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="MarchaentalonesEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                    <select class="form-select form-select-sm" name="MarchaentalonesEvaluacionDeColumna" id="MarchaentalonesEvaluacionDeColumna">
+                        <option value="Positivo">Positivo</option>
+                        <option value="Negativo">Negativo</option>
+                    </select>
                 </div>
             </div>
             <div class="row mt-2">
                 <label for="Sp02" class="col-md-5 col-form-label text-md-start">20. Marcha en puntas</label>
                 <div class="col-md-7">
-                    <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MarchaenpuntasEvaluacionDeColumna" id="MarchaenpuntasEvaluacionDeColumnaNormal" value="1" checked>
-                        <label class="form-check-label" for="MarchaenpuntasEvaluacionDeColumnaNormal">Normal</label>
-                      </div>
-                      <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="radio" name="MarchaenpuntasEvaluacionDeColumna" id="MarchaenpuntasEvaluacionDeColumnaAnormal" value="0">
-                        <label class="form-check-label" for="MarchaenpuntasEvaluacionDeColumnaAnormal">Anormal</label>
-                      </div>
+                    <select class="form-select form-select-sm" name="MarchaenpuntasEvaluacionDeColumna" id="MarchaenpuntasEvaluacionDeColumna">
+                        <option value="Positivo">Positivo</option>
+                        <option value="Negativo">Negativo</option>
+                    </select>
                 </div>
             </div>
         </div>

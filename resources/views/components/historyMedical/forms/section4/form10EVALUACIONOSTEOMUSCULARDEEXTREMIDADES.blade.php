@@ -9,32 +9,35 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="hombrosEvaluacionOsteomuscularDer" id="hombrosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="hombrosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="hombrosEvaluacionOsteomuscularDer" id="hombrosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="hombrosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="hombrosEvaluacionOsteomuscularDer" id="hombrosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'hombrosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_hombrosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="hombrosEvaluacionOsteomuscularDer_observaciones" id="hombrosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="hombrosEvaluacionOsteomuscularIzq" id="hombrosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="hombrosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="hombrosEvaluacionOsteomuscularIzq" id="hombrosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="hombrosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="hombrosEvaluacionOsteomuscularIzq" id="hombrosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'hombrosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_hombrosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="hombrosEvaluacionOsteomuscularIzq_observaciones" id="hombrosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="row mt-2 justify-content-center">
@@ -44,26 +47,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="BrazosEvaluacionOsteomuscularDer" id="BrazosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="BrazosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="BrazosEvaluacionOsteomuscularDer" id="BrazosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="BrazosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="BrazosEvaluacionOsteomuscularDer" id="BrazosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'BrazosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_BrazosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="BrazosEvaluacionOsteomuscularDer_observaciones" id="BrazosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="BrazosEvaluacionOsteomuscularIzq" id="BrazosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="BrazosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="BrazosEvaluacionOsteomuscularIzq" id="BrazosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="BrazosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="BrazosEvaluacionOsteomuscularIzq" id="BrazosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'BrazosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_BrazosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="BrazosEvaluacionOsteomuscularIzq_observaciones" id="BrazosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -80,26 +85,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CodosEvaluacionOsteomuscularDer" id="CodosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="CodosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CodosEvaluacionOsteomuscularDer" id="CodosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="CodosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="CodosEvaluacionOsteomuscularDer" id="CodosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'CodosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_CodosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="CodosEvaluacionOsteomuscularDer_observaciones" id="CodosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CodosEvaluacionOsteomuscularIzq" id="CodosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="CodosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CodosEvaluacionOsteomuscularIzq" id="CodosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="CodosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="CodosEvaluacionOsteomuscularIzq" id="CodosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'CodosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_CodosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="CodosEvaluacionOsteomuscularIzq_observaciones" id="CodosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -116,26 +123,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="AntebrazosEvaluacionOsteomuscularDer" id="AntebrazosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="AntebrazosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="AntebrazosEvaluacionOsteomuscularDer" id="AntebrazosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="AntebrazosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="AntebrazosEvaluacionOsteomuscularDer" id="AntebrazosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'AntebrazosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_AntebrazosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="AntebrazosEvaluacionOsteomuscularDer_observaciones" id="AntebrazosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="AntebrazosEvaluacionOsteomuscularIzq" id="AntebrazosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="AntebrazosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="AntebrazosEvaluacionOsteomuscularIzq" id="AntebrazosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="AntebrazosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="AntebrazosEvaluacionOsteomuscularIzq" id="AntebrazosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'AntebrazosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_AntebrazosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="AntebrazosEvaluacionOsteomuscularIzq_observaciones" id="AntebrazosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -152,26 +161,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MunecasEvaluacionOsteomuscularDer" id="MunecasEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="MunecasEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MunecasEvaluacionOsteomuscularDer" id="MunecasEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="MunecasEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="MunecasEvaluacionOsteomuscularDer" id="MunecasEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'MunecasEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_MunecasEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="MunecasEvaluacionOsteomuscularDer_observaciones" id="MunecasEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MunecasEvaluacionOsteomuscularIzq" id="MunecasEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="MunecasEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MunecasEvaluacionOsteomuscularIzq" id="MunecasEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="MunecasEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="MunecasEvaluacionOsteomuscularIzq" id="MunecasEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'MunecasEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_MunecasEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="MunecasEvaluacionOsteomuscularIzq_observaciones" id="MunecasEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -188,26 +199,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="ManosEvaluacionOsteomuscularDer" id="ManosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="ManosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="ManosEvaluacionOsteomuscularDer" id="ManosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="ManosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="ManosEvaluacionOsteomuscularDer" id="ManosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'ManosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_ManosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="ManosEvaluacionOsteomuscularDer_observaciones" id="ManosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="ManosEvaluacionOsteomuscularIzq" id="ManosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="ManosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="ManosEvaluacionOsteomuscularIzq" id="ManosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="ManosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="ManosEvaluacionOsteomuscularIzq" id="ManosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'ManosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_ManosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="ManosEvaluacionOsteomuscularIzq_observaciones" id="ManosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -229,26 +242,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CaderasEvaluacionOsteomuscularDer" id="CaderasEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="CaderasEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CaderasEvaluacionOsteomuscularDer" id="CaderasEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="CaderasEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="CaderasEvaluacionOsteomuscularDer" id="CaderasEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'CaderasEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_CaderasEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="CaderasEvaluacionOsteomuscularDer_observaciones" id="CaderasEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CaderasEvaluacionOsteomuscularIzq" id="CaderasEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="CaderasEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="CaderasEvaluacionOsteomuscularIzq" id="CaderasEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="CaderasEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="CaderasEvaluacionOsteomuscularIzq" id="CaderasEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'CaderasEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_CaderasEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="CaderasEvaluacionOsteomuscularIzq_observaciones" id="CaderasEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -264,26 +279,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MuslosEvaluacionOsteomuscularDer" id="MuslosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="MuslosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MuslosEvaluacionOsteomuscularDer" id="MuslosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="MuslosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="MuslosEvaluacionOsteomuscularDer" id="MuslosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'MuslosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_MuslosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="MuslosEvaluacionOsteomuscularDer_observaciones" id="MuslosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MuslosEvaluacionOsteomuscularIzq" id="MuslosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="MuslosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="MuslosEvaluacionOsteomuscularIzq" id="MuslosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="MuslosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="MuslosEvaluacionOsteomuscularIzq" id="MuslosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'MuslosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_MuslosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="MuslosEvaluacionOsteomuscularIzq_observaciones" id="MuslosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -300,26 +317,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="RodillasEvaluacionOsteomuscularDer" id="RodillasEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="RodillasEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="RodillasEvaluacionOsteomuscularDer" id="RodillasEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="RodillasEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="RodillasEvaluacionOsteomuscularDer" id="RodillasEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'RodillasEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_RodillasEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="RodillasEvaluacionOsteomuscularDer_observaciones" id="RodillasEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="RodillasEvaluacionOsteomuscularIzq" id="RodillasEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="RodillasEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="RodillasEvaluacionOsteomuscularIzq" id="RodillasEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="RodillasEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="RodillasEvaluacionOsteomuscularIzq" id="RodillasEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'RodillasEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_RodillasEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="RodillasEvaluacionOsteomuscularIzq_observaciones" id="RodillasEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -336,26 +355,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiernasEvaluacionOsteomuscularDer" id="PiernasEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="PiernasEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiernasEvaluacionOsteomuscularDer" id="PiernasEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="PiernasEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="PiernasEvaluacionOsteomuscularDer" id="PiernasEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'PiernasEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_PiernasEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="PiernasEvaluacionOsteomuscularDer_observaciones" id="PiernasEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiernasEvaluacionOsteomuscularIzq" id="PiernasEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="PiernasEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiernasEvaluacionOsteomuscularIzq" id="PiernasEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="PiernasEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="PiernasEvaluacionOsteomuscularIzq" id="PiernasEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'PiernasEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_PiernasEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="PiernasEvaluacionOsteomuscularIzq_observaciones" id="PiernasEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -372,26 +393,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TobillosEvaluacionOsteomuscularDer" id="TobillosEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="TobillosEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TobillosEvaluacionOsteomuscularDer" id="TobillosEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="TobillosEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="TobillosEvaluacionOsteomuscularDer" id="TobillosEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'TobillosEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_TobillosEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="TobillosEvaluacionOsteomuscularDer_observaciones" id="TobillosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TobillosEvaluacionOsteomuscularIzq" id="TobillosEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="TobillosEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TobillosEvaluacionOsteomuscularIzq" id="TobillosEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="TobillosEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="TobillosEvaluacionOsteomuscularIzq" id="TobillosEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'TobillosEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_TobillosEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="TobillosEvaluacionOsteomuscularIzq_observaciones" id="TobillosEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -408,26 +431,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiesEvaluacionOsteomuscularDer" id="PiesEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="PiesEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiesEvaluacionOsteomuscularDer" id="PiesEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="PiesEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="PiesEvaluacionOsteomuscularDer" id="PiesEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'PiesEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_PiesEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="PiesEvaluacionOsteomuscularDer_observaciones" id="PiesEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiesEvaluacionOsteomuscularIzq" id="PiesEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="PiesEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PiesEvaluacionOsteomuscularIzq" id="PiesEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="PiesEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="PiesEvaluacionOsteomuscularIzq" id="PiesEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'PiesEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_PiesEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="PiesEvaluacionOsteomuscularIzq_observaciones" id="PiesEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -440,76 +465,6 @@
 
 <div class="row mt-2 mb-2">
     <h4 class="text-center"><b>Examenes</b></h4>
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="row mt-2 justify-content-center">
-                <div class="col-md-2">
-                    <p class="mt-2"><b>TINNEL</b></p>
-                </div>
-                <div class="col-md-4 d-flex">
-                    <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
-                    <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TINNELEvaluacionOsteomuscularDer" id="TINNELEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="TINNELEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TINNELEvaluacionOsteomuscularDer" id="TINNELEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="TINNELEvaluacionOsteomuscularAnormalDer">Anormal</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex">
-                    <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
-                    <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TINNELEvaluacionOsteomuscularIzq" id="TINNELEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="TINNELEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="TINNELEvaluacionOsteomuscularIzq" id="TINNELEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="TINNELEvaluacionOsteomuscularAnormalIzq">Anormal</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="row mt-2 justify-content-center">
-                <div class="col-md-2">
-                    <p class="mt-2"><b>PHANEL</b></p>
-                </div>
-                <div class="col-md-4 d-flex">
-                    <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
-                    <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PHANELEvaluacionOsteomuscularDer" id="PHANELEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="PHANELEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PHANELEvaluacionOsteomuscularDer" id="PHANELEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="PHANELEvaluacionOsteomuscularAnormalDer">Anormal</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex">
-                    <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
-                    <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PHANELEvaluacionOsteomuscularIzq" id="PHANELEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="PHANELEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="PHANELEvaluacionOsteomuscularIzq" id="PHANELEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="PHANELEvaluacionOsteomuscularAnormalIzq">Anormal</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -520,26 +475,28 @@
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Der.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="REFLEJOSEvaluacionOsteomuscularDer" id="REFLEJOSEvaluacionOsteomuscularNormalDer" value="1" checked>
-                            <label class="form-check-label" for="REFLEJOSEvaluacionOsteomuscularNormalDer">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="REFLEJOSEvaluacionOsteomuscularDer" id="REFLEJOSEvaluacionOsteomuscularAnormalDer" value="0">
-                            <label class="form-check-label" for="REFLEJOSEvaluacionOsteomuscularAnormalDer">Anormal</label>
+                        <select class="form-select form-select-sm" name="REFLEJOSEvaluacionOsteomuscularDer" id="REFLEJOSEvaluacionOsteomuscularDer" onchange="funcionMostrarObservaciones(this, 'REFLEJOSEvaluacionOsteomuscularDer');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_REFLEJOSEvaluacionOsteomuscularDer" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="REFLEJOSEvaluacionOsteomuscularDer_observaciones" id="REFLEJOSEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <label for="Sp02" class="col-md-2 col-form-label text-md-start"><b><i>Izq.</i></b></label>
                     <div class="col-md-10">
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="REFLEJOSEvaluacionOsteomuscularIzq" id="REFLEJOSEvaluacionOsteomuscularNormalIzq" value="1" checked>
-                            <label class="form-check-label" for="REFLEJOSEvaluacionOsteomuscularNormalIzq">Normal</label>
-                        </div>
-                        <div class="form-check form-check-inline mt-2">
-                            <input class="form-check-input" type="radio" name="REFLEJOSEvaluacionOsteomuscularIzq" id="REFLEJOSEvaluacionOsteomuscularAnormalIzq" value="0">
-                            <label class="form-check-label" for="REFLEJOSEvaluacionOsteomuscularAnormalIzq">Anormal</label>
+                        <select class="form-select form-select-sm" name="REFLEJOSEvaluacionOsteomuscularIzq" id="REFLEJOSEvaluacionOsteomuscularIzq" onchange="funcionMostrarObservaciones(this, 'REFLEJOSEvaluacionOsteomuscularIzq');">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No Aplica">No Aplica</option>
+                        </select>
+                        <div class="mt-3" id="div_observaciones_REFLEJOSEvaluacionOsteomuscularIzq" style="display: none;">
+                            <label for="" class="form-label">Observaciones:</label>
+                            <textarea class="form-control" name="REFLEJOSEvaluacionOsteomuscularIzq_observaciones" id="REFLEJOSEvaluacionOsteomuscularIzq_observaciones" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -581,7 +538,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-6 d-flex justify-content-center">
-            <label for="Sp02" class="col-md-5 col-form-label text-md-start"><b><i>MOTILIDAD</i></b></label>
+            <label for="Sp02" class="col-md-5 col-form-label text-md-start text-uppercase"><b><i>Arcos de Movilidad Articular</i></b></label>
             <div class="col-md-7">
                 <div class="form-check form-check-inline mt-2">
                     <input class="form-check-input" type="radio" name="MOTILIDADEvaluacionOsteomuscular" id="MOTILIDADEvaluacionOsteomuscularNormal" value="1" checked>
@@ -597,6 +554,6 @@
 </div>
 
 <div class="row mt-3">
-    <label><b>Ampliación de hallazgos:</b></label>
-    <textarea name="AmpliacionEvaluacionOsteomuscular" id="AmpliacionEvaluacionOsteomuscular" rows="4" class="form-control"></textarea>
+    <label><b>Observaciones</b></label>
+    <textarea name="observacionesEvaluacionOsteomuscular" id="observacionesEvaluacionOsteomuscular" rows="4" class="form-control"></textarea>
 </div>
