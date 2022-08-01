@@ -793,40 +793,58 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Menarca: </label>
-                                    <input type="text" class="form-control" placeholder="Escribe aquí" name="menarca[]"/>
+                                    <label class="form-label">Menarca: </label>
+                                    <input type="date" class="form-control" placeholder="Escribe aquí" name="menarca[]"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>FUM: </label>
-                                    <input type="text" class="form-control" placeholder="Escribe aquí" name="fum[]"/>
+                                    <label class="form-label">FUM: </label>
+                                    <input type="date" class="form-control" placeholder="Escribe aquí" name="fum[]"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Gestaciones: </label>
-                                    <input type="text" class="form-control" placeholder="Escribe aquí" name="gestaciones[]"/>
+                                    <label class="form-label">Gestaciones: </label>
+                                    <input type="number" class="form-control input_gestaciones" placeholder="Escribe aquí" value="0" min="0" max="50" name="gestaciones[]"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label for="planificacion[]" class="col-md-6 col-form-label text-md-end">Planificación</label>
-                                    <div class="col-md-6">
+                            <div class="col-md-4">
+                                <div class="">
+                                    <label for="planificacion[]" class="form-label">Planificación</label>
+                                    <div class="">
                                         <input id="planificacion[]" type="text" class="form-control"
                                         name="planificacion[]" placeholder="Escribe aquí" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label for="citologia[]" class="col-md-6 col-form-label text-md-end">Citología</label>
-                                    <div class="col-md-6">
+                            <div class="col-md-4">
+                                <div class="">
+                                    <label for="citologia[]" class="form-label">Citologica</label>
+                                    <div class="">
                                         <input id="citologia[]" type="text" class="form-control"
                                         name="citologia[]" placeholder="Escribe aquí" />
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">Abortos: </label>
+                                    <input type="number" class="form-control input_abortos" placeholder="Escribe aquí" name="abortos[]"/>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">Vivos: </label>
+                                    <input type="number" class="form-control input_vivos" placeholder="Escribe aquí" name="vivos[]"/>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">Mortinatos: </label>
+                                    <input type="number" class="form-control input_mortinados" placeholder="Escribe aquí" name="mortinatos[]"/>
                                 </div>
                             </div>
                         </div>
@@ -834,7 +852,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-2 col-sm-2 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
                         <a class="btn btn-success add_button form-control" id="add_antGinecoobstetricos">Nuevo Antecedente</a>
                     </div>
                 </div>
