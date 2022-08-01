@@ -28,18 +28,25 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group mt-3">
+                                    <label class="form-label">Seleccione la especialidad <span>(*)</span></label>
+                                    <select class="form-select" id="especialidad" name="especialidad" required="">
+                                        <option selected disabled value=''>Seleccione</option>
+                                        <option value="Cirujano">Cirujano</option>
+                                    </select>
+                                </div>
+                                {{-- <div class="form-group mt-3">
                                     <label class="form-label">Seleccione el médico <span>(*)</span></label>
                                     @if (count($medicsWithHorarysDisponibilities) === 0)
-                                        <p>No hay médicos con horarios disponibles</p>
+                                    <p>No hay médicos con horarios disponibles</p>
                                     @else
-                                        <select class="form-select" id="medic" name="medic" required="">
-                                            <option selected disabled>Seleccione</option>
-                                            @foreach ($medicsWithHorarysDisponibilities as $medic)
-                                                <option value="{{ $medic }}">{{ $medic->usuario->nombres }}</option>
-                                            @endforeach
-                                        </select>
+                                    <select class="form-select" id="medic" name="medic" required="">
+                                        <option selected disabled>Seleccione</option>
+                                        @foreach ($medicsWithHorarysDisponibilities as $medic)
+                                        <option value="{{ $medic }}">{{ $medic->usuario->nombres }}</option>
+                                        @endforeach
+                                    </select>
                                     @endif
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

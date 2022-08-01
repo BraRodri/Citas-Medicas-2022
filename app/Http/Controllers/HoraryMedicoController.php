@@ -19,6 +19,19 @@ class HoraryMedicoController extends Controller
         return response()->json(['horarysDisponibles' => $horarysDisponibles]);
     }
 
+
+    public function horarysDisponibilitiesBySpecialityMedic($especialidad)
+    {
+        $idMedics = Medico::select(['id'])->where('especialidad', $especialidad)->get();
+        $horarysDisponibles = HoraryMedico::whereIn('medico_id', $idMedics)
+                                ->has('cita', '===', 0)
+                                ->with('medico.usuario')
+                                ->with('medico.horary')
+                                ->get();
+
+        return response()->json(['horarysDisponibles' => $horarysDisponibles]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
