@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Primer Nombre Empleado</label>
+            <label for="exampleFormControlInput1" class="form-label">Primer Nombre Paciente</label>
             <input id="nameEmployed" type="text" class="form-control {{ $errors->has('nameEmployed') ? 'is-invalid' : '' }}"
                 name="nameEmployed" value="{{$paciente->nombres}}" autocomplete="nameEmployed" placeholder="Escribe aquí" >
 
@@ -12,7 +12,7 @@
                 @enderror
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Segundo Nombre Empleado</label>
+            <label for="exampleFormControlInput1" class="form-label">Segundo Nombre Paciente</label>
             <input id="nameEmployed" type="text" class="form-control {{ $errors->has('nameEmployed') ? 'is-invalid' : '' }}"
                 name="nameEmployed" value="{{$paciente->nombres}}" autocomplete="nameEmployed" placeholder="Escribe aquí" >
 
@@ -23,7 +23,7 @@
                 @enderror
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Primer Apellido Empleado</label>
+            <label for="exampleFormControlInput1" class="form-label">Primer Apellido Paciente</label>
             <input id="nameEmployed" type="text" class="form-control {{ $errors->has('apellidosEmployed') ? 'is-invalid' : '' }}"
                 name="apellidosEmployed" value="{{$paciente->nombres}}" autocomplete="nameEmployed" placeholder="Escribe aquí" >
 
@@ -34,7 +34,7 @@
                 @enderror
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Segundo Apellido Empleado</label>
+            <label for="exampleFormControlInput1" class="form-label">Segundo Apellido Paciente</label>
             <input id="nameEmployed" type="text" class="form-control {{ $errors->has('apellidosEmployed') ? 'is-invalid' : '' }}"
                 name="apellidosEmployed" value="{{$paciente->nombres}}" autocomplete="nameEmployed" placeholder="Escribe aquí" >
 
@@ -370,6 +370,12 @@
             <div class="">
                 <select class="form-control" name="scholarship" id="scholarship" required   >
                     <option value="">Seleccione</option>
+                    <option value="Educación infantil">Educación infantil</option>
+                    <option value="Educación primaria">Educación primaria</option>
+                    <option value="Educación secundaria">Educación secundaria</option>
+                    <option value="Educación media superior">Educación media superior</option>
+                    <option value="Educación superior">Educación superior</option>
+                    <option value="Educación post-universitariaa">Educación post-universitaria</option>
                 </select>
 
                 @error('scholarship')

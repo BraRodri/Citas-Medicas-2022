@@ -731,16 +731,38 @@
                                 </div>
                             </td>
                           </tr>
+                          <tr>
+                            <th scope="row">23</th>
+                            <td>Otros </td>
+                            <td class="text-center">
+                                <div class="container" style="margin-top: -5px;">
+                                    <div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="intoxicacionesP"
+                                                name="intoxicacionesP">
+                                            <span class="slider"></span>
+                                            <p class="off"><b>Niega </b></p>
+                                            <p class="on"><b> Sí</b></p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="container" style="margin-top: -5px;">
+                                    <div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="intoxicacionesF"
+                                                name="intoxicacionesF">
+                                            <span class="slider"></span>
+                                            <p class="off"><b>Niega </b></p>
+                                            <p class="on"><b> Sí</b></p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="mb-2">
-                <label for="exampleFormControlInput1" class="form-label">Otros</label>
-                <input type="text" class="form-control" id="otros" name="otrosP">
             </div>
         </div>
     </div>

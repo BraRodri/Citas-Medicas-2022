@@ -51,38 +51,7 @@
 
                 <hr>
 
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label">Area: </label>
-                        <select class="form-control" name="rea[]">
-                            <option value="">- Seleccione -</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label">Oficio: </label>
-                        <select class="form-control" name="oficio[]">
-                            <option value="">- Seleccione -</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label">Tiempo Permanencía: </label>
-                        <select class="form-control" name="tiempoPermanencia[]">
-                            <option value="">- Seleccione -</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                            <label for="fDeR" class="form-label">F. de R.</label>
-                            <input id="fDeR[]" type="text" class="form-control"
-                                name="fDeR[]" placeholder="Escribe aquí" >
-                        </div>
-                    <div class="col-md-6">
-                        <label for="elementosProPersonal[]" class="form-label">Elementos de protección personal</label>
-                        <input id="elementosProPersonal[]" type="text" class="form-control"
-                                name="elementosProPersonal[]" placeholder="Escribe aquí" >
-                    </div>
-                </div>
+
             </div>
         </div>
 

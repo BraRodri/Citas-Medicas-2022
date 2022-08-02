@@ -522,12 +522,6 @@
                     <textarea class="form-control" name="EstadomentalExamenFisicoGeneral_observaciones" id="EstadomentalExamenFisicoGeneral_observaciones" rows="2"></textarea>
                 </div>
             </div>
-            <div class="row mt-2">
-                <label for="Sp02" class="text-center"><b>OBSERVACIONES</b> </label>
-            </div>
-            <div class="row mt-2">
-                <textarea class="form-control" name="observaciones_examen_fisico_general" id="observaciones_examen_fisico_general" rows="2"></textarea>
-            </div>
         </div>
     </div>
 </div>
