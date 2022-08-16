@@ -738,12 +738,16 @@
                                 <div class="container" style="margin-top: -5px;">
                                     <div>
                                         <label class="switch">
-                                            <input type="checkbox" id="intoxicacionesP"
-                                                name="intoxicacionesP">
+                                            <input type="checkbox" id="antecedentes_patologicos_otros_personal"
+                                                name="antecedentes_patologicos_otros_personal">
                                             <span class="slider"></span>
                                             <p class="off"><b>Niega </b></p>
                                             <p class="on"><b> Sí</b></p>
                                         </label>
+                                        <div class="mt-3" id="div_observaciones_otros_personal" style="display: none;">
+                                            <label for="" class="form-label">Observaciones:</label>
+                                            <textarea class="form-control" name="otros_personal_observaciones" id="hombrosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </td>
@@ -751,12 +755,16 @@
                                 <div class="container" style="margin-top: -5px;">
                                     <div>
                                         <label class="switch">
-                                            <input type="checkbox" id="intoxicacionesF"
-                                                name="intoxicacionesF">
+                                            <input type="checkbox" id="antecedentes_patologicos_otros_familiar"
+                                                name="antecedentes_patologicos_otros_familiar">
                                             <span class="slider"></span>
                                             <p class="off"><b>Niega </b></p>
                                             <p class="on"><b> Sí</b></p>
                                         </label>
+                                        <div class="mt-3" id="div_observaciones_otros_familiar" style="display: none;">
+                                            <label for="" class="form-label">Observaciones:</label>
+                                            <textarea class="form-control" name="otros_familiar_observaciones" id="hombrosEvaluacionOsteomuscularDer_observaciones" rows="2"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </td>

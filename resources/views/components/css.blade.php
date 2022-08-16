@@ -25,3 +25,5 @@
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/cronometro.css') }}" rel="stylesheet">
 <link href="{{ asset('css/breadcrumbMedicalHistory.css') }}" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{{ asset('asset/vendor/select2/select2.min.css') }}">

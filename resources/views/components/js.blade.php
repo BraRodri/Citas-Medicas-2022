@@ -8,4 +8,9 @@
 <!-- Template Main JS File -->
 <script src="{{ asset('js/main.js') }}"></script>
 
+<!-- select2 -->
+<script>
+
+</script>
+
 {{ $slot }}

@@ -92,5 +92,10 @@
     <x-slot name="js">
         <script src="{{ asset('js/medicalHistory/indexMedicalHistory.js') }}" type="module" defer></script>
         <script src="{{ asset('js/medicalHistory/funtionsGeneral.js') }}" defer></script>
+        <script src="{{ asset('asset/vendor/select2/select2.full.min.js') }}"></script>
+
+        <script>
+            $('.select2').select2();
+        </script>
     </x-slot>
 </x-admin>

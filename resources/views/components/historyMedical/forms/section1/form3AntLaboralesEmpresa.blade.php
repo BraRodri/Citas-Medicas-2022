@@ -28,7 +28,7 @@
                     <div class="col-lg-12" id="div_select_act_empl">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Antiguedad en la Empresa</label>
-                            <input class="form-control" name="antiguedad_empresa" placeholder="Escribe aqui">
+                            <input type="date" class="form-control" name="antiguedad_empresa" placeholder="Escribe aqui">
                         </div>
                     </div>
                     <div class="col-lg-12" id="div_select_act_indp">
@@ -36,13 +36,20 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Antiguedad en Actividad Comercial</label>
-                                    <input class="form-control" name="antiguedad_actividad_comercial" placeholder="Escribe aqui">
+                                    <input type="date" class="form-control" name="antiguedad_actividad_comercial" placeholder="Escribe aqui">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Codigo CIIU</label>
-                                    <input class="form-control" name="codigo_ciiu" placeholder="Escribe aqui">
+                                    <select class="form-select select2" name="codigo_ciiu" style="width: 100%;">
+                                        <option value="">- Seleccione -</option>
+                                        @if (count($codigos_ciiu) > 0)
+                                            @foreach ($codigos_ciiu as $item)
+                                                <option value="{{ $item->codigo }}">{{ $item->codigo }} - {{ $item->descripcion }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
                         </div>

@@ -151,3 +151,21 @@ function agregarOtroClinicos(){
   </tr>`;
     $("#tabla_examenes_de_laboratorio tbody").append(markup);
 }
+
+$('#antecedentes_patologicos_otros_personal').click(function(){
+    if($('#antecedentes_patologicos_otros_personal').is(':checked')){
+        $('#div_observaciones_otros_personal').show();
+    }
+    else{
+        $('#div_observaciones_otros_personal').hide();
+    }
+});
+
+$('#antecedentes_patologicos_otros_familiar').click(function(){
+    if($('#antecedentes_patologicos_otros_familiar').is(':checked')){
+        $('#div_observaciones_otros_familiar').show();
+    }
+    else{
+        $('#div_observaciones_otros_familiar').hide();
+    }
+});

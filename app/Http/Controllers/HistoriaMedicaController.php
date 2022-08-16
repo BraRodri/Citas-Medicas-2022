@@ -26,6 +26,7 @@ use App\Http\Controllers\ConductasYRecomendacionesController;
 use App\Http\Controllers\AntPatologicosOcupacionalesController;
 use App\Http\Controllers\RestriccionesORecomendacionesController;
 use App\Http\Controllers\RestriccionesORecomendacionesDeAntController;
+use App\Models\CodigosCiiu;
 
 class HistoriaMedicaController extends Controller
 {
@@ -46,7 +47,8 @@ class HistoriaMedicaController extends Controller
      */
     public function create(User $paciente)
     {
-        return view('pages.panel.historyMedical.create', compact('paciente'));
+        $codigos_ciiu = CodigosCiiu::all();
+        return view('pages.panel.historyMedical.create', compact('paciente', 'codigos_ciiu'));
     }
 
     /**
